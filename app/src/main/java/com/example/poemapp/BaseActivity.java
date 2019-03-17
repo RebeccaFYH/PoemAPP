@@ -1,11 +1,13 @@
 package com.example.poemapp;
 
 import android.app.Activity;
+import android.support.design.internal.BottomNavigationItemView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.example.poemapp.JavaClass.ActivityCollector;
+
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -14,7 +16,8 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Log.d("BaseActivity",getClass().getSimpleName());
-        ActivityCollector.addActivity(this);
+        ActivityCollector.addActivity(this);;
+
     }
 
     @Override

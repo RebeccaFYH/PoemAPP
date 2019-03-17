@@ -1,8 +1,9 @@
 package com.example.poemapp;
 
+
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -12,8 +13,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
 
+
+import com.example.poemapp.JavaClass.BottomNavigationViewHelper;
 import com.example.poemapp.JavaClass.ViewPagerAdapter;
 
 import java.util.ArrayList;
@@ -35,6 +37,10 @@ public class StudyPageActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_page);
+
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        BottomNavigationViewHelper.disableShiftMode(navigation);
 
         //调用控件
         initView();
