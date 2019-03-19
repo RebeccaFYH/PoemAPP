@@ -1,0 +1,111 @@
+package com.example.poemapp;
+
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.support.v7.widget.Toolbar;
+import android.widget.FrameLayout;
+
+import com.example.poemapp.Fragment.StudyPageFragment;
+import com.example.poemapp.Fragment.WritePageFragment;
+import com.example.poemapp.JavaClass.BottomNavigationViewHelper;
+
+
+public class MainActivity extends BaseActivity {
+    //全局声明
+    Toolbar toolbar;
+    DrawerLayout drawerLayout;
+    ActionBar actionBar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main_page);
+        replaceFragment(new StudyPageFragment());
+
+        //调用控件
+        initView();
+
+    }
+
+    /**
+     * 方法实现
+     */
+    //控件实现
+    public void initView(){
+        //获取控件id
+        toolbar = findViewById(R.id.study_toolbar);
+        drawerLayout = findViewById(R.id.study_drawerlayout);
+
+        //顶端标题
+        setSupportActionBar(toolbar);
+        actionBar = getSupportActionBar();
+        if (actionBar != null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.mipmap.nav_menu);
+        }
+
+        //底端按钮
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        BottomNavigationViewHelper.disableShiftMode(navigation);
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.bt_study:
+                        replaceFragment(new StudyPageFragment());
+                        break;
+                    case R.id.bt_write:
+                        replaceFragment(new WritePageFragment());
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.toolbar,menu);
+        return true;
+    }
+    //点击item
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
+
+    //fragment切换
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();   //开启转换事务
+        transaction.replace(R.id.main_layout,fragment);
+        transaction.commit();   //提交并结束事务
+    }
+
+
+
+}
