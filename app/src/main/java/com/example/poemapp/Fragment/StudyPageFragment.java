@@ -124,7 +124,7 @@ public class StudyPageFragment extends Fragment {
         for (int i=0;i<10;i++){
             writerDB[i] = new WriterDB();
             writerDB[i].setWriterName("苏轼");
-            writerDB[i].setWriterIconImageID(R.mipmap.writer_sushi);
+            writerDB[i].setWriterIconImageID(R.drawable.writer_sushi);
             writerDB[i].setWriterStory("大名鼎鼎的东坡肉便是他的杰作");
             writerDB[i].save();
         }
