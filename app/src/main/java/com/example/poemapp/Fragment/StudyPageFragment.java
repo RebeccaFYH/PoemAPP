@@ -6,14 +6,19 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.poemapp.Database.WriterDB;
+import com.example.poemapp.JavaClass.StudyCardWriterAdapter;
 import com.example.poemapp.JavaClass.ViewPagerAdapter;
-import com.example.poemapp.MainActivity;
 import com.example.poemapp.R;
+
+import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +28,8 @@ import java.util.List;
  */
 
 public class StudyPageFragment extends Fragment {
-
+    //全局声明
+    private List<WriterDB> writerDBList = new ArrayList<WriterDB>();
     View view1,view2;
     ViewPager viewPager;
     List<View> viewList;
@@ -43,13 +49,19 @@ public class StudyPageFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        initView();
-        allAdapter();
+        InitDateBase();
+        InitView();
+        ViewPagerAdapter();
+        PubuliuAdapter();
 
     }
 
+    /**
+     * 功能实现
+     */
+
     //初始化界面
-    private void initView(){
+    private void InitView(){
         //获取控件id
         tabLayout = getActivity().findViewById(R.id.study_tablayout);
         viewPager = getActivity().findViewById(R.id.study_viewpager);
@@ -70,8 +82,8 @@ public class StudyPageFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText(titleList.get(1)));
     }
 
-    //适配器
-    public void allAdapter(){
+    //滑块+界面适配器
+    public void ViewPagerAdapter(){
         ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(viewList,titleList);
         viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -93,6 +105,29 @@ public class StudyPageFragment extends Fragment {
             }
         });
 
+
+    }
+
+    //瀑布流布局适配器去
+    public void PubuliuAdapter(){
+        RecyclerView recyclerView = getActivity().findViewById(R.id.study_recycler_view);
+        StaggeredGridLayoutManager layoutManager = new
+                StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        StudyCardWriterAdapter adapter = new StudyCardWriterAdapter(writerDBList);
+    }
+
+    //临时数据初始化
+    public void InitDateBase(){
+        WriterDB writerDB[] = new WriterDB[10];
+        for (int i=0;i<10;i++){
+            writerDB[i] = new WriterDB();
+            writerDB[i].setWriterName("苏轼");
+            writerDB[i].setWriterIconImageID(R.mipmap.writer_sushi);
+            writerDB[i].setWriterStory("大名鼎鼎的东坡肉便是他的杰作");
+            writerDB[i].save();
+        }
+        writerDBList = LitePal.findAll(WriterDB.class);
 
     }
 

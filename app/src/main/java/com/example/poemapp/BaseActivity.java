@@ -5,8 +5,11 @@ import android.support.design.internal.BottomNavigationItemView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 
 import com.example.poemapp.JavaClass.ActivityCollector;
+
+import org.litepal.LitePal;
 
 
 public class BaseActivity extends AppCompatActivity {
@@ -18,6 +21,7 @@ public class BaseActivity extends AppCompatActivity {
         Log.d("BaseActivity",getClass().getSimpleName());
         ActivityCollector.addActivity(this);
 
+
     }
 
     @Override
@@ -25,4 +29,5 @@ public class BaseActivity extends AppCompatActivity {
         super.onDestroy();
         ActivityCollector.removeActivity(this);
     }
+
 }

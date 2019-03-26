@@ -2,7 +2,6 @@ package com.example.poemapp;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -10,13 +9,13 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
-import android.widget.FrameLayout;
 
+
+import com.example.poemapp.Fragment.CommunicatePageFragment;
+import com.example.poemapp.Fragment.FunPageFragment;
 import com.example.poemapp.Fragment.StudyPageFragment;
 import com.example.poemapp.Fragment.WritePageFragment;
 import com.example.poemapp.JavaClass.BottomNavigationViewHelper;
@@ -62,13 +61,19 @@ public class MainActivity extends BaseActivity {
         BottomNavigationViewHelper.disableShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {   //监听器
                 switch (item.getItemId()){
                     case R.id.bt_study:
                         replaceFragment(new StudyPageFragment());
                         break;
                     case R.id.bt_write:
                         replaceFragment(new WritePageFragment());
+                        break;
+                    case R.id.bt_shequ:
+                        replaceFragment(new CommunicatePageFragment());
+                        break;
+                    case R.id.bt_fun:
+                        replaceFragment(new FunPageFragment());
                         break;
                     default:
                         break;

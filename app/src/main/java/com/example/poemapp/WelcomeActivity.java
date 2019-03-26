@@ -2,9 +2,14 @@ package com.example.poemapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.poemapp.Database.WriterDB;
+
+import org.litepal.LitePal;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -14,11 +19,13 @@ public class WelcomeActivity extends BaseActivity {
     private TextView tv;
     private Boolean A = true;
     private Timer timer = new Timer();
+    Button button1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        LitePal.getDatabase();
 
         //调用控件
         initView();
@@ -45,7 +52,7 @@ public class WelcomeActivity extends BaseActivity {
     //控件实现
     public void initView(){
         //获取控件ID
-        Button button1 = (Button) findViewById(R.id.through);
+        button1 = (Button) findViewById(R.id.through);
 
         //点击事件
         button1.setOnClickListener(new View.OnClickListener() {
