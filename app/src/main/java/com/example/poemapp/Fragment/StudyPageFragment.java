@@ -110,11 +110,12 @@ public class StudyPageFragment extends Fragment {
 
     //瀑布流布局适配器去
     public void PubuliuAdapter(){
-        RecyclerView recyclerView = getActivity().findViewById(R.id.study_recycler_view);
+        RecyclerView recyclerView = view1.findViewById(R.id.study_recycler_view);
         StaggeredGridLayoutManager layoutManager = new
                 StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         StudyCardWriterAdapter adapter = new StudyCardWriterAdapter(writerDBList);
+        recyclerView.setAdapter(adapter);
     }
 
     //临时数据初始化
