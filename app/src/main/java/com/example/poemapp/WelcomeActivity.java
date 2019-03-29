@@ -1,6 +1,7 @@
 package com.example.poemapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +27,14 @@ public class WelcomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         LitePal.getDatabase();
+        SharedPreferences sharedPreferences=this.getSharedPreferences("share",MODE_PRIVATE);
+        boolean isFirstRun=sharedPreferences.getBoolean("isFirstRun", true);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        //判断是否第一次打开app
+        if(isFirstRun){
+            editor.putBoolean("isFirstRun", false);
+            editor.commit();
+        }
 
         //调用控件
         initView();
