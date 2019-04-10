@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.poemapp.Database.PoemDB;
 import com.example.poemapp.Database.WriterDB;
 import com.example.poemapp.R;
 
@@ -18,7 +19,7 @@ import java.util.List;
 
 public class StudyCardWriterAdapter extends RecyclerView.Adapter<StudyCardWriterAdapter.ViewHolder> {
     //声明
-    private List<WriterDB> mwriterDBList;
+    private List<PoemDB> mwriterDBList;
 
     //内部类ViewHolder，避免重复加载布局
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -36,7 +37,7 @@ public class StudyCardWriterAdapter extends RecyclerView.Adapter<StudyCardWriter
     }
 
     //构造方法
-    public StudyCardWriterAdapter(List<WriterDB> writerDBList){
+    public StudyCardWriterAdapter(List<PoemDB> writerDBList){
         mwriterDBList = writerDBList;
     }
 
@@ -50,10 +51,10 @@ public class StudyCardWriterAdapter extends RecyclerView.Adapter<StudyCardWriter
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        WriterDB writerDB = mwriterDBList.get(position);
-        holder.writer_icon.setImageResource(writerDB.getWriterIconImageID());
-        holder.writer_name.setText(writerDB.getWriterName());
-        holder.writer_story.setText(writerDB.getWriterStory());
+        PoemDB poemDB = mwriterDBList.get(position);
+        holder.writer_icon.setImageResource(poemDB.getPoemID());
+        holder.writer_name.setText(poemDB.getPoemName());
+        holder.writer_story.setText(poemDB.getPoemCotent());
     }
 
     @Override

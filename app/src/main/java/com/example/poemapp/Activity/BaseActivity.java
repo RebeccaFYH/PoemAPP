@@ -1,4 +1,4 @@
-package com.example.poemapp;
+package com.example.poemapp.Activity;
 
 import android.app.Activity;
 import android.support.design.internal.BottomNavigationItemView;

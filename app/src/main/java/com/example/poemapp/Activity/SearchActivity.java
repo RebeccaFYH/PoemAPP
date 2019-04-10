@@ -1,6 +1,8 @@
-package com.example.poemapp;
+package com.example.poemapp.Activity;
 
 import android.os.Bundle;
+
+import com.example.poemapp.R;
 
 /**
  * Created by dell on 2019/3/27.

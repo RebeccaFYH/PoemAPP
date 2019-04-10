@@ -1,17 +1,20 @@
-package com.example.poemapp;
+package com.example.poemapp.Activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.poemapp.Database.WriterDB;
+import com.example.poemapp.InitData.InitPoemDB;
+import com.example.poemapp.R;
 
 import org.litepal.LitePal;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -30,10 +33,19 @@ public class WelcomeActivity extends BaseActivity {
         SharedPreferences sharedPreferences=this.getSharedPreferences("share",MODE_PRIVATE);
         boolean isFirstRun=sharedPreferences.getBoolean("isFirstRun", true);
         SharedPreferences.Editor editor=sharedPreferences.edit();
+
+
         //判断是否第一次打开app
         if(isFirstRun){
             editor.putBoolean("isFirstRun", false);
             editor.commit();
+
+            try {
+                InitPoemDB initPoemDB = new InitPoemDB(this);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
 
         //调用控件

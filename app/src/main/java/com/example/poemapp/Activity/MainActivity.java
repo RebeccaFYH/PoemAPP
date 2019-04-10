@@ -1,6 +1,7 @@
-package com.example.poemapp;
+package com.example.poemapp.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -19,7 +20,11 @@ import com.example.poemapp.Fragment.CommunicatePageFragment;
 import com.example.poemapp.Fragment.FunPageFragment;
 import com.example.poemapp.Fragment.StudyPageFragment;
 import com.example.poemapp.Fragment.WritePageFragment;
+import com.example.poemapp.InitData.InitPoemDB;
 import com.example.poemapp.JavaClass.BottomNavigationViewHelper;
+import com.example.poemapp.R;
+
+import java.io.IOException;
 
 
 public class MainActivity extends BaseActivity {
@@ -35,10 +40,13 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         replaceFragment(new StudyPageFragment());
 
+
         //调用控件
         initView();
 
     }
+
+
 
     /**
      * 方法实现

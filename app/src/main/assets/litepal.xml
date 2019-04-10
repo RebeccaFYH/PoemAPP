@@ -2,10 +2,11 @@
 <litepal>
     <dbname value="poemAPP"/>
 
-    <version value="2"/>
+    <version value="1"/>
 
     <list>
         <mapping class="com.example.poemapp.Database.WriterDB" />
+        <mapping class="com.example.poemapp.Database.PoemDB"/>
     </list>
 
 </litepal>
