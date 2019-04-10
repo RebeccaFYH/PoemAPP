@@ -1,6 +1,5 @@
 package com.example.poemapp.Database;
 
-import org.litepal.LitePal;
 import org.litepal.crud.LitePalSupport;
 
 /**诗词信息
@@ -10,7 +9,7 @@ import org.litepal.crud.LitePalSupport;
 public class PoemDB extends LitePalSupport{
     private int poemID;
     private String poemName;
-    private String poemExplain;
+    private String poemZhushi;
     private String poemTranslation;
     private String poemAppreciation;
     private String poemSpot;
@@ -33,8 +32,8 @@ public class PoemDB extends LitePalSupport{
         return poemName;
     }
 
-    public String getPoemExplain() {
-        return poemExplain;
+    public String getPoemZhushi() {
+        return poemZhushi;
     }
 
     public String getPoemAppreciation() {
@@ -91,8 +90,8 @@ public class PoemDB extends LitePalSupport{
         this.poemAppreciation = poemAppreciation;
     }
 
-    public void setPoemExplain(String poemExplain) {
-        this.poemExplain = poemExplain;
+    public void setPoemZhushi(String poemZhushi) {
+        this.poemZhushi = poemZhushi;
     }
 
     public void setPoemFYRadioPath(String poemFYRadioPath) {

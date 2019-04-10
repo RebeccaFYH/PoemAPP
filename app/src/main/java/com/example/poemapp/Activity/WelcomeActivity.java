@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.poemapp.InitData.InitPoemDB;
+import com.example.poemapp.InitData.InitWriterDB;
 import com.example.poemapp.R;
 
 import org.litepal.LitePal;
@@ -42,6 +43,7 @@ public class WelcomeActivity extends BaseActivity {
 
             try {
                 InitPoemDB initPoemDB = new InitPoemDB(this);
+                InitWriterDB initWriterDB = new InitWriterDB(this);
             } catch (IOException e) {
                 e.printStackTrace();
             }

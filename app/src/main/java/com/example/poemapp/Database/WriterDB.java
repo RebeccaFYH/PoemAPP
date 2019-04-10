@@ -1,7 +1,6 @@
 package com.example.poemapp.Database;
 
 import org.litepal.crud.LitePalSupport;
-import org.litepal.exceptions.DataSupportException;
 
 /**作者信息
  * Created by dell on 2019/3/21.
@@ -12,7 +11,7 @@ public class WriterDB extends LitePalSupport{
     private String writerName;
     private String writerYear;
     private String writerIntroduce;
-    private String writerStory;
+    private String writerLife;
     private int writerIconImageID;
 //设置
     public void setWriterName(String writerName) {
@@ -27,8 +26,8 @@ public class WriterDB extends LitePalSupport{
         this.writerIntroduce = writerIntroduce;
     }
 
-    public void setWriterStory(String writerStory) {
-        this.writerStory = writerStory;
+    public void setWriterLife(String writerLife) {
+        this.writerLife = writerLife;
     }
 
     public void setWriterIconImageID(int writerIconImageID) {
@@ -48,8 +47,8 @@ public class WriterDB extends LitePalSupport{
         return writerIntroduce;
     }
 
-    public String getWriterStory() {
-        return writerStory;
+    public String getWriterLife() {
+        return writerLife;
     }
 
     public int getWriterIconImageID() {

@@ -33,26 +33,46 @@ public class InitPoemDB {
 
         InputStream istrPoemName = am.open("poemName.txt");
         InputStream istrPoemContent = am.open("poemContent.txt");
+        InputStream istrPoemKeyword = am.open("poemKeyword.txt");
+        InputStream istrPoemTranslation = am.open("poemTranslation.txt");
+        InputStream istrPoemZhushi = am.open("poemZhushi.txt");
 
+        //缓冲区对象，读取
         BufferedReader bfPoemName = new BufferedReader(new InputStreamReader(istrPoemName));
         BufferedReader bfPoemContent = new BufferedReader(new InputStreamReader(istrPoemContent));
+        BufferedReader bfPoemKeyword = new BufferedReader(new InputStreamReader(istrPoemKeyword));
+        BufferedReader bfPoemTranslation = new BufferedReader(new InputStreamReader(istrPoemTranslation));
+        BufferedReader bfPoemZhushi = new BufferedReader(new InputStreamReader(istrPoemZhushi));
 
-
+        //获取的信息
         String linePoemName;
         String linePoemContent;
+        String linePoemKeyWord;
+        String linePoemTranslation;
+        String linePoemZhushi;
 
         linePoemName = bfPoemName.readLine();
         linePoemContent = bfPoemContent.readLine();
+        linePoemKeyWord = bfPoemKeyword.readLine();
+        linePoemTranslation = bfPoemTranslation.readLine();
+        linePoemZhushi = bfPoemZhushi.readLine();
 
         for (int i=1;linePoemName !=null;i++){
             poemDB[i] = new PoemDB();
             poemDB[i].setPoemName(linePoemName);
             poemDB[i].setPoemCotent(linePoemContent);
+            poemDB[i].setPoemKeyWord(linePoemKeyWord);
+            poemDB[i].setPoemTranslation(linePoemTranslation);
+            poemDB[i].setPoemZhushi(linePoemZhushi);
             poemDB[i].setPoemID(R.drawable.writer_sushi);
             poemDB[i].save();
 
+            //往下读
             linePoemName = bfPoemName.readLine();
             linePoemContent = bfPoemContent.readLine();
+            linePoemKeyWord = bfPoemKeyword.readLine();
+            linePoemTranslation = bfPoemTranslation.readLine();
+            linePoemZhushi = bfPoemZhushi.readLine();
         }
 
 
