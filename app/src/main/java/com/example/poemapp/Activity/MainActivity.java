@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -32,6 +33,7 @@ public class MainActivity extends BaseActivity {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     ActionBar actionBar;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,8 @@ public class MainActivity extends BaseActivity {
 
         //调用控件
         initView();
-
+        //左滑菜单响应
+        drawerLayoutListener();
     }
 
 
@@ -100,7 +103,6 @@ public class MainActivity extends BaseActivity {
         return true;
     }
 
-
     //点击item
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
@@ -116,6 +118,28 @@ public class MainActivity extends BaseActivity {
                 break;
         }
         return true;
+    }
+
+    //左滑菜单响应
+    public void drawerLayoutListener(){
+        navigationView = findViewById(R.id.zuohua_menu);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_setting:
+                        Intent intent = new Intent(MainActivity.this,SettingActivity.class);
+                        startActivity(intent);
+                        break;
+                    default:
+                        break;
+                }
+
+                return true;
+            }
+        });
+
+
     }
 
     //fragment切换
