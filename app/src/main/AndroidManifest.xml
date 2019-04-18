@@ -23,7 +23,12 @@
         <activity
             android:name=".Activity.SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".Activity.SettingActivity"></activity>
+        <activity android:name=".Activity.SettingActivity" />
+        <activity
+            android:name=".Activity.UserActivity"
+            android:label="@string/title_activity_user"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Activity.IndexActivity"></activity>
     </application>
 
 </manifest>

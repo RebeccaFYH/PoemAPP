@@ -8,7 +8,7 @@
         app:showAsAction="always"/>
 
     <item
-        android:id="@+id/fenlei"
+        android:id="@+id/index"
         android:icon="@mipmap/nav_fenlei"
         android:title="Fenlei"
         app:showAsAction="always"/>
