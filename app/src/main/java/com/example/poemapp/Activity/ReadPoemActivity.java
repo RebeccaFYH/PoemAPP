@@ -5,8 +5,15 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+
 
 import com.example.poemapp.R;
 
@@ -14,7 +21,7 @@ import com.example.poemapp.R;
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class ReadPoemActivity extends AppCompatActivity {
+public class ReadPoemActivity extends BaseActivity {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -75,51 +82,168 @@ public class ReadPoemActivity extends AppCompatActivity {
      * system UI. This is to prevent the jarring behavior of controls going away
      * while interacting with activity UI.
      */
-    private final View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (AUTO_HIDE) {
-                delayedHide(AUTO_HIDE_DELAY_MILLIS);
-            }
-            return false;
-        }
-    };
+//    private final View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
+//        @Override
+//        public boolean onTouch(View view, MotionEvent motionEvent) {
+//            if (AUTO_HIDE) {
+//                delayedHide(AUTO_HIDE_DELAY_MILLIS);
+//            }
+//            return false;
+//        }
+//    };
 
+    //功能性控件声明
+    Button bjButton;
+    Button zsButton;
+    Button ywButton;
+    Button sxButton;
+    Button tsButton;
+    Button closeButton;
+    Toolbar toolbar;
+    ActionBar actionBar;
+    FrameLayout frameLayout;
+    DisplayMetrics metrics = new DisplayMetrics();
+
+    //诗词内容填充
+    TextView poemTitle;
+    TextView poemWriter;
+    TextView poemContent;
+
+    /**
+     * 声明方法分割线
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_read_poem);
 
-        mVisible = true;
+        //调用方法
+        initView();
+        setTitleBar();
+        buttomBtOnClick();
+
+    }
+
+    /**
+     * 方法实现
+     */
+    private void setTitleBar() {
+        setSupportActionBar(toolbar);
+        actionBar = getSupportActionBar();
+        if (actionBar != null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.mipmap.nav_back);
+        }
+        actionBar.setTitle("诗词详情");
+    }
+
+
+    //初始化控件
+    private void initView() {
+        //获取控件id
+        toolbar = findViewById(R.id.readpoem_toolbar);
+        bjButton = findViewById(R.id.bj_button);
+        zsButton = findViewById(R.id.zs_button);
+        ywButton = findViewById(R.id.yw_button);
+        sxButton = findViewById(R.id.sx_button);
+        tsButton = findViewById(R.id.ts_button);
+        closeButton = findViewById(R.id.readpoem_setbgclose);
+        frameLayout = findViewById(R.id.readpoem_setbg);
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
 
+        //赋值
+        mVisible = true;
 
-        // Set up the user interaction to manually show or hide the system UI.
+        //方法实现
         mContentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 toggle();
             }
         });
+        //findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
 
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);//获取手机屏幕大小
+
     }
+
+
+    private void buttomBtOnClick() {
+        final int width = metrics.widthPixels;
+        final int height = metrics.heightPixels;
+        final FrameLayout.LayoutParams layoutParams = new
+                FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,
+                FrameLayout.LayoutParams.WRAP_CONTENT);
+
+        //按钮监听
+        bjButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frameLayout.setVisibility(View.VISIBLE);
+                layoutParams.width = width;
+                layoutParams.height = (int)(height * 0.62);
+                mContentView.setLayoutParams(layoutParams);
+            }
+        });
+        zsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frameLayout.setVisibility(View.VISIBLE);
+                layoutParams.width = width;
+                layoutParams.height = (int)(height * 0.62);
+                mContentView.setLayoutParams(layoutParams);
+            }
+        });
+        ywButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frameLayout.setVisibility(View.VISIBLE);
+                layoutParams.width = width;
+                layoutParams.height = (int)(height * 0.62);
+                mContentView.setLayoutParams(layoutParams);
+            }
+        });
+        sxButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frameLayout.setVisibility(View.VISIBLE);
+                layoutParams.width = width;
+                layoutParams.height = (int)(height * 0.62);
+                mContentView.setLayoutParams(layoutParams);
+            }
+        });
+        tsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frameLayout.setVisibility(View.VISIBLE);
+                layoutParams.width = width;
+                layoutParams.height = (int)(height * 0.62);
+                mContentView.setLayoutParams(layoutParams);
+            }
+        });
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frameLayout.setVisibility(View.GONE);
+                layoutParams.width = width;
+                layoutParams.height = height;
+                mContentView.setLayoutParams(layoutParams);
+            }
+        });
+
+    }
+
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
-        // Trigger the initial hide() shortly after the activity has been
-        // created, to briefly hint to the user that UI controls
-        // are available.
         delayedHide(100);
     }
 
+    //切换显示隐藏状态
     private void toggle() {
         if (mVisible) {
             hide();
@@ -128,6 +252,7 @@ public class ReadPoemActivity extends AppCompatActivity {
         }
     }
 
+    //全屏，隐藏其他
     private void hide() {
         // Hide UI first
         ActionBar actionBar = getSupportActionBar();
@@ -142,6 +267,7 @@ public class ReadPoemActivity extends AppCompatActivity {
         mHideHandler.postDelayed(mHidePart2Runnable, UI_ANIMATION_DELAY);
     }
 
+    //全屏，显示其他
     @SuppressLint("InlinedApi")
     private void show() {
         // Show the system bar
@@ -154,12 +280,22 @@ public class ReadPoemActivity extends AppCompatActivity {
         mHideHandler.postDelayed(mShowPart2Runnable, UI_ANIMATION_DELAY);
     }
 
-    /**
-     * Schedules a call to hide() in delay milliseconds, canceling any
-     * previously scheduled calls.
-     */
+    //隐藏延迟控制
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home:
+                finish();
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
+
 }

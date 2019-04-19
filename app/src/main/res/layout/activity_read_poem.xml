@@ -2,29 +2,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#d9bea2"
     tools:context="com.example.poemapp.Activity.ReadPoemActivity">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
-    <TextView
-        android:id="@+id/fullscreen_content"
+    《
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:keepScreenOn="true"
-        android:text="@string/dummy_content"
-        android:textColor="#33b5e5"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:keepScreenOn="true">
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:keepScreenOn="true"
+            android:layout_marginTop="60dp">
+
+            <TextView
+                android:id="@+id/readpoem_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:keepScreenOn="true"
+                android:text="诗词标题"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/readpoem_writerproduce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:keepScreenOn="true"
+                android:text="作者简介"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/readpoem_poemcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="30dp"
+                android:keepScreenOn="true"
+                android:text="诗词内容"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
     <FrameLayout
+        android:id="@+id/readpoem_showlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/readpoem_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
 
         <LinearLayout
             android:id="@+id/fullscreen_content_controls"
@@ -33,16 +83,68 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
             android:background="@color/black_overlay"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             tools:ignore="UselessParent">
 
-            <Button
-                android:id="@+id/dummy_button"
-                style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dummy_button" />
+            <FrameLayout
+                android:id="@+id/readpoem_setbg"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@color/colorPrimary"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/readpoem_setbgclose"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right|top"
+                    android:background="@mipmap/nav_close" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/readpoem_btlayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bj_button"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="?android:attr/listChoiceIndicatorSingle"
+                    android:text="背景" />
+
+                <Button
+                    android:id="@+id/zs_button"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="?android:attr/listChoiceIndicatorSingle"
+                    android:text="注释" />
+
+                <Button
+                    android:id="@+id/yw_button"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="?android:attr/listChoiceIndicatorSingle"
+                    android:text="译文" />
+
+                <Button
+                    android:id="@+id/sx_button"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="?android:attr/listChoiceIndicatorSingle"
+                    android:text="赏析" />
+
+                <Button
+                    android:id="@+id/ts_button"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="?android:attr/listChoiceIndicatorSingle"
+                    android:text="听诗" />
+            </LinearLayout>
 
         </LinearLayout>
     </FrameLayout>

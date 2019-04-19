@@ -7,7 +7,7 @@ import org.litepal.crud.LitePalSupport;
  */
 
 public class PoemDB extends LitePalSupport{
-    private int poemID;
+    private int poemImageID;
     private String poemName;
     private String poemZhushi;
     private String poemTranslation;
@@ -24,8 +24,8 @@ public class PoemDB extends LitePalSupport{
     private String poemCreateTime;  //诗词创作时期（联系集）
 
     ///////////////////get/////////////////
-    public int getPoemID() {
-        return poemID;
+    public int getPoemImageID() {
+        return poemImageID;
     }
 
     public String getPoemName() {
@@ -98,8 +98,8 @@ public class PoemDB extends LitePalSupport{
         this.poemFYRadioPath = poemFYRadioPath;
     }
 
-    public void setPoemID(int poemID) {
-        this.poemID = poemID;
+    public void setPoemImageID(int poemImageID) {
+        this.poemImageID = poemImageID;
     }
 
     public void setPoemFromBook(String poemFromBook) {

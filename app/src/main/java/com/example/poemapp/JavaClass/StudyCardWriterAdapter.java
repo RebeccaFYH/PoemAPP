@@ -9,11 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.poemapp.Activity.MainActivity;
 import com.example.poemapp.Activity.ReadPoemActivity;
 import com.example.poemapp.Database.PoemDB;
-import com.example.poemapp.Database.WriterDB;
-import com.example.poemapp.Fragment.StudyPageFragment;
 import com.example.poemapp.R;
 
 import java.util.List;
@@ -59,7 +56,7 @@ public class StudyCardWriterAdapter extends RecyclerView.Adapter<StudyCardWriter
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         PoemDB poemDB = mwriterDBList.get(position);
-        holder.writer_icon.setImageResource(poemDB.getPoemID());
+        holder.writer_icon.setImageResource(poemDB.getPoemImageID());
         holder.writer_name.setText(poemDB.getPoemName());
         holder.writer_story.setText(poemDB.getPoemCotent());
 

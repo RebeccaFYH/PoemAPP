@@ -2,7 +2,6 @@ package com.example.poemapp.InitData;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.util.Log;
 
 import com.example.poemapp.Database.PoemDB;
 import com.example.poemapp.R;
@@ -64,7 +63,7 @@ public class InitPoemDB {
             poemDB[i].setPoemKeyWord(linePoemKeyWord);
             poemDB[i].setPoemTranslation(linePoemTranslation);
             poemDB[i].setPoemZhushi(linePoemZhushi);
-            poemDB[i].setPoemID(R.drawable.writer_sushi);
+            poemDB[i].setPoemImageID(R.drawable.writer_sushi);
             poemDB[i].save();
 
             //往下读
