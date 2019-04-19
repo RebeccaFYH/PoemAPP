@@ -1,5 +1,7 @@
 package com.example.poemapp.JavaClass;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,8 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.poemapp.Activity.MainActivity;
+import com.example.poemapp.Activity.ReadPoemActivity;
 import com.example.poemapp.Database.PoemDB;
 import com.example.poemapp.Database.WriterDB;
+import com.example.poemapp.Fragment.StudyPageFragment;
 import com.example.poemapp.R;
 
 import java.util.List;
@@ -20,6 +25,7 @@ import java.util.List;
 public class StudyCardWriterAdapter extends RecyclerView.Adapter<StudyCardWriterAdapter.ViewHolder> {
     //声明
     private List<PoemDB> mwriterDBList;
+    Context mcontext;
 
     //内部类ViewHolder，避免重复加载布局
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -37,8 +43,9 @@ public class StudyCardWriterAdapter extends RecyclerView.Adapter<StudyCardWriter
     }
 
     //构造方法
-    public StudyCardWriterAdapter(List<PoemDB> writerDBList){
+    public StudyCardWriterAdapter(List<PoemDB> writerDBList,Context context){
         mwriterDBList = writerDBList;
+        mcontext = context;
     }
 
     @Override
@@ -55,6 +62,15 @@ public class StudyCardWriterAdapter extends RecyclerView.Adapter<StudyCardWriter
         holder.writer_icon.setImageResource(poemDB.getPoemID());
         holder.writer_name.setText(poemDB.getPoemName());
         holder.writer_story.setText(poemDB.getPoemCotent());
+
+        //点击事件
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mcontext, ReadPoemActivity.class);
+                mcontext.startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -33,7 +33,12 @@
         <activity android:name=".Activity.FriendActivity" />
         <activity android:name=".Activity.MyCollectionActivity" />
         <activity android:name=".Activity.MyWorksActivity" />
-        <activity android:name=".Activity.MyIntonationActivity"></activity>
+        <activity android:name=".Activity.MyIntonationActivity" />
+        <activity
+            android:name=".Activity.ReadPoemActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_read_poem"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>

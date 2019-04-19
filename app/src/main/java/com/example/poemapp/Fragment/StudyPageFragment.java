@@ -1,6 +1,7 @@
 package com.example.poemapp.Fragment;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.poemapp.Activity.MainActivity;
 import com.example.poemapp.Database.PoemDB;
 import com.example.poemapp.JavaClass.StudyCardWriterAdapter;
 import com.example.poemapp.JavaClass.ViewPagerAdapter;
@@ -36,6 +38,7 @@ public class StudyPageFragment extends Fragment {
     List<String> titleList;
     LayoutInflater inflater;
     TabLayout tabLayout;
+    Context mcontext;
 
 
     @Override
@@ -56,6 +59,7 @@ public class StudyPageFragment extends Fragment {
 
     }
 
+
     /**
      * 功能实现
      */
@@ -68,6 +72,10 @@ public class StudyPageFragment extends Fragment {
         inflater = getLayoutInflater();  //获得布局对象
         view1 = inflater.inflate(R.layout.tab_tuijian,null);
         view2 = inflater.inflate(R.layout.tab_minivideo,null);
+
+        //获取活动
+        MainActivity mainActivity = (MainActivity) getActivity();
+        mcontext = mainActivity;
 
         //将页面放入列表
         viewList = new ArrayList<>();
@@ -114,7 +122,7 @@ public class StudyPageFragment extends Fragment {
         StaggeredGridLayoutManager layoutManager = new
                 StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        StudyCardWriterAdapter adapter = new StudyCardWriterAdapter(poemDBList);
+        StudyCardWriterAdapter adapter = new StudyCardWriterAdapter(poemDBList, mcontext);
         recyclerView.setAdapter(adapter);
     }
 
