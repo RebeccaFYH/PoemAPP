@@ -28,7 +28,12 @@
             android:name=".Activity.UserActivity"
             android:label="@string/title_activity_user"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Activity.IndexActivity"></activity>
+        <activity android:name=".Activity.IndexActivity" />
+        <activity android:name=".Activity.MsgActivity" />
+        <activity android:name=".Activity.FriendActivity" />
+        <activity android:name=".Activity.MyCollectionActivity" />
+        <activity android:name=".Activity.MyWorksActivity" />
+        <activity android:name=".Activity.MyIntonationActivity"></activity>
     </application>
 
 </manifest>

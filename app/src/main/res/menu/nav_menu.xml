@@ -34,7 +34,7 @@
             android:id="@+id/nav_moon"
             android:icon="@mipmap/nav_moon"
             android:title="夜间模式"
-            app:actionLayout="@layout/switch_item"/>
+            app:actionLayout="@layout/switch_item" />
         <item
             android:id="@+id/nav_setting"
             android:icon="@mipmap/nav_setting"

@@ -31,6 +31,7 @@ public class IndexActivity extends BaseActivity {
         //功能实现
         setSupportActionBar(indexToolbar);
         actionBar = getSupportActionBar();//获得自定义标题栏
+        actionBar.setTitle("诗词索引");
         //设置返回按钮
         if (actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);

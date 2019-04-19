@@ -31,6 +31,7 @@ public class SettingActivity extends BaseActivity {
         //设置标题栏
         setSupportActionBar(settingToolbar);
         actionBar = getSupportActionBar();
+        actionBar.setTitle("设置");
         if (actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.mipmap.nav_back);

@@ -1,56 +1,44 @@
 package com.example.poemapp.Activity;
 
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.example.poemapp.R;
 
-public class UserActivity extends BaseActivity {
-    Toolbar toolbar;
+public class MyCollectionActivity extends BaseActivity {
+    Toolbar mycollectionToolbar;
     ActionBar actionBar;
-    FloatingActionButton fab;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user);
+        setContentView(R.layout.activity_my_collection);
 
         //初始化控件
         initView();
-
-
-
     }
 
+
+    /**
+     * 方法实现
+     */
+    //初始化控件
     private void initView() {
         //获得控件id
-        toolbar = (Toolbar) findViewById(R.id.user_toolbar);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+        mycollectionToolbar = findViewById(R.id.mycollection_toolbar);
 
         //功能实现
-
-        setSupportActionBar(toolbar);//标题栏
+        setSupportActionBar(mycollectionToolbar); //标题栏
         actionBar = getSupportActionBar();
-        actionBar.setTitle("云深无迹");
+        actionBar.setTitle("我的收藏");
         if (actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.mipmap.nav_back);
         }
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
     }
 
     @Override

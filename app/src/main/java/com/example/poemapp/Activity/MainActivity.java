@@ -151,8 +151,28 @@ public class MainActivity extends BaseActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.nav_setting:
-                        Intent intent = new Intent(MainActivity.this,SettingActivity.class);
-                        startActivity(intent);
+                        Intent intenta = new Intent(MainActivity.this,SettingActivity.class);
+                        startActivity(intenta);
+                        break;
+                    case R.id.nav_friend:
+                        Intent intentb = new Intent(MainActivity.this,FriendActivity.class);
+                        startActivity(intentb);
+                        break;
+                    case R.id.nav_msg:
+                        Intent intentc = new Intent(MainActivity.this,MsgActivity.class);
+                        startActivity(intentc);
+                        break;
+                    case R.id.nav_collection:
+                        Intent intentd = new Intent(MainActivity.this,MyCollectionActivity.class);
+                        startActivity(intentd);
+                        break;
+                    case R.id.nav_langsong:
+                        Intent intente = new Intent(MainActivity.this,MyIntonationActivity.class);
+                        startActivity(intente);
+                        break;
+                    case R.id.nav_write:
+                        Intent intentf = new Intent(MainActivity.this,MyWorksActivity.class);
+                        startActivity(intentf);
                         break;
                     default:
                         break;
