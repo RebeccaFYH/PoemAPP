@@ -11,53 +11,19 @@
          TextureView, etc. -->
     《
 
-    <ScrollView
+    <TextView
+        android:id="@+id/fullscreen_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:keepScreenOn="true">
-
-        <LinearLayout
-            android:id="@+id/fullscreen_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:keepScreenOn="true"
-            android:layout_marginTop="60dp">
-
-            <TextView
-                android:id="@+id/readpoem_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:keepScreenOn="true"
-                android:text="诗词标题"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/readpoem_writerproduce"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:keepScreenOn="true"
-                android:text="作者简介"
-                android:textColor="#000000"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:id="@+id/readpoem_poemcontent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="30dp"
-                android:keepScreenOn="true"
-                android:text="诗词内容"
-                android:textColor="#000000"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-    </ScrollView>
+        android:layout_height="wrap_content"
+        android:keepScreenOn="true"
+        android:scrollbars="vertical"
+        android:text="诗词标题明月几时有？把酒问青天。不知天上宫阙，今夕是何年。我欲乘风归去，又恐琼楼玉宇，高处不胜寒。起舞弄清影，何似在人间。 转朱阁，低绮户，照无眠。不应有恨，何事长向别时圆？人有悲欢离合，月有阴晴圆缺，此事古难全。但愿人长久，千里共婵娟。
+横看成岭侧成峰，远近高低各不同。 不识庐山真面目，只缘身在此山中。
+风急天高猿啸哀，渚清沙白鸟飞回。无边落木萧萧下，不尽长江滚滚来。万里悲秋常作客，百年多病独登台。艰难苦恨繁霜鬓，潦倒新停浊酒杯。
+床前明月光，疑是地上霜。举头望明月，低头思故乡。"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->

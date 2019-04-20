@@ -8,15 +8,19 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/welcome">
 
         <TextView
             android:id="@+id/through_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="3秒后跳过"
-            android:textSize="36sp" />
+            android:layout_gravity="right"
+            android:padding="10dp"
+            android:text=" "
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/through"

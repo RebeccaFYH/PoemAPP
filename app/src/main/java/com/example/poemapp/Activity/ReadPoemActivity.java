@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -108,6 +109,10 @@ public class ReadPoemActivity extends BaseActivity {
     TextView poemTitle;
     TextView poemWriter;
     TextView poemContent;
+    TextView poem;
+
+    //控制量
+    boolean isLock = true;
 
     /**
      * 声明方法分割线
@@ -153,6 +158,7 @@ public class ReadPoemActivity extends BaseActivity {
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
 
+        poem = findViewById(R.id.fullscreen_content);
         //赋值
         mVisible = true;
 
@@ -160,9 +166,12 @@ public class ReadPoemActivity extends BaseActivity {
         mContentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggle();
+                if (isLock)
+                    toggle();
             }
         });
+        poem.setMovementMethod(ScrollingMovementMethod.getInstance());
+
         //findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
 
         getWindowManager().getDefaultDisplay().getMetrics(metrics);//获取手机屏幕大小
@@ -171,6 +180,7 @@ public class ReadPoemActivity extends BaseActivity {
 
 
     private void buttomBtOnClick() {
+
         final int width = metrics.widthPixels;
         final int height = metrics.heightPixels;
         final FrameLayout.LayoutParams layoutParams = new
@@ -185,6 +195,7 @@ public class ReadPoemActivity extends BaseActivity {
                 layoutParams.width = width;
                 layoutParams.height = (int)(height * 0.62);
                 mContentView.setLayoutParams(layoutParams);
+                isLock = false;
             }
         });
         zsButton.setOnClickListener(new View.OnClickListener() {
@@ -194,6 +205,7 @@ public class ReadPoemActivity extends BaseActivity {
                 layoutParams.width = width;
                 layoutParams.height = (int)(height * 0.62);
                 mContentView.setLayoutParams(layoutParams);
+                isLock = false;
             }
         });
         ywButton.setOnClickListener(new View.OnClickListener() {
@@ -203,6 +215,7 @@ public class ReadPoemActivity extends BaseActivity {
                 layoutParams.width = width;
                 layoutParams.height = (int)(height * 0.62);
                 mContentView.setLayoutParams(layoutParams);
+                isLock = false;
             }
         });
         sxButton.setOnClickListener(new View.OnClickListener() {
@@ -212,6 +225,7 @@ public class ReadPoemActivity extends BaseActivity {
                 layoutParams.width = width;
                 layoutParams.height = (int)(height * 0.62);
                 mContentView.setLayoutParams(layoutParams);
+                isLock = false;
             }
         });
         tsButton.setOnClickListener(new View.OnClickListener() {
@@ -221,11 +235,13 @@ public class ReadPoemActivity extends BaseActivity {
                 layoutParams.width = width;
                 layoutParams.height = (int)(height * 0.62);
                 mContentView.setLayoutParams(layoutParams);
+                isLock = false;
             }
         });
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isLock = true;
                 frameLayout.setVisibility(View.GONE);
                 layoutParams.width = width;
                 layoutParams.height = height;
