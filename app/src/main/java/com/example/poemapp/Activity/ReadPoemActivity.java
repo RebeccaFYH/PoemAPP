@@ -1,6 +1,8 @@
 package com.example.poemapp.Activity;
 
 import android.annotation.SuppressLint;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +18,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 
+import com.example.poemapp.Fragment.CommunicatePageFragment;
+import com.example.poemapp.Fragment.FunPageFragment;
+import com.example.poemapp.Fragment.StudyPageFragment;
+import com.example.poemapp.Fragment.WritePageFragment;
+import com.example.poemapp.JavaClass.BottomNavigationViewHelper;
 import com.example.poemapp.R;
 
 /**
@@ -94,11 +101,6 @@ public class ReadPoemActivity extends BaseActivity {
 //    };
 
     //功能性控件声明
-    Button bjButton;
-    Button zsButton;
-    Button ywButton;
-    Button sxButton;
-    Button tsButton;
     Button closeButton;
     Toolbar toolbar;
     ActionBar actionBar;
@@ -112,7 +114,7 @@ public class ReadPoemActivity extends BaseActivity {
     TextView poem;
 
     //控制量
-    boolean isLock = true;
+
 
     /**
      * 声明方法分割线
@@ -148,11 +150,6 @@ public class ReadPoemActivity extends BaseActivity {
     private void initView() {
         //获取控件id
         toolbar = findViewById(R.id.readpoem_toolbar);
-        bjButton = findViewById(R.id.bj_button);
-        zsButton = findViewById(R.id.zs_button);
-        ywButton = findViewById(R.id.yw_button);
-        sxButton = findViewById(R.id.sx_button);
-        tsButton = findViewById(R.id.ts_button);
         closeButton = findViewById(R.id.readpoem_setbgclose);
         frameLayout = findViewById(R.id.readpoem_setbg);
         mControlsView = findViewById(R.id.fullscreen_content_controls);
@@ -166,15 +163,29 @@ public class ReadPoemActivity extends BaseActivity {
         mContentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isLock)
                     toggle();
             }
         });
         poem.setMovementMethod(ScrollingMovementMethod.getInstance());
-
         //findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
-
         getWindowManager().getDefaultDisplay().getMetrics(metrics);//获取手机屏幕大小
+
+        //底端按钮适配
+        buttomNavigationView();
+
+    }
+
+    private void buttomNavigationView() {
+        //底端按钮
+        BottomNavigationView navigation = findViewById(R.id.readpoem_bottomtoolbar);
+        BottomNavigationViewHelper.disableShiftMode(navigation);
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                frameLayout.setVisibility(View.VISIBLE);
+                return true;
+            }
+        });
 
     }
 
@@ -188,64 +199,14 @@ public class ReadPoemActivity extends BaseActivity {
                 FrameLayout.LayoutParams.WRAP_CONTENT);
 
         //按钮监听
-        bjButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                frameLayout.setVisibility(View.VISIBLE);
-                layoutParams.width = width;
-                layoutParams.height = (int)(height * 0.62);
-                mContentView.setLayoutParams(layoutParams);
-                isLock = false;
-            }
-        });
-        zsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                frameLayout.setVisibility(View.VISIBLE);
-                layoutParams.width = width;
-                layoutParams.height = (int)(height * 0.62);
-                mContentView.setLayoutParams(layoutParams);
-                isLock = false;
-            }
-        });
-        ywButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                frameLayout.setVisibility(View.VISIBLE);
-                layoutParams.width = width;
-                layoutParams.height = (int)(height * 0.62);
-                mContentView.setLayoutParams(layoutParams);
-                isLock = false;
-            }
-        });
-        sxButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                frameLayout.setVisibility(View.VISIBLE);
-                layoutParams.width = width;
-                layoutParams.height = (int)(height * 0.62);
-                mContentView.setLayoutParams(layoutParams);
-                isLock = false;
-            }
-        });
-        tsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                frameLayout.setVisibility(View.VISIBLE);
-                layoutParams.width = width;
-                layoutParams.height = (int)(height * 0.62);
-                mContentView.setLayoutParams(layoutParams);
-                isLock = false;
-            }
-        });
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                isLock = true;
                 frameLayout.setVisibility(View.GONE);
                 layoutParams.width = width;
                 layoutParams.height = height;
                 mContentView.setLayoutParams(layoutParams);
+                toggle();
             }
         });
 

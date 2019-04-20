@@ -68,49 +68,12 @@
 
             </FrameLayout>
 
-            <LinearLayout
-                android:id="@+id/readpoem_btlayout"
+            <android.support.design.widget.BottomNavigationView
+                android:id="@+id/readpoem_bottomtoolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@android:color/background_light"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/bj_button"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:background="?android:attr/listChoiceIndicatorSingle"
-                    android:text="背景" />
-
-                <Button
-                    android:id="@+id/zs_button"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:background="?android:attr/listChoiceIndicatorSingle"
-                    android:text="注释" />
-
-                <Button
-                    android:id="@+id/yw_button"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:background="?android:attr/listChoiceIndicatorSingle"
-                    android:text="译文" />
-
-                <Button
-                    android:id="@+id/sx_button"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:background="?android:attr/listChoiceIndicatorSingle"
-                    android:text="赏析" />
-
-                <Button
-                    android:id="@+id/ts_button"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:background="?android:attr/listChoiceIndicatorSingle"
-                    android:text="听诗" />
-            </LinearLayout>
+                app:menu="@menu/bt_readpoem_buttom" />
 
         </LinearLayout>
     </FrameLayout>
