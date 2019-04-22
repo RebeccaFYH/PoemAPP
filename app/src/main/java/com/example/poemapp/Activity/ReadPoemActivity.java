@@ -1,11 +1,13 @@
 package com.example.poemapp.Activity;
 
-import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
-import android.os.Bundle;
-import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
 import android.util.DisplayMetrics;
@@ -15,101 +17,29 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-
+import com.example.poemapp.Fragment.PoemReadBJFragment;
+import com.example.poemapp.Fragment.PoemReadSXFragment;
+import com.example.poemapp.Fragment.PoemReadTSFragment;
+import com.example.poemapp.Fragment.PoemReadYWFragment;
+import com.example.poemapp.Fragment.PoemReadZSFragment;
 import com.example.poemapp.JavaClass.BottomNavigationViewHelper;
 import com.example.poemapp.R;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
-public class ReadPoemActivity extends BaseActivity {
-    /**
-     * Whether or not the system UI should be auto-hidden after
-     * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
-     */
-    private static final boolean AUTO_HIDE = true;
-
-    /**
-     * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
-     * user interaction before hiding the system UI.
-     */
-    private static final int AUTO_HIDE_DELAY_MILLIS = 3000;
-
-    /**
-     * Some older devices needs a small delay between UI widget updates
-     * and a change of the status and navigation bar.
-     */
-    private static final int UI_ANIMATION_DELAY = 300;
-    private final Handler mHideHandler = new Handler();
-    private View mContentView;
-    private final Runnable mHidePart2Runnable = new Runnable() {
-        @SuppressLint("InlinedApi")
-        @Override
-        public void run() {
-            // Delayed removal of status and navigation bar
-
-            // Note that some of these constants are new as of API 16 (Jelly Bean)
-            // and API 19 (KitKat). It is safe to use them, as they are inlined
-            // at compile-time and do nothing on earlier devices.
-            mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
-                    | View.SYSTEM_UI_FLAG_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-        }
-    };
-    private View mControlsView;
-    private final Runnable mShowPart2Runnable = new Runnable() {
-        @Override
-        public void run() {
-            // Delayed display of UI elements
-            ActionBar actionBar = getSupportActionBar();
-            if (actionBar != null) {
-                actionBar.show();
-            }
-            mControlsView.setVisibility(View.VISIBLE);
-        }
-    };
-    private boolean mVisible;
-    private final Runnable mHideRunnable = new Runnable() {
-        @Override
-        public void run() {
-            hide();
-        }
-    };
-    /**
-     * Touch listener to use for in-layout UI controls to delay hiding the
-     * system UI. This is to prevent the jarring behavior of controls going away
-     * while interacting with activity UI.
-     */
-//    private final View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
-//        @Override
-//        public boolean onTouch(View view, MotionEvent motionEvent) {
-//            if (AUTO_HIDE) {
-//                delayedHide(AUTO_HIDE_DELAY_MILLIS);
-//            }
-//            return false;
-//        }
-//    };
-
+public class ReadPoemActivity extends AppCompatActivity {
     //功能性控件声明
     Button closeButton;
     Toolbar toolbar;
     ActionBar actionBar;
     FrameLayout frameLayout;
-    DisplayMetrics metrics = new DisplayMetrics();
-
-    //诗词内容填充
-    TextView poem;
+    FrameLayout frameMainLayout;
+    TextView textView;
 
     //控制量
+    FrameLayout.LayoutParams layoutParams;
+    DisplayMetrics metrics = new DisplayMetrics();
+    int width;
+    int height;
 
-
-    /**
-     * 声明方法分割线
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,16 +56,16 @@ public class ReadPoemActivity extends BaseActivity {
     /**
      * 方法实现
      */
+    //设置标题栏
     private void setTitleBar() {
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
-        if (actionBar != null){
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.mipmap.nav_back);
         }
         actionBar.setTitle("诗词详情");
     }
-
 
     //初始化控件
     private void initView() {
@@ -143,108 +73,84 @@ public class ReadPoemActivity extends BaseActivity {
         toolbar = findViewById(R.id.readpoem_toolbar);
         closeButton = findViewById(R.id.readpoem_setbgclose);
         frameLayout = findViewById(R.id.readpoem_setbg);
-        mControlsView = findViewById(R.id.fullscreen_content_controls);
-        mContentView = findViewById(R.id.fullscreen_content);
+        frameMainLayout = findViewById(R.id.readpoem_layout);
+        textView = findViewById(R.id.readpoem_content);
 
-        poem = findViewById(R.id.fullscreen_content);
-        //赋值
-        mVisible = true;
+        //获得屏幕分辨率
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        width = metrics.widthPixels;
+        height = metrics.heightPixels;
+        layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT);//屏幕适配分辨率
 
         //方法实现
-        mContentView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    toggle();
-            }
-        });
-        poem.setMovementMethod(ScrollingMovementMethod.getInstance());//文本可滑动显示
-
-        //findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+        textView.setMovementMethod(ScrollingMovementMethod.getInstance());//文本可滑动显示
 
         //底端按钮适配
         buttomNavigationView();
 
     }
 
+    //底端按钮
     private void buttomNavigationView() {
-        //底端按钮
         BottomNavigationView navigation = findViewById(R.id.readpoem_bottomtoolbar);
         BottomNavigationViewHelper.disableShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                //赋值
+                //界面调整
+                layoutParams.width = (width*1);
+                layoutParams.height = (int)(height*0.5);
+                layoutParams.setMargins(30,20,30,20);
+                textView.setLayoutParams(layoutParams);
                 frameLayout.setVisibility(View.VISIBLE);
+                switch (item.getItemId()){
+                    case R.id.bt_bj:
+                        replaceFragment(new PoemReadBJFragment());
+                        break;
+                    case R.id.bt_zs:
+                        replaceFragment(new PoemReadZSFragment());
+                        break;
+                    case R.id.bt_yw:
+                        replaceFragment(new PoemReadYWFragment());
+                        break;
+                    case R.id.bt_sx:
+                        replaceFragment(new PoemReadSXFragment());
+                        break;
+                    case R.id.bt_ts:
+                        replaceFragment(new PoemReadTSFragment());
+                        break;
+                    default:
+                        break;
+                }
                 return true;
             }
         });
 
     }
-
-
+    //按钮监听
     private void buttomBtOnClick() {
-
-
-
-        //按钮监听
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                layoutParams.width = width;
+                layoutParams.height = height;
+                layoutParams.setMargins(30,30,30,30);
+                textView.setLayoutParams(layoutParams);
+                textView.invalidate();
                 frameLayout.setVisibility(View.GONE);
-                toggle();
             }
         });
 
     }
 
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-
-        delayedHide(100);
-    }
-
-    //切换显示隐藏状态
-    private void toggle() {
-        if (mVisible) {
-            hide();
-        } else {
-            show();
-        }
-    }
-
-    //全屏，隐藏其他
-    private void hide() {
-        // Hide UI first
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
-        mControlsView.setVisibility(View.GONE);
-        mVisible = false;
-
-        // Schedule a runnable to remove the status and navigation bar after a delay
-        mHideHandler.removeCallbacks(mShowPart2Runnable);
-        mHideHandler.postDelayed(mHidePart2Runnable, UI_ANIMATION_DELAY);
-    }
-
-    //全屏，显示其他
-    @SuppressLint("InlinedApi")
-    private void show() {
-        // Show the system bar
-        mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
-        mVisible = true;
-
-        // Schedule a runnable to display UI elements after a delay
-        mHideHandler.removeCallbacks(mHidePart2Runnable);
-        mHideHandler.postDelayed(mShowPart2Runnable, UI_ANIMATION_DELAY);
-    }
-
-    //隐藏延迟控制
-    private void delayedHide(int delayMillis) {
-        mHideHandler.removeCallbacks(mHideRunnable);
-        mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    //fragment切换
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();   //开启转换事务
+        transaction.replace(R.id.readpoem_setbg,fragment);
+        transaction.commit();   //提交并结束事务
     }
 
     @Override
@@ -258,5 +164,6 @@ public class ReadPoemActivity extends BaseActivity {
         }
         return true;
     }
+
 
 }

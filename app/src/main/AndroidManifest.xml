@@ -25,13 +25,9 @@
         <activity android:name=".Activity.BaseActivity" />
         <activity android:name=".Activity.MainActivity" />
         <activity android:name=".Activity.SearchActivity" />
-        <activity
-            android:name=".Activity.SettingsActivity"
-            android:label="@string/title_activity_settings" />
         <activity android:name=".Activity.SettingActivity" />
         <activity
             android:name=".Activity.UserActivity"
-            android:label="@string/title_activity_user"
             android:theme="@style/AppTheme" />
         <activity android:name=".Activity.IndexActivity" />
         <activity android:name=".Activity.MsgActivity" />
@@ -41,12 +37,7 @@
         <activity android:name=".Activity.MyIntonationActivity" />
         <activity
             android:name=".Activity.ReadPoemActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_read_poem"
-            android:theme="@style/FullscreenTheme" />
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
