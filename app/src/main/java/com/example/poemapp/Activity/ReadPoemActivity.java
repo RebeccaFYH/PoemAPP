@@ -4,24 +4,18 @@ import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 
-import com.example.poemapp.Fragment.CommunicatePageFragment;
-import com.example.poemapp.Fragment.FunPageFragment;
-import com.example.poemapp.Fragment.StudyPageFragment;
-import com.example.poemapp.Fragment.WritePageFragment;
 import com.example.poemapp.JavaClass.BottomNavigationViewHelper;
 import com.example.poemapp.R;
 
@@ -108,9 +102,6 @@ public class ReadPoemActivity extends BaseActivity {
     DisplayMetrics metrics = new DisplayMetrics();
 
     //诗词内容填充
-    TextView poemTitle;
-    TextView poemWriter;
-    TextView poemContent;
     TextView poem;
 
     //控制量
@@ -166,9 +157,9 @@ public class ReadPoemActivity extends BaseActivity {
                     toggle();
             }
         });
-        poem.setMovementMethod(ScrollingMovementMethod.getInstance());
+        poem.setMovementMethod(ScrollingMovementMethod.getInstance());//文本可滑动显示
+
         //findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
-        getWindowManager().getDefaultDisplay().getMetrics(metrics);//获取手机屏幕大小
 
         //底端按钮适配
         buttomNavigationView();
@@ -192,20 +183,13 @@ public class ReadPoemActivity extends BaseActivity {
 
     private void buttomBtOnClick() {
 
-        final int width = metrics.widthPixels;
-        final int height = metrics.heightPixels;
-        final FrameLayout.LayoutParams layoutParams = new
-                FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,
-                FrameLayout.LayoutParams.WRAP_CONTENT);
+
 
         //按钮监听
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 frameLayout.setVisibility(View.GONE);
-                layoutParams.width = width;
-                layoutParams.height = height;
-                mContentView.setLayoutParams(layoutParams);
                 toggle();
             }
         });
