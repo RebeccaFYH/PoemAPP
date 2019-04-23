@@ -51,7 +51,6 @@
         android:layout_height="300dp"
         android:layout_gravity="bottom"
         android:layout_marginBottom="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
         android:visibility="gone">
 
         <Button

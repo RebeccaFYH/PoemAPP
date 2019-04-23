@@ -85,7 +85,8 @@ public class ReadPoemActivity extends AppCompatActivity {
 
         //方法实现
         textView.setMovementMethod(ScrollingMovementMethod.getInstance());//文本可滑动显示
-
+        //textView.setHorizontallyScrolling(true);
+        //textView.setFocusable(true);
         //底端按钮适配
         buttomNavigationView();
 
@@ -138,7 +139,6 @@ public class ReadPoemActivity extends AppCompatActivity {
                 layoutParams.height = height;
                 layoutParams.setMargins(30,30,30,30);
                 textView.setLayoutParams(layoutParams);
-                textView.invalidate();
                 frameLayout.setVisibility(View.GONE);
             }
         });

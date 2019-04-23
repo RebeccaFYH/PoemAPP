@@ -1,8 +1,10 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.poemapp.Fragment.PoemReadYWFragment">
+    android:orientation="vertical"
+    android:background="@drawable/shape_corner_top"
+    tools:context="com.example.poemapp.Fragment.PoemReadBJFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -10,4 +12,4 @@
         android:layout_height="wrap_content"
         android:text="hhhhhhhhh" />
 
-</FrameLayout>
+</LinearLayout>

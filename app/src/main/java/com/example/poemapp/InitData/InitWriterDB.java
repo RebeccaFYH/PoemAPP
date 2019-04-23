@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
  */
 
 public class InitWriterDB {
-    WriterDB writerDB[] = new WriterDB[10];
+    WriterDB writerDB[] = new WriterDB[100];
 
     public InitWriterDB(Context context) throws IOException {
         try {

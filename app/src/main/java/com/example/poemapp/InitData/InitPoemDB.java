@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
  */
 
 public class InitPoemDB {
-    PoemDB poemDB[] = new PoemDB[10];
+    PoemDB poemDB[] = new PoemDB[100];
 
     public InitPoemDB(Context context) throws IOException {
         try {

@@ -15,7 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.poemapp.Activity.MainActivity;
+import com.example.poemapp.Database.MiniClassDB;
 import com.example.poemapp.Database.PoemDB;
+import com.example.poemapp.JavaClass.StudyCardVideoAdapter;
 import com.example.poemapp.JavaClass.StudyCardWriterAdapter;
 import com.example.poemapp.JavaClass.ViewPagerAdapter;
 import com.example.poemapp.R;
@@ -32,6 +34,8 @@ import java.util.List;
 public class StudyPageFragment extends Fragment {
     //全局声明
     private List<PoemDB> poemDBList = new ArrayList<PoemDB>();
+    private List<MiniClassDB> miniClassDBList = new ArrayList<MiniClassDB>();
+    private MiniClassDB miniClassDB[];
     View view1,view2;
     ViewPager viewPager;
     List<View> viewList;
@@ -56,6 +60,8 @@ public class StudyPageFragment extends Fragment {
         InitView();
         ViewPagerAdapter();
         PubuliuAdapter();
+
+
 
     }
 
@@ -116,19 +122,38 @@ public class StudyPageFragment extends Fragment {
 
     }
 
-    //瀑布流布局适配器去
+    //瀑布流布局适配器
     public void PubuliuAdapter(){
+        //每日推荐
         RecyclerView recyclerView = view1.findViewById(R.id.study_recycler_view);
         StaggeredGridLayoutManager layoutManager = new
                 StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         StudyCardWriterAdapter adapter = new StudyCardWriterAdapter(poemDBList, mcontext);
         recyclerView.setAdapter(adapter);
+
+        //微课堂
+        RecyclerView recyclerView1 = view2.findViewById(R.id.study_video_recycler_view);
+        StaggeredGridLayoutManager layoutManager1 = new
+                StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        recyclerView1.setLayoutManager(layoutManager1);
+        StudyCardVideoAdapter studyCardVideoAdapter = new StudyCardVideoAdapter(miniClassDBList,mcontext);
+        recyclerView1.setAdapter(studyCardVideoAdapter);
     }
 
     //临时数据初始化
     public void InitDateBase(){
         poemDBList = LitePal.findAll(PoemDB.class);
+
+        miniClassDB  = new MiniClassDB[10];
+
+        for (int i=0;i<10;i++){
+            miniClassDB[i] = new MiniClassDB();
+            miniClassDB[i].setImageID(R.drawable.header);
+            miniClassDB[i].setVideoTitle("微课堂名称");
+            miniClassDB[i].save();
+        }
+        miniClassDBList = LitePal.findAll(MiniClassDB.class);
 
     }
 
