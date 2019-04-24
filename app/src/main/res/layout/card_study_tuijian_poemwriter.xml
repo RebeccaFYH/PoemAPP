@@ -2,43 +2,54 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="7dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginTop="15dp"
     android:background="@drawable/shape_corner"
+    android:elevation="4dp"
     android:orientation="vertical">
 
-    <LinearLayout
+
+    <com.gcssloop.widget.RCRelativeLayout
+        android:id="@+id/writer_icon_rc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        app:round_corner_top_left="20dp"
+        app:round_corner_top_right="20dp">
 
         <ImageView
             android:id="@+id/writer_icon"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            app:srcCompat="@mipmap/ic_launcher_round" />
-
-        <TextView
-            android:id="@+id/writer_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:gravity="center_vertical"
-            android:text="苏轼" />
+            android:adjustViewBounds="true"
+            android:maxHeight="300dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@mipmap/ic_launcher_round" />
 
-    </LinearLayout>
+    </com.gcssloop.widget.RCRelativeLayout>
+
+        <!--<TextView-->
+            <!--android:id="@+id/writer_name"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="30dp"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:text="苏轼" />-->
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp">
 
-        <TextView
-            android:id="@+id/writer_story"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:text="    大名鼎鼎的东坡肉便是出自他之手 " />
+        <!--<TextView-->
+            <!--android:id="@+id/writer_story"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="30dp"-->
+            <!--android:text="    大名鼎鼎的东坡肉便是出自他之手 " />-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,7 +59,7 @@
             <Button
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="20dp"
                 android:background="@mipmap/nav_collection" />
 
             <Button
