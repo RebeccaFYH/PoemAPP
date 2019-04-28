@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -24,7 +25,7 @@ import java.util.List;
  * Created by dell on 2019/3/19.
  */
 
-public class WritePageFragment extends Fragment {
+public class CreatePageFragment extends Fragment {
     //全局声明
     View view1,view2,view3;
     ViewPager viewPager;
@@ -34,7 +35,11 @@ public class WritePageFragment extends Fragment {
     TabLayout tabLayout;
     Context mcontext;
     TextView tipText;
+    EditText topicText;
+    EditText contentText;
     ImageButton tipButton;
+    String topic;
+    String content;
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -68,6 +73,11 @@ public class WritePageFragment extends Fragment {
         //------------------创作
         tipButton = view1.findViewById(R.id.write_tip_button);
         tipText = view1.findViewById(R.id.write_tips_text);
+        contentText = view1.findViewById(R.id.topic_editText);
+        topicText = view1.findViewById(R.id.content_editText);
+        content = contentText.getText().toString();
+        topic = topicText.getText().toString();
+        sendContentMsg(content,topic);//传递创作的文字信息
 
         //获取活动
         MainActivity mainActivity = (MainActivity) getActivity();
@@ -89,6 +99,11 @@ public class WritePageFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText(titleList.get(2)));
 
         giveTips();
+
+    }
+
+    //传递创作的文字信息
+    private void sendContentMsg(String content,String topic) {
 
     }
 
@@ -126,5 +141,11 @@ public class WritePageFragment extends Fragment {
         });
 
 
+    }
+
+    //保存此活动状态
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 }

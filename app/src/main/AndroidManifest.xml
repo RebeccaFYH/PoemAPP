@@ -37,7 +37,12 @@
         <activity android:name=".Activity.MyIntonationActivity" />
         <activity
             android:name=".Activity.ReadPoemActivity"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+
+        <service
+            android:name=".MyService.CreateService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

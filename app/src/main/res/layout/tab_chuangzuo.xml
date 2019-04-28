@@ -31,7 +31,7 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/topic_editText"
         android:layout_width="350dp"
         android:layout_height="30dp"
         android:layout_alignLeft="@+id/imageView2"
@@ -43,7 +43,7 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/topic_editText"
         android:layout_marginTop="12dp"
         android:layout_toLeftOf="@+id/textView2"
         android:layout_toStartOf="@+id/textView2"
@@ -60,7 +60,7 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/content_editText"
         android:layout_width="350dp"
         android:layout_height="200dp"
         android:layout_alignLeft="@+id/imageView3"
@@ -72,9 +72,9 @@
         android:id="@+id/write_tip_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText3"
-        android:layout_alignRight="@+id/editText3"
-        android:layout_below="@+id/editText3"
+        android:layout_alignEnd="@+id/content_editText"
+        android:layout_alignRight="@+id/content_editText"
+        android:layout_below="@+id/content_editText"
         app:srcCompat="@drawable/ic_notifications_black_24dp" />
 
     <TextView

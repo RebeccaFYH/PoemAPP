@@ -8,6 +8,7 @@
         <mapping class="com.example.poemapp.Database.WriterDB" />
         <mapping class="com.example.poemapp.Database.PoemDB"/>
         <mapping class="com.example.poemapp.Database.MiniClassDB"/>
+        <mapping class="com.example.poemapp.Database.CreateDB"/>
     </list>
 
 </litepal>

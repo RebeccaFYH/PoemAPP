@@ -1,7 +1,6 @@
 package com.example.poemapp.Activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -24,7 +23,7 @@ import android.widget.TextView;
 import com.example.poemapp.Fragment.CommunicatePageFragment;
 import com.example.poemapp.Fragment.FunPageFragment;
 import com.example.poemapp.Fragment.StudyPageFragment;
-import com.example.poemapp.Fragment.WritePageFragment;
+import com.example.poemapp.Fragment.CreatePageFragment;
 
 import com.example.poemapp.JavaClass.BottomNavigationViewHelper;
 import com.example.poemapp.R;
@@ -119,7 +118,7 @@ public class MainActivity extends BaseActivity {
                         invalidateOptionsMenu();
                         break;
                     case R.id.bt_write:
-                        replaceFragment(new WritePageFragment());
+                        replaceFragment(new CreatePageFragment());
                         titleText.setText("作诗");
                         mVisiable = false;
                         invalidateOptionsMenu();
