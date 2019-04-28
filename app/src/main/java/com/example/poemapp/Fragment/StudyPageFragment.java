@@ -94,7 +94,7 @@ public class StudyPageFragment extends Fragment {
         viewList.add(view1);
         viewList.add(view2);
         titleList = new ArrayList<>();
-        titleList.add("推荐");
+        titleList.add("每日推荐");
         titleList.add("微课堂");
 
         //设置tab模式

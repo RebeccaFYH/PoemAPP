@@ -17,18 +17,19 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+
+import android.widget.TextView;
 
 
 import com.example.poemapp.Fragment.CommunicatePageFragment;
 import com.example.poemapp.Fragment.FunPageFragment;
 import com.example.poemapp.Fragment.StudyPageFragment;
 import com.example.poemapp.Fragment.WritePageFragment;
-import com.example.poemapp.InitData.InitPoemDB;
+
 import com.example.poemapp.JavaClass.BottomNavigationViewHelper;
 import com.example.poemapp.R;
 
-import java.io.IOException;
+
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -42,6 +43,12 @@ public class MainActivity extends BaseActivity {
     CircleImageView circleImageView;
     View headLayout;
     ImageView imageView;
+    TextView titleText;
+    MenuItem searchMI;
+    MenuItem indexMI;
+
+    //控制量
+    Boolean mVisiable = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,40 +76,19 @@ public class MainActivity extends BaseActivity {
         drawerLayout = findViewById(R.id.study_drawerlayout);
         navigationView = findViewById(R.id.zuohua_menu);
         headLayout = navigationView.inflateHeaderView(R.layout.nav_header);
+        titleText = findViewById(R.id.title_text);
 
         //顶端标题
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
+        actionBar.setDisplayShowTitleEnabled(false);
         if (actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.mipmap.nav_menu);
         }
 
-        //底端按钮
-        BottomNavigationView navigation = findViewById(R.id.navigation);
-        BottomNavigationViewHelper.disableShiftMode(navigation);
-        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {   //监听器
-                switch (item.getItemId()){
-                    case R.id.bt_study:
-                        replaceFragment(new StudyPageFragment());
-                        break;
-                    case R.id.bt_write:
-                        replaceFragment(new WritePageFragment());
-                        break;
-                    case R.id.bt_shequ:
-                        replaceFragment(new CommunicatePageFragment());
-                        break;
-                    case R.id.bt_fun:
-                        replaceFragment(new FunPageFragment());
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            }
-        });
+        //底端按钮事件
+        bottomNavigationEvent();
 
         //左滑菜单顶部头像响应
         imageView = headLayout.findViewById(R.id.icon_image);
@@ -118,9 +104,59 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    //底端按钮
+    private void bottomNavigationEvent() {
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        BottomNavigationViewHelper.disableShiftMode(navigation);
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {   //监听器
+                switch (item.getItemId()){
+                    case R.id.bt_study:
+                        replaceFragment(new StudyPageFragment());
+                        titleText.setText("学诗");
+                        mVisiable = true;
+                        invalidateOptionsMenu();
+                        break;
+                    case R.id.bt_write:
+                        replaceFragment(new WritePageFragment());
+                        titleText.setText("作诗");
+                        mVisiable = false;
+                        invalidateOptionsMenu();
+                        break;
+                    case R.id.bt_shequ:
+                        replaceFragment(new CommunicatePageFragment());
+                        titleText.setText("交流");
+                        mVisiable = false;
+                        invalidateOptionsMenu();
+                        break;
+                    case R.id.bt_fun:
+                        replaceFragment(new FunPageFragment());
+                        titleText.setText("趣味");
+                        mVisiable = false;
+                        invalidateOptionsMenu();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.toolbar,menu);
+        searchMI = menu.findItem(R.id.search);
+        indexMI = menu.findItem(R.id.index);
+
+        if (mVisiable){
+            searchMI.setVisible(true);
+            indexMI.setVisible(true);
+        }else {
+            searchMI.setVisible(false);
+            indexMI.setVisible(false);
+        }
         return true;
     }
 
