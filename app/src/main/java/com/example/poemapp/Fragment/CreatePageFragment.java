@@ -28,6 +28,7 @@ import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by dell on 2019/3/19.
@@ -36,6 +37,8 @@ import java.util.List;
 public class CreatePageFragment extends Fragment {
     //全局声明
     private List<CreateDB> createDBList = new ArrayList<CreateDB>();
+    int N = 58;
+    String str = null;
     View view1,view2,view3;
     ViewPager viewPager;
     List<View> viewList;
@@ -118,9 +121,14 @@ public class CreatePageFragment extends Fragment {
 
     //给灵感相关
     private void giveTips() {
+
         tipButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Random random = new Random();
+                int randNum = random.nextInt(N);
+                str = createDBList.get(randNum).getCreateTips();
+                tipText.setText(str);
                 tipText.setVisibility(View.VISIBLE);
             }
         });
