@@ -44,6 +44,7 @@ public class InitCreateDB {
             createDB[i] = new CreateDB();
             createDB[i].setCreateTips(lineCreateTips);
             createDB[i].setCreatePBImageID(R.drawable.bg_biou);
+            createDB[i].setCreateFontImageID(R.drawable.bg_cengjing);
             createDB[i].save();
             //往下读
             lineCreateTips = bfCreateTips.readLine();

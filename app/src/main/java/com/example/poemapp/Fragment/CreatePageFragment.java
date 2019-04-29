@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.example.poemapp.Activity.MainActivity;
 import com.example.poemapp.Database.CreateDB;
+import com.example.poemapp.JavaClass.CreateCardFontAdapter;
 import com.example.poemapp.JavaClass.CreateCardPBAdapter;
 import com.example.poemapp.JavaClass.ViewPagerAdapter;
 import com.example.poemapp.R;
@@ -177,6 +178,16 @@ public class CreatePageFragment extends Fragment {
         paibanRecyclerView.setLayoutManager(layoutManager);
         CreateCardPBAdapter createCardPBAdapter = new CreateCardPBAdapter(createDBList,mcontext);
         paibanRecyclerView.setAdapter(createCardPBAdapter);
+
+        //字体
+        fontRecyclerView = view2.findViewById(R.id.font_recyclerview);
+        fontRecyclerView.setHasFixedSize(true);
+        fontRecyclerView.setNestedScrollingEnabled(false);
+        StaggeredGridLayoutManager layoutManager1 = new
+                StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
+        fontRecyclerView.setLayoutManager(layoutManager1);
+        CreateCardFontAdapter createCardFontAdapter = new CreateCardFontAdapter(createDBList,mcontext);
+        fontRecyclerView.setAdapter(createCardFontAdapter);
     }
 
     //临时数据初始化
