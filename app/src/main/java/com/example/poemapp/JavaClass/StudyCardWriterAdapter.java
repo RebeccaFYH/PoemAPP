@@ -29,7 +29,7 @@ import java.util.Random;
 
 public class StudyCardWriterAdapter extends RecyclerView.Adapter<StudyCardWriterAdapter.ViewHolder> {
     //声明
-    private static final int N = 20;
+    private static final int N = 19;
     private List<PoemDB> mwriterDBList;
     Context mcontext;
 

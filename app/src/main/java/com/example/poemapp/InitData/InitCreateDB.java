@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
  */
 
 public class InitCreateDB {
-    CreateDB createDB[] = new CreateDB[50];
+    CreateDB createDB[] = new CreateDB[100];
 
     public InitCreateDB(Context context)throws IOException {
         try {
@@ -39,11 +39,10 @@ public class InitCreateDB {
 
         lineCreateTips = bfCreateTips.readLine();
 
-        for (int i=1;lineCreateTips !=null;i++){
+        for (int i=0;lineCreateTips !=null;i++){
             createDB[i] = new CreateDB();
             createDB[i].setCreateTips(lineCreateTips);
             createDB[i].save();
-
             //往下读
             lineCreateTips = bfCreateTips.readLine();
         }

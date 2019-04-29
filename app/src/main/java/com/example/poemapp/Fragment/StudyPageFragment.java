@@ -67,8 +67,6 @@ public class StudyPageFragment extends Fragment {
         ViewPagerAdapter();
         PubuliuAdapter();
 
-
-
     }
 
 

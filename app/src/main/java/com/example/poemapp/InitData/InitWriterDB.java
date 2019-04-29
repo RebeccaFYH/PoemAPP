@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
  */
 
 public class InitWriterDB {
-    WriterDB writerDB[] = new WriterDB[100];
+    WriterDB writerDB[] = new WriterDB[30];
 
     public InitWriterDB(Context context) throws IOException {
         try {
@@ -47,7 +47,7 @@ public class InitWriterDB {
         lineWriterIntroduce = bfWriterIntroduce.readLine();
         lineWriterYear = bfWriterYear.readLine();
 
-        for (int i = 1; lineWriterName != null; i++) {
+        for (int i = 0; lineWriterName != null; i++) {
             writerDB[i] = new WriterDB();
             writerDB[i].setWriterName(lineWriterName);
             writerDB[i].setWriterIntroduce(lineWriterIntroduce);

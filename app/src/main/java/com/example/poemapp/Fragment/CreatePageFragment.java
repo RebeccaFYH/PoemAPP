@@ -15,8 +15,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.poemapp.Activity.MainActivity;
+import com.example.poemapp.Database.CreateDB;
 import com.example.poemapp.JavaClass.ViewPagerAdapter;
 import com.example.poemapp.R;
+
+import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +80,7 @@ public class CreatePageFragment extends Fragment {
         topicText = view1.findViewById(R.id.content_editText);
         content = contentText.getText().toString();
         topic = topicText.getText().toString();
-        sendContentMsg(content,topic);//传递创作的文字信息
+
 
         //获取活动
         MainActivity mainActivity = (MainActivity) getActivity();
@@ -99,11 +102,6 @@ public class CreatePageFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText(titleList.get(2)));
 
         giveTips();
-
-    }
-
-    //传递创作的文字信息
-    private void sendContentMsg(String content,String topic) {
 
     }
 

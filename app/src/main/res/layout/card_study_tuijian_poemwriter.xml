@@ -1,9 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="12dp"
-    android:layout_marginRight="12dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
     android:layout_marginTop="15dp"
     android:background="@drawable/shape_corner"
     android:elevation="4dp"
@@ -28,24 +29,76 @@
 
     </com.gcssloop.widget.RCRelativeLayout>
 
+        <!--<TextView-->
+            <!--android:id="@+id/writer_name"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="30dp"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:text="苏轼" />-->
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginLeft="10dp">
 
-        <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginRight="20dp"
-            android:background="@mipmap/nav_collection" />
+        <!--<TextView-->
+            <!--android:id="@+id/writer_story"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="30dp"-->
+            <!--android:text="    大名鼎鼎的东坡肉便是出自他之手 " />-->
 
-        <Button
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <ToggleButton
+            android:id="@+id/tb1"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@mipmap/nav_good" />
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/selecter_study_button"
+            android:textOn="@null"
+            android:textOff="@null"/>
+
+
+            <!--<Button-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:layout_marginRight="20dp"-->
+                <!--android:background="@mipmap/nav_collection" />-->
+            <ToggleButton
+                android:id="@+id/tb2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="80dp"
+                android:background="@drawable/selector_pinglun"
+                android:textOn="@null"
+                android:textOff="@null"/>
+
+            <!--<Button-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:background="@mipmap/nav_good" />-->
+            <ToggleButton
+                android:id="@+id/tb3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/selector_zhuanfa"
+                android:textOn="@null"
+                android:textOff="@null"/>
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
