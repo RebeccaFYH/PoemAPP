@@ -9,7 +9,12 @@ import org.litepal.crud.LitePalSupport;
 public class CreateDB extends LitePalSupport{
     private String createContent;
     private int createBGImageID;
+    private int createPBImageID;
+    private int createFontImageID;
     private String createTips;
+
+
+
 
     public String getCreateTips() {
         return createTips;
@@ -33,5 +38,21 @@ public class CreateDB extends LitePalSupport{
 
     public int getCreateBGImageID() {
         return createBGImageID;
+    }
+
+    public int getCreatePBImageID() {
+        return createPBImageID;
+    }
+
+    public void setCreatePBImageID(int createPBImageID) {
+        this.createPBImageID = createPBImageID;
+    }
+
+    public int getCreateFontImageID() {
+        return createFontImageID;
+    }
+
+    public void setCreateFontImageID(int createFontImageID) {
+        this.createFontImageID = createFontImageID;
     }
 }

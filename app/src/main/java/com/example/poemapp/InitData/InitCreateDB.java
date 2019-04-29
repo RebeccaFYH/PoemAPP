@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 
 import com.example.poemapp.Database.CreateDB;
+import com.example.poemapp.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -42,6 +43,7 @@ public class InitCreateDB {
         for (int i=0;lineCreateTips !=null;i++){
             createDB[i] = new CreateDB();
             createDB[i].setCreateTips(lineCreateTips);
+            createDB[i].setCreatePBImageID(R.drawable.bg_biou);
             createDB[i].save();
             //往下读
             lineCreateTips = bfCreateTips.readLine();

@@ -6,16 +6,21 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.poemapp.Activity.MainActivity;
 import com.example.poemapp.Database.CreateDB;
+import com.example.poemapp.JavaClass.CreateCardPBAdapter;
 import com.example.poemapp.JavaClass.ViewPagerAdapter;
 import com.example.poemapp.R;
 
@@ -30,6 +35,7 @@ import java.util.List;
 
 public class CreatePageFragment extends Fragment {
     //全局声明
+    private List<CreateDB> createDBList = new ArrayList<CreateDB>();
     View view1,view2,view3;
     ViewPager viewPager;
     List<View> viewList;
@@ -43,6 +49,8 @@ public class CreatePageFragment extends Fragment {
     ImageButton tipButton;
     String topic;
     String content;
+    RecyclerView paibanRecyclerView;
+    RecyclerView fontRecyclerView;
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -55,9 +63,12 @@ public class CreatePageFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        InitDateBase();
         InitView();//初始化控件
         ViewPagerAdapter();//滑块+界面适配器
+        RecyclerViewAdapter();
     }
+
 
     /**
      * 方法实现
@@ -67,7 +78,7 @@ public class CreatePageFragment extends Fragment {
         //获取布局控件id
         tabLayout = getActivity().findViewById(R.id.write_tablayout);
         viewPager = getActivity().findViewById(R.id.write_viewpager);
-        inflater = getActivity().getLayoutInflater();  //获得布局对象
+        inflater = getActivity().getLayoutInflater(); //获得布局对象
         view1 = inflater.inflate(R.layout.tab_chuangzuo,null);
         view2 = inflater.inflate(R.layout.tab_yangshi,null);
         view3 = inflater.inflate(R.layout.tab_peitu,null);
@@ -145,5 +156,23 @@ public class CreatePageFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+    }
+
+    //RecyclerView适配器
+    private void RecyclerViewAdapter() {
+        //排版
+        paibanRecyclerView = view2.findViewById(R.id.pb_recyclerview);
+        paibanRecyclerView.setHasFixedSize(true);
+        paibanRecyclerView.setNestedScrollingEnabled(false);
+        StaggeredGridLayoutManager layoutManager = new
+                StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
+        paibanRecyclerView.setLayoutManager(layoutManager);
+        CreateCardPBAdapter createCardPBAdapter = new CreateCardPBAdapter(createDBList,mcontext);
+        paibanRecyclerView.setAdapter(createCardPBAdapter);
+    }
+
+    //临时数据初始化
+    public void InitDateBase(){
+        createDBList = LitePal.findAll(CreateDB.class);
     }
 }

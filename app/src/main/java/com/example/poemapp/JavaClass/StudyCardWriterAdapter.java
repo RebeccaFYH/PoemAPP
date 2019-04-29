@@ -37,15 +37,10 @@ public class StudyCardWriterAdapter extends RecyclerView.Adapter<StudyCardWriter
     static class ViewHolder extends RecyclerView.ViewHolder {
         //声明
         ImageView writer_icon;
-        //TextView writer_name;
-        //TextView writer_story;
 
         public ViewHolder(View itemView) {
             super(itemView);
             writer_icon = (ImageView)itemView.findViewById(R.id.writer_icon);
-
-            //writer_name = (TextView)itemView.findViewById(R.id.writer_name);
-            //writer_story = (TextView)itemView.findViewById(R.id.writer_story);
         }
     }
 
@@ -70,8 +65,6 @@ public class StudyCardWriterAdapter extends RecyclerView.Adapter<StudyCardWriter
         int randNum = rand.nextInt(N);
         PoemDB poemDB = mwriterDBList.get(randNum);
         holder.writer_icon.setImageResource(poemDB.getPoemImageID());
-        //holder.writer_name.setText(poemDB.getPoemName());
-        //holder.writer_story.setText(poemDB.getPoemCotent());
 
 
         //点击事件
