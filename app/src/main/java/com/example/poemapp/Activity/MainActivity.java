@@ -11,14 +11,18 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
+import android.support.v7.widget.SwitchCompat;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.poemapp.Fragment.CommunicatePageFragment;
@@ -45,10 +49,8 @@ public class MainActivity extends BaseActivity {
     View headLayout;
     ImageView imageView;
     TextView titleText;
-    MenuItem searchMI;
-    MenuItem indexMI;
-    MenuItem finishMI;
-    MenuItem shareMI;
+    MenuItem searchMI,indexMI,finishMI,shareMI,moomMI;
+    Menu drawerMenu;
 
     //控制量
     private Boolean mVisiable = true;
@@ -174,6 +176,7 @@ public class MainActivity extends BaseActivity {
         }else if (mSwitch == 3){
             shareMI.setVisible(true);
         }
+
         return true;
     }
 
@@ -205,6 +208,22 @@ public class MainActivity extends BaseActivity {
 
     //左滑菜单响应
     public void drawerLayoutListener(){
+        //夜间开关
+        drawerMenu = navigationView.getMenu();
+        moomMI = drawerMenu.findItem(R.id.nav_moon);
+        Switch moomSwitch = (Switch) moomMI.getActionView();
+        moomSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    Log.d(String.valueOf(MainActivity.this),"夜间模式开启");
+                }else {
+                    Log.d(String.valueOf(MainActivity.this),"夜间模式关闭");
+                }
+            }
+        });
+
+        //左滑菜单按钮监听
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
