@@ -11,10 +11,9 @@ public class CreateDB extends LitePalSupport{
     private int createBGImageID;
     private int createPBImageID;
     private int createFontImageID;
+    private int createFJImageID;
+    private int createRWImageID;
     private String createTips;
-
-
-
 
     public String getCreateTips() {
         return createTips;
@@ -54,5 +53,21 @@ public class CreateDB extends LitePalSupport{
 
     public void setCreateFontImageID(int createFontImageID) {
         this.createFontImageID = createFontImageID;
+    }
+
+    public int getCreateFJImageID() {
+        return createFJImageID;
+    }
+
+    public void setCreateFJImageID(int createFJImageID) {
+        this.createFJImageID = createFJImageID;
+    }
+
+    public int getCreateRWImageID() {
+        return createRWImageID;
+    }
+
+    public void setCreateRWImageID(int createRWImageID) {
+        this.createRWImageID = createRWImageID;
     }
 }

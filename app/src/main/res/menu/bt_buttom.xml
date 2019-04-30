@@ -6,7 +6,7 @@
             android:title="诗学" />
 
         <item
-            android:id="@+id/bt_write"
+            android:id="@+id/bt_create"
             android:icon="@mipmap/nav_write"
             android:title="创作" />
 

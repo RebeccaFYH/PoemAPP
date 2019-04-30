@@ -43,8 +43,11 @@ public class InitCreateDB {
         for (int i=0;lineCreateTips !=null;i++){
             createDB[i] = new CreateDB();
             createDB[i].setCreateTips(lineCreateTips);
-            createDB[i].setCreatePBImageID(R.drawable.bg_biou);
-            createDB[i].setCreateFontImageID(R.drawable.bg_cengjing);
+            createDB[i].setCreatePBImageID(R.drawable.bg_biou); //排版
+            createDB[i].setCreateFontImageID(R.drawable.bg_cengjing);   //字体
+            createDB[i].setCreateBGImageID(R.drawable.bg_fengji);   //背景（推荐）
+            createDB[i].setCreateFJImageID(R.drawable.bg_modao);    //风景
+            createDB[i].setCreateRWImageID(R.drawable.bg_qiwu);     //人物
             createDB[i].save();
             //往下读
             lineCreateTips = bfCreateTips.readLine();

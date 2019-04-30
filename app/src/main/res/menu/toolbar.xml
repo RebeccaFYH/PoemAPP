@@ -4,13 +4,25 @@
     <item
         android:id="@+id/search"
         android:icon="@mipmap/nav_search"
-        android:title="Search"
+        android:title="搜索"
         app:showAsAction="always"/>
 
     <item
         android:id="@+id/index"
         android:icon="@mipmap/nav_fenlei"
-        android:title="Fenlei"
+        android:title="分类"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/finish"
+        android:iconTint="@android:color/black"
+        android:title="完成"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/share"
+        android:title="分享"
+        android:icon="@mipmap/nav_share"
         app:showAsAction="always"/>
 
 </menu>
