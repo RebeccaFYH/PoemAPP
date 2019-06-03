@@ -19,7 +19,7 @@ public class PoemDB extends LitePalSupport{
     private String poemKeyWord;
     private String poemFromBook;
     private String poemTab;
-    private String poemCotent;
+    private String poemContent;     //诗词全文
     private String poemWriterName;  //诗词作者（主码）
     private String poemCreateBackgrond; //诗词创作背景（联系集）
     private String poemCreateTime;  //诗词创作时期（联系集）
@@ -69,8 +69,8 @@ public class PoemDB extends LitePalSupport{
         return poemTranslation;
     }
 
-    public String getPoemCotent() {
-        return poemCotent;
+    public String getPoemContent() {
+        return poemContent;
     }
 
     public String getPoemCreateBackgrond() {
@@ -140,8 +140,8 @@ public class PoemDB extends LitePalSupport{
         this.poemTranslation = poemTranslation;
     }
 
-    public void setPoemCotent(String poemCotent) {
-        this.poemCotent = poemCotent;
+    public void setPoemContent(String poemContent) {
+        this.poemContent = poemContent;
     }
 
     public void setPoemCreateBackgrond(String poemCreateBackgrond) {

@@ -7,6 +7,13 @@
     <declare-styleable name="ButtonBarContainerTheme">
         <attr name="metaButtonBarStyle" format="reference" />
         <attr name="metaButtonBarButtonStyle" format="reference" />
+        <attr name="colorPrimary" format="color"/>
+        <attr name="colorPrimaryDark" format="color"/>
+        <attr name="colorAccent" format="color"/>
+        <attr name="colorControlActivated" format="color"/>
+        <attr name="backGround" format="color" />
+        <attr name="textColorwhite" format="color"/>
+        <attr name="textColorblack" format="color"/>
     </declare-styleable>
 
 </resources>

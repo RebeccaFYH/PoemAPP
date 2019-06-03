@@ -60,7 +60,7 @@ public class InitPoemDB {
             poemDB[i] = new PoemDB();
             poemDB[i].setPoemID(i);
             poemDB[i].setPoemName(linePoemName);
-            poemDB[i].setPoemCotent(linePoemContent);
+            poemDB[i].setPoemContent(linePoemContent);
             poemDB[i].setPoemKeyWord(linePoemKeyWord);
             poemDB[i].setPoemTranslation(linePoemTranslation);
             poemDB[i].setPoemZhushi(linePoemZhushi);

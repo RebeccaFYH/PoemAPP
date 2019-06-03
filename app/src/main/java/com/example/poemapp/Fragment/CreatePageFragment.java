@@ -30,6 +30,7 @@ import org.litepal.LitePal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Vector;
 
 /**
  * Created by dell on 2019/3/19.
@@ -52,18 +53,19 @@ public class CreatePageFragment extends Fragment {
     LayoutInflater inflater;
     TabLayout tabLayout,tabLayout1;
     Context mcontext;
-    TextView tipText;
+    TextView tipText,yangshiText;
     EditText topicText,contentText;
     ImageButton tipButton;
     String topic;
     String content;
     RecyclerView paibanRecyclerView,fontRecyclerView,
             tuijianRecyclerView,fengjingRecyclerView,renwuRecyclerView;
-    
+
+    //控制量
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_create,container,false);
-
         return view;
     }
 
@@ -117,6 +119,9 @@ public class CreatePageFragment extends Fragment {
         content = contentText.getText().toString();
         topic = topicText.getText().toString();
 
+        //------------------样式
+        yangshiText = view2.findViewById(R.id.yangshi_text);
+
         //------------------配图
         tabLayout1 = view3.findViewById(R.id.peitu_tablayout);
         peituViewPager = view3.findViewById(R.id.peitu_viewpager);
@@ -153,12 +158,24 @@ public class CreatePageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Random random = new Random();
-                int randNum = random.nextInt(N);
-                str = createDBList.get(randNum).getCreateTips();
-                str1 = createDBList.get(randNum).getCreateTips();
-                str2 = createDBList.get(randNum).getCreateTips();
-                str3 = createDBList.get(randNum).getCreateTips();
-                tipText.setText(str + str1 + str2 + str3);
+                Vector<Integer> randInt = new Vector<Integer>();
+                int count = 0;
+                while(count <4){
+                    int randNum = random.nextInt(N)+1;
+                    if(!randInt.contains(randNum)){
+                        randInt.add(randNum);
+                        count++;
+                    }
+
+                }
+
+                str = createDBList.get(randInt.get(0)).getCreateTips();
+                str1 = createDBList.get(randInt.get(1)).getCreateTips();
+                str2 = createDBList.get(randInt.get(2)).getCreateTips();
+                str3 = createDBList.get(randInt.get(3)).getCreateTips();
+
+                tipText.setText(str + " "+str1+" "+ str2+" " + str3);
+
                 tipText.setVisibility(View.VISIBLE);
             }
         });
@@ -242,6 +259,8 @@ public class CreatePageFragment extends Fragment {
 
         //推荐
         tuijianRecyclerView = tuijianView.findViewById(R.id.tj_recyclerview);
+        tuijianRecyclerView.setHasFixedSize(true);
+        tuijianRecyclerView.setNestedScrollingEnabled(false);
         StaggeredGridLayoutManager layoutManager2 = new
                 StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.HORIZONTAL);
         tuijianRecyclerView.setLayoutManager(layoutManager2);
@@ -250,6 +269,8 @@ public class CreatePageFragment extends Fragment {
 
         //风景
         fengjingRecyclerView = fengjingView.findViewById(R.id.fj_recyclerview);
+        fengjingRecyclerView.setHasFixedSize(true);
+        fengjingRecyclerView.setNestedScrollingEnabled(false);
         StaggeredGridLayoutManager layoutManager3 = new
                 StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.HORIZONTAL);
         fengjingRecyclerView.setLayoutManager(layoutManager3);
@@ -258,6 +279,8 @@ public class CreatePageFragment extends Fragment {
 
         //人物
         renwuRecyclerView = renwuView.findViewById(R.id.rw_recyclerview);
+        renwuRecyclerView.setHasFixedSize(true);
+        renwuRecyclerView.setNestedScrollingEnabled(false);
         StaggeredGridLayoutManager layoutManager4 = new
                 StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.HORIZONTAL);
         renwuRecyclerView.setLayoutManager(layoutManager4);
@@ -275,5 +298,7 @@ public class CreatePageFragment extends Fragment {
     public void reDrawToolbar() {
         mainActivity.setmSwitch(index);
     }
+
+    //监控数据
 
 }

@@ -11,12 +11,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.example.poemapp.Database.PoemDB;
 import com.example.poemapp.Fragment.PoemReadBJFragment;
 import com.example.poemapp.Fragment.PoemReadSXFragment;
 import com.example.poemapp.Fragment.PoemReadTSFragment;
@@ -24,6 +26,12 @@ import com.example.poemapp.Fragment.PoemReadYWFragment;
 import com.example.poemapp.Fragment.PoemReadZSFragment;
 import com.example.poemapp.JavaClass.BottomNavigationViewHelper;
 import com.example.poemapp.R;
+import com.gcssloop.widget.RCRelativeLayout;
+
+import org.litepal.LitePal;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReadPoemActivity extends AppCompatActivity {
     //功能性控件声明
@@ -152,6 +160,7 @@ public class ReadPoemActivity extends AppCompatActivity {
         transaction.replace(R.id.readpoem_setbg,fragment);
         transaction.commit();   //提交并结束事务
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){

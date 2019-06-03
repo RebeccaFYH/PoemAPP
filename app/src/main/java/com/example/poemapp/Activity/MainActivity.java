@@ -11,6 +11,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.SwitchCompat;
 import android.util.Log;
 import android.view.Menu;
@@ -58,6 +59,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        changeitem();
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
@@ -212,17 +214,29 @@ public class MainActivity extends BaseActivity {
         drawerMenu = navigationView.getMenu();
         moomMI = drawerMenu.findItem(R.id.nav_moon);
         Switch moomSwitch = (Switch) moomMI.getActionView();
-        moomSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    Log.d(String.valueOf(MainActivity.this),"夜间模式开启");
-                }else {
-                    Log.d(String.valueOf(MainActivity.this),"夜间模式关闭");
-                }
-            }
-        });
 
+
+        if (AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
+            moomSwitch.setChecked(true);
+
+        }
+        moomSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                                                  @Override
+                                                  public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                                      if (isChecked){
+                                                          AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                                                          restartApp();
+                                                          Log.d(String.valueOf(MainActivity.this),"夜间模式开启");
+                                                      }else {
+                                                          AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+                                                          restartApp();
+                                                          Log.d(String.valueOf(MainActivity.this),"夜间模式关闭");
+                                                      }
+                                                  }
+                                              }
+
+        );
         //左滑菜单按钮监听
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -275,6 +289,23 @@ public class MainActivity extends BaseActivity {
     public void setmSwitch(int index){
         mSwitch = index;
         invalidateOptionsMenu();
+    }
+
+    //夜间模式
+    private void changeitem() {
+        if(AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.DarkTheme);
+
+        }
+        else setTheme(R.style.AppTheme);
+
+    }
+    public void restartApp(){
+
+        Intent i=new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(i);
+        finish();
+
     }
 
 
