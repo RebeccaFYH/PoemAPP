@@ -16,6 +16,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -60,7 +62,7 @@ public class CreatePageFragment extends Fragment {
     Context mcontext;
     TextView tipText,yangshiText;
     EditText topicText,contentText;
-    ImageButton tipButton;
+    ImageButton tipButton,submitButton;
     String topic;
     String content;
     RecyclerView paibanRecyclerView,fontRecyclerView,
@@ -81,13 +83,20 @@ public class CreatePageFragment extends Fragment {
         mainActivity = (MainActivity) getActivity();//获得活动的实例
         mcontext = mainActivity;
 
-        //初始化UI数据管理对象
-        createPageViewModel = ViewModelProviders.of((FragmentActivity) mcontext).get(CreatePageViewModel.class);
-
         InitDateBase();//初始化数据
         InitView();//初始化控件
         ViewPagerAdapter();//滑块+界面适配器
         RecyclerViewAdapter();//循环视图适配器
+
+
+        //初始化UI数据管理对象及设置观察者
+        createPageViewModel = ViewModelProviders.of((FragmentActivity) mcontext).get(CreatePageViewModel.class);
+        createPageViewModel.getEditText().observe((LifecycleOwner) mcontext, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                yangshiText.setText(s);
+            }
+        });
     }
 
 
@@ -122,6 +131,7 @@ public class CreatePageFragment extends Fragment {
         //获取控件id
         //------------------创作
         tipButton = view1.findViewById(R.id.write_tip_button);
+        submitButton = view1.findViewById(R.id.submitButton);
         tipText = view1.findViewById(R.id.write_tips_text);
         contentText = view1.findViewById(R.id.topic_editText);
         topicText = view1.findViewById(R.id.content_editText);
@@ -139,6 +149,7 @@ public class CreatePageFragment extends Fragment {
         renwuView = inflater.inflate(R.layout.tab_create_peitu_rw,null);
 
         giveTips();
+        submitText();
         setPeituTab();
     }
 
@@ -159,6 +170,16 @@ public class CreatePageFragment extends Fragment {
         tabLayout1.addTab(tabLayout1.newTab().setText(peituList.get(1)));
         tabLayout1.addTab(tabLayout1.newTab().setText(peituList.get(2)));
 
+    }
+
+    //提交创作的文字
+    private void submitText() {
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createPageViewModel.addEditText(content);
+            }
+        });
     }
 
     //给灵感相关
