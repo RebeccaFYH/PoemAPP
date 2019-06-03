@@ -15,6 +15,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.example.poemapp.Activity.MainActivity;
 import com.example.poemapp.Database.CreateDB;
 import com.example.poemapp.JavaClass.CreateCardFJAdapter;
@@ -24,6 +28,7 @@ import com.example.poemapp.JavaClass.CreateCardRWAdapter;
 import com.example.poemapp.JavaClass.CreateCardTJAdapter;
 import com.example.poemapp.JavaClass.ViewPagerAdapter;
 import com.example.poemapp.R;
+import com.example.poemapp.ViewModel.CreatePageViewModel;
 
 import org.litepal.LitePal;
 
@@ -61,7 +66,8 @@ public class CreatePageFragment extends Fragment {
     RecyclerView paibanRecyclerView,fontRecyclerView,
             tuijianRecyclerView,fengjingRecyclerView,renwuRecyclerView;
 
-    //控制量
+    //UI数据管理对象
+    CreatePageViewModel createPageViewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -75,10 +81,13 @@ public class CreatePageFragment extends Fragment {
         mainActivity = (MainActivity) getActivity();//获得活动的实例
         mcontext = mainActivity;
 
-        InitDateBase();
+        //初始化UI数据管理对象
+        createPageViewModel = ViewModelProviders.of((FragmentActivity) mcontext).get(CreatePageViewModel.class);
+
+        InitDateBase();//初始化数据
         InitView();//初始化控件
         ViewPagerAdapter();//滑块+界面适配器
-        RecyclerViewAdapter();
+        RecyclerViewAdapter();//循环视图适配器
     }
 
 
