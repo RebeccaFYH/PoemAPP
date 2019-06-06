@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <android.support.v4.widget.NestedScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -16,7 +21,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="15dp"
                 android:layout_marginTop="10dp"
-                android:background="@android:color/holo_blue_dark"
+                android:background="@drawable/bg_create_ys"
                 android:text="@string/app_name" />
 
             <View
@@ -28,37 +33,37 @@
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/action_sign_in"
+                android:text="排版"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="5dp" />
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/pb_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="125dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/action_sign_in_short"
+                android:text="字体"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"/>
-            
-            <android.support.v7.widget.RecyclerView
+                android:layout_marginLeft="10dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/font_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="100dp"/>
+                android:layout_marginBottom="100dp" />
 
 
         </LinearLayout>
 
 
-
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
+</layout>

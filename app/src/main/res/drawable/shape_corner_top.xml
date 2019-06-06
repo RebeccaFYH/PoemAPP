@@ -3,13 +3,16 @@
     android:layout_height="wrap_content"
     android:layout_width="wrap_content">
 
-    <solid android:color="#FFFFFF" />
+    <solid android:color="#d9bea2" />
 
     <corners
         android:topLeftRadius="20dp"
         android:topRightRadius="20dp"/>
 
-    <stroke android:color="#000000"/>
+    <stroke android:width="1dp"/>
+    <stroke android:color="#99000000"/>
+
+
 
 
 </shape>

@@ -2,23 +2,16 @@ package com.example.poemapp.JavaClass;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageView;
 
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.poemapp.Activity.ReadPoemActivity;
 import com.example.poemapp.Database.PoemDB;
 import com.example.poemapp.R;
-import com.gcssloop.widget.RCRelativeLayout;
 
 import java.util.List;
 import java.util.Random;
@@ -62,7 +55,7 @@ public class StudyCardWriterAdapter extends RecyclerView.Adapter<StudyCardWriter
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Random rand = new Random();
-        int randNum = rand.nextInt(N);
+        final int randNum = rand.nextInt(N);
         PoemDB poemDB = mwriterDBList.get(randNum);
         holder.writer_icon.setImageResource(poemDB.getPoemImageID());
 
@@ -72,6 +65,7 @@ public class StudyCardWriterAdapter extends RecyclerView.Adapter<StudyCardWriter
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mcontext, ReadPoemActivity.class);
+                intent.putExtra("poemId",randNum);
                 mcontext.startActivity(intent);
             }
         });

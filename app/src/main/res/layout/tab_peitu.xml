@@ -16,13 +16,13 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/bg_modao"/>
 
-        <android.support.design.widget.TabLayout
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/peitu_tablayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"/>
 
-        <android.support.v4.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
             android:id="@+id/peitu_viewpager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

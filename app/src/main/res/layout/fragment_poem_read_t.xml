@@ -10,6 +10,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="asdfsdfsd" />
+        android:paddingTop="40dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="80dp"
+        android:textSize="20sp"
+        android:text="听诗布局标记比较编辑毕竟不仅不禁北京不见本届悲剧保健不久不就并将" />
+
 
 </LinearLayout>

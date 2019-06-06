@@ -1,5 +1,7 @@
 package com.example.poemapp.ViewModel;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -13,13 +15,14 @@ public class CreatePageViewModel extends ViewModel {
     //获取文字
     public MutableLiveData<String> getEditText() {
         if (editText == null){
-            editText = new MutableLiveData<>();
-            editText.setValue("");
+            editText = new MutableLiveData<String>();
+            editText.setValue("请输入文字");
         }
         return editText;
     }
     //用户添加方法
     public void addEditText(String str){
-        editText.setValue(getEditText() + str);
+        editText.setValue(str);
     }
+
 }

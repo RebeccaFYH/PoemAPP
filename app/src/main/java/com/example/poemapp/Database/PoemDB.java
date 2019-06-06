@@ -9,17 +9,17 @@ import org.litepal.crud.LitePalSupport;
 public class PoemDB extends LitePalSupport{
     private int poemImageID;
     private int poemID;
-    private String poemName;
-    private String poemZhushi;
-    private String poemTranslation;
-    private String poemAppreciation;
+    private String poemName;            //诗名
+    private String poemZhushi;          //注释
+    private String poemTranslation;     //译文
+    private String poemAppreciation;    //赏析
     private String poemSpot;
     private String poemPTRadioPath; //普通话音频路径
     private String poemFYRadioPath; //方言音频路径
     private String poemKeyWord;
     private String poemFromBook;
     private String poemTab;
-    private String poemContent;     //诗词全文
+    private String poemContent;         //诗文内容
     private String poemWriterName;  //诗词作者（主码）
     private String poemCreateBackgrond; //诗词创作背景（联系集）
     private String poemCreateTime;  //诗词创作时期（联系集）

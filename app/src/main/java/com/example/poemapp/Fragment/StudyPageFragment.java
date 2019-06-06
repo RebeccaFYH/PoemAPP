@@ -2,20 +2,17 @@ package com.example.poemapp.Fragment;
 
 
 import android.content.Context;
-import android.media.Image;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.DisplayMetrics;
-import android.util.Log;
+import androidx.annotation.Nullable;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.example.poemapp.Activity.MainActivity;
 import com.example.poemapp.Database.MiniClassDB;
@@ -24,7 +21,6 @@ import com.example.poemapp.JavaClass.StudyCardVideoAdapter;
 import com.example.poemapp.JavaClass.StudyCardWriterAdapter;
 import com.example.poemapp.JavaClass.ViewPagerAdapter;
 import com.example.poemapp.R;
-import com.gcssloop.widget.RCRelativeLayout;
 
 import org.litepal.LitePal;
 

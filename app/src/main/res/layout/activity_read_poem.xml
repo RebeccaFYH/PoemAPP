@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="#d9bea2"
     android:orientation="vertical"
     tools:context="com.example.poemapp.Activity.ReadPoemActivity">
@@ -11,25 +10,41 @@
     <FrameLayout
         android:id="@+id/readpoem_layout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/poem_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:paddingTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:scrollbars="none"
+            android:text="水调歌头"
+            android:textColor="#000000"
+            android:textSize="30dp"/>
 
         <TextView
             android:id="@+id/readpoem_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="?attr/actionBarSize"
-            android:layout_marginTop="?attr/actionBarSize"
+            android:layout_height="545dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="80dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:paddingTop="20dp"
             android:scrollbars="none"
-            android:text="诗词标题明月几时有？把酒问青天。不知天上宫阙，今夕是何年。我欲乘风归去，又恐琼楼玉宇，高处不胜寒。起舞弄清影，何似在人间。 转朱阁，低绮户，照无眠。不应有恨，何事长向别时圆？人有悲欢离合，月有阴晴圆缺，此事古难全。但愿人长久，千里共婵娟。
-            横看成岭侧成峰，远近高低各不同。 不识庐山真面目，只缘身在此山中。
-            风急天高猿啸哀，渚清沙白鸟飞回。无边落木萧萧下，不尽长江滚滚来。万里悲秋常作客，百年多病独登台。艰难苦恨繁霜鬓，潦倒新停浊酒杯。
-            床前明月光，疑是地上霜。举头望明月，低头思故乡。"
+            android:singleLine="false"
+            android:text="明月几时有？把酒问青天。"
             android:textColor="#000000"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:lineSpacingMultiplier="1.5"
+            android:textSize="22sp" />
+
     </FrameLayout>
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/readpoem_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -37,30 +52,57 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/readpoem_bottomtoolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@android:color/background_light"
-        app:menu="@menu/bt_readpoem_buttom" />
+
+
+
+    <!--
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/readpoem_bottomtoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@android:color/background_light"
+            app:menu="@menu/bt_readpoem_buttom" />
+    -->
+
 
     <FrameLayout
         android:id="@+id/readpoem_setbg"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="380dp"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="?attr/actionBarSize"
+        android:background="@drawable/shadow"
         android:visibility="gone">
+
+        <TextView
+            android:id="@+id/readpoem_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="80dp"
+            android:singleLine="false"
+            android:textSize="20sp"
+            android:lineSpacingMultiplier="1.2"
+            android:text="赏析布局标记比较编辑毕竟不仅不禁北京不见本届悲剧保健不久不就并将明月几时有？把酒问青天。不知天上宫阙，今夕是何年。我欲乘风归去，又恐琼楼玉宇，高处不胜寒。起舞弄清影，何似在人间。 转朱阁，低绮户，照无眠。不应有恨，何事长向别时圆？人有悲欢离合，月有阴晴圆缺，此事古难全。但愿人长久，千里共婵娟。
+            横看成岭侧成峰，远近高低各不同。 不识庐山真面目，只缘身在此山中。
+            风急天高猿啸哀，渚清沙白鸟飞回。无边落木萧萧下，不尽长江滚滚来。万里悲秋常作客，百年多病独登台。艰难苦恨繁霜鬓，潦倒新停浊酒杯。
+            床前明月光，疑是地上霜。举头望明月，低头思故乡。" />
 
         <Button
             android:id="@+id/readpoem_setbgclose"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="right|top"
-            android:background="@mipmap/nav_close" />
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/nav_close"
+            android:elevation="4dp"/>
 
     </FrameLayout>
+
+    <include layout="@layout/bt_poem_detail" />
 
 
 </FrameLayout>

@@ -1,7 +1,13 @@
 package com.example.poemapp.JavaClass;
 
+import android.app.Activity;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +15,7 @@ import android.widget.ImageView;
 
 import com.example.poemapp.Database.CreateDB;
 import com.example.poemapp.R;
+import com.example.poemapp.databinding.TabYangshiBinding;
 
 import java.util.List;
 
@@ -20,6 +27,10 @@ public class CreateCardFontAdapter extends RecyclerView.Adapter<CreateCardFontAd
     //声明
     private List<CreateDB> createDBS;
     Context mcontext;
+    TabYangshiBinding binding;
+    AssetManager mgr;   //初始数据管理对象
+    Typeface tf;    //字体
+    LayoutInflater layoutInflater;
 
     //内部类ViewHolder，避免重复加载布局
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -36,6 +47,8 @@ public class CreateCardFontAdapter extends RecyclerView.Adapter<CreateCardFontAd
     public CreateCardFontAdapter(List<CreateDB> createDBList,Context context){
         createDBS = createDBList;
         mcontext = context;
+
+        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -43,6 +56,9 @@ public class CreateCardFontAdapter extends RecyclerView.Adapter<CreateCardFontAd
         View view = LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.rv_font,parent,false);
         ViewHolder holder = new ViewHolder(view);
+
+
+        binding = DataBindingUtil.inflate(layoutInflater,R.layout.tab_yangshi,parent,false);
         return holder;
     }
 
@@ -50,6 +66,33 @@ public class CreateCardFontAdapter extends RecyclerView.Adapter<CreateCardFontAd
     public void onBindViewHolder(ViewHolder holder, int position) {
         CreateDB createDB = createDBS.get(position);
         holder.font_image.setImageResource(createDB.getCreateFontImageID());
+
+        //点击事件
+        holder.font_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (position){
+                    case 0:
+                        tf = Typeface.createFromAsset(mgr,"zhenhun.ttf");
+                        binding.yangshiText.setTypeface(tf);
+                        break;
+                    case 1:
+                        tf = Typeface.createFromAsset(mgr,"shoujin.ttf");
+                        binding.yangshiText.setTypeface(tf);
+                        break;
+                    case 2:
+                        tf = Typeface.createFromAsset(mgr,"kaishu.ttf");
+                        binding.yangshiText.setTypeface(tf);
+                        break;
+                    case 3:
+                        tf = Typeface.createFromAsset(mgr,"heiti.ttf");
+                        binding.yangshiText.setTypeface(tf);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
     }
 
     @Override

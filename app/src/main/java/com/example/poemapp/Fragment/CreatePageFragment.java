@@ -1,25 +1,30 @@
 package com.example.poemapp.Fragment;
 
 import android.content.Context;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
+import android.renderscript.Sampler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.poemapp.Activity.MainActivity;
 import com.example.poemapp.Database.CreateDB;
@@ -62,9 +67,8 @@ public class CreatePageFragment extends Fragment {
     Context mcontext;
     TextView tipText,yangshiText;
     EditText topicText,contentText;
-    ImageButton tipButton,submitButton;
-    String topic;
-    String content;
+    ImageButton tipButton;
+    Editable topic,content;
     RecyclerView paibanRecyclerView,fontRecyclerView,
             tuijianRecyclerView,fengjingRecyclerView,renwuRecyclerView;
 
@@ -131,12 +135,11 @@ public class CreatePageFragment extends Fragment {
         //获取控件id
         //------------------创作
         tipButton = view1.findViewById(R.id.write_tip_button);
-        submitButton = view1.findViewById(R.id.submitButton);
         tipText = view1.findViewById(R.id.write_tips_text);
-        contentText = view1.findViewById(R.id.topic_editText);
-        topicText = view1.findViewById(R.id.content_editText);
-        content = contentText.getText().toString();
-        topic = topicText.getText().toString();
+        topicText = view1.findViewById(R.id.topic_editText);
+        contentText = view1.findViewById(R.id.content_editText);
+
+        topic = topicText.getText();
 
         //------------------样式
         yangshiText = view2.findViewById(R.id.yangshi_text);
@@ -174,13 +177,26 @@ public class CreatePageFragment extends Fragment {
 
     //提交创作的文字
     private void submitText() {
-        submitButton.setOnClickListener(new View.OnClickListener() {
+
+        contentText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                createPageViewModel.addEditText(content);
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.i("CreatePageFragment","之前");
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.i("CreatePageFragment","之后");
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                content = contentText.getText();
+                createPageViewModel.addEditText(content.toString());
             }
         });
     }
+
 
     //给灵感相关
     private void giveTips() {

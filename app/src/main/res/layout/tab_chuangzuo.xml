@@ -37,6 +37,7 @@
         android:layout_alignLeft="@+id/imageView2"
         android:layout_alignStart="@+id/imageView2"
         android:layout_below="@+id/imageView2"
+        android:inputType="textPhonetic"
         android:background="@drawable/edittext_bg"/>
 
     <ImageView
@@ -66,6 +67,7 @@
         android:layout_alignLeft="@+id/imageView3"
         android:layout_alignStart="@+id/imageView3"
         android:layout_below="@+id/imageView3"
+        android:inputType="textPhonetic"
         android:background="@drawable/edittext_bg"/>
 
     <ImageButton
@@ -100,23 +102,5 @@
         android:text="提示词"
         android:background="@mipmap/icon_image"
         android:visibility="gone"/>
-
-    <ImageButton
-        android:id="@+id/submitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/write_tips_text"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="380dp"
-        android:layout_marginEnd="328dp"
-        android:layout_marginRight="328dp"
-        android:layout_marginBottom="313dp"
-        app:srcCompat="@android:drawable/checkbox_on_background" />
 
 </RelativeLayout>

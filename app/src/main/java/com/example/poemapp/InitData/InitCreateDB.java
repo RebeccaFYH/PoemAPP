@@ -43,8 +43,7 @@ public class InitCreateDB {
         for (int i=0;lineCreateTips !=null;i++){
             createDB[i] = new CreateDB();
             createDB[i].setCreateTips(lineCreateTips);
-            createDB[i].setCreatePBImageID(R.drawable.bg_biou); //排版
-            createDB[i].setCreateFontImageID(R.drawable.bg_cengjing);   //字体
+            createDB[i].setCreatePBImageID(R.drawable.bg_biou);     //排版
             createDB[i].setCreateBGImageID(R.drawable.bg_fengji);   //背景（推荐）
             createDB[i].setCreateFJImageID(R.drawable.bg_modao);    //风景
             createDB[i].setCreateRWImageID(R.drawable.bg_qiwu);     //人物
@@ -52,7 +51,18 @@ public class InitCreateDB {
             //往下读
             lineCreateTips = bfCreateTips.readLine();
         }
-
+        initFontImageID();
+    }
+    //初始化字体预览图
+    private void initFontImageID() {
+        createDB[0].setCreateFontImageID(R.mipmap.font_zh);
+        createDB[0].save();
+        createDB[1].setCreateFontImageID(R.mipmap.font_sj);
+        createDB[1].save();
+        createDB[2].setCreateFontImageID(R.mipmap.font_ks);
+        createDB[2].save();
+        createDB[3].setCreateFontImageID(R.mipmap.font_ht);
+        createDB[3].save();
     }
 
 }
