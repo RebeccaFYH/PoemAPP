@@ -47,7 +47,7 @@ public class CreateCardFontAdapter extends RecyclerView.Adapter<CreateCardFontAd
     public CreateCardFontAdapter(List<CreateDB> createDBList,Context context){
         createDBS = createDBList;
         mcontext = context;
-
+        mgr = context.getAssets();
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -56,7 +56,6 @@ public class CreateCardFontAdapter extends RecyclerView.Adapter<CreateCardFontAd
         View view = LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.rv_font,parent,false);
         ViewHolder holder = new ViewHolder(view);
-
 
         binding = DataBindingUtil.inflate(layoutInflater,R.layout.tab_yangshi,parent,false);
         return holder;
@@ -85,7 +84,7 @@ public class CreateCardFontAdapter extends RecyclerView.Adapter<CreateCardFontAd
                         binding.yangshiText.setTypeface(tf);
                         break;
                     case 3:
-                        tf = Typeface.createFromAsset(mgr,"heiti.ttf");
+                        tf = Typeface.createFromAsset(mgr,"heiti.otf");
                         binding.yangshiText.setTypeface(tf);
                         break;
                     default:
