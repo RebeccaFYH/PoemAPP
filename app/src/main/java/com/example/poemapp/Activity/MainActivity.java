@@ -2,18 +2,27 @@ package com.example.poemapp.Activity;
 
 import android.content.Intent;
 import androidx.annotation.NonNull;
+
+import com.example.poemapp.databinding.TabPeituBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBar;
+
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import androidx.appcompat.widget.Toolbar;
@@ -35,6 +44,7 @@ import com.example.poemapp.JavaClass.BottomNavigationViewHelper;
 import com.example.poemapp.R;
 
 
+import java.time.temporal.TemporalAccessor;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -48,9 +58,11 @@ public class MainActivity extends BaseActivity {
     CircleImageView circleImageView;
     View headLayout;
     ImageView imageView;
-    TextView titleText;
+    TextView titleText,finishText;
     MenuItem searchMI,indexMI,finishMI,shareMI,moomMI;
     Menu drawerMenu;
+    LayoutInflater layoutInflater;
+    View view;
 
     //控制量
     private Boolean mVisiable = true;
@@ -63,7 +75,6 @@ public class MainActivity extends BaseActivity {
 
         setContentView(R.layout.activity_main);
         replaceFragment(new StudyPageFragment());
-
 
         //调用控件
         initView();
@@ -79,6 +90,9 @@ public class MainActivity extends BaseActivity {
     //控件实现
     public void initView(){
         //获取控件id
+        layoutInflater = getLayoutInflater();
+        view = layoutInflater.inflate(R.layout.tab_peitu,null);
+        finishText = view.findViewById(R.id.peitu_text);
         toolbar = findViewById(R.id.study_toolbar);
         drawerLayout = findViewById(R.id.study_drawerlayout);
         navigationView = findViewById(R.id.zuohua_menu);
@@ -198,6 +212,7 @@ public class MainActivity extends BaseActivity {
             case R.id.finish:
                 setmSwitch(3);
                 replaceFragment(new CreatePageFinishFragment());
+                viewConversionBitmap(finishText);
                 break;
             case R.id.share:
                 break;
@@ -304,6 +319,29 @@ public class MainActivity extends BaseActivity {
         Intent i=new Intent(getApplicationContext(),MainActivity.class);
         startActivity(i);
         finish();
+
+    }
+
+    //将View转化为BMP图片
+    public Bitmap viewConversionBitmap(View v) {
+        int w = v.getWidth();
+        int h = v.getHeight();
+
+        if (w!=0 && h!=0){
+
+            Bitmap bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+            Canvas c = new Canvas(bmp);
+            c.drawColor(Color.WHITE);
+
+            /** 如果不设置canvas画布为白色，则生成透明 */
+
+            v.layout(0, 0, w, h);
+            v.draw(c);
+
+            return bmp;
+        }else {
+            return null;
+        }
 
     }
 

@@ -9,6 +9,6 @@
         android:id="@+id/peitu_fj_imageview"
         android:layout_width="100dp"
         android:layout_height="125dp"
-        android:scaleType="centerCrop"/>
+        android:layout_marginRight="5dp" />
 
 </LinearLayout>

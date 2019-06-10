@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    android:background="#e3e3e3"
+    android:background="@drawable/shape_corner"
+    android:elevation="4dp"
     android:orientation="vertical">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+    <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -34,31 +35,34 @@
                     android:text="你好呀"
                     android:textSize="22sp"
                     android:textStyle="bold" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical">
+    <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="20dp"
+         android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/communicate_post_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
                     android:text="哦！我的朋友~NicetoMeetU"
                     android:textSize="16sp" />
 
-                <ImageView
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/line2" />
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#000000"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -77,18 +81,22 @@
                     <ToggleButton
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginLeft="80dp"
-                        android:background="@drawable/selecter_study_button" />
+                        android:layout_marginLeft="100dp"
+                        android:background="@drawable/selecter_study_button"
+                        android:textOn="@null"
+                        android:textOff="@null"/>
 
                     <ToggleButton
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="10dp"
-                        android:background="@mipmap/nav_msg" />
+                        android:background="@mipmap/nav_msg"
+                        android:textOn="@null"
+                        android:textOff="@null"/>
 
                 </LinearLayout>
 
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+            </LinearLayout>
 
-</androidx.appcompat.widget.LinearLayoutCompat >
+</LinearLayout >

@@ -31,6 +31,12 @@
         android:layout_height="30dp"
         android:paddingLeft="30dp"
         android:textStyle="bold"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="?attr/colorPrimary"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -41,18 +47,21 @@
         <Button
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginBottom="5dp"
             android:background="@mipmap/nav_collection" />
 
         <Button
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="right"
+            android:layout_marginBottom="5dp"
             android:background="@mipmap/nav_good" />
 
         <Button
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="right"
+            android:layout_marginBottom="5dp"
             android:layout_marginRight="40dp"
             android:background="@mipmap/nav_msg" />
     </FrameLayout>

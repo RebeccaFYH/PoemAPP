@@ -21,8 +21,9 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="15dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/bg_create_ys"
+                android:background="@drawable/bg_poem_read"
                 android:padding="30dp"
+                android:textSize="20sp"
                 android:text="请输入您的灵感文字~"/>
 
             <View

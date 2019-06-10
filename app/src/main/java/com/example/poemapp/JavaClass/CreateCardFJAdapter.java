@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.poemapp.Database.CreateDB;
 import com.example.poemapp.R;
@@ -33,7 +34,7 @@ public class CreateCardFJAdapter extends RecyclerView.Adapter<CreateCardFJAdapte
     }
 
     //构造方法
-    public CreateCardFJAdapter(List<CreateDB> createDBList,Context context){
+    public CreateCardFJAdapter(List<CreateDB> createDBList, Context context, TextView peituText){
         createDBS = createDBList;
         mcontext = context;
     }

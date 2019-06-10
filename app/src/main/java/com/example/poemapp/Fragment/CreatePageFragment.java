@@ -3,6 +3,11 @@ package com.example.poemapp.Fragment;
 import android.content.Context;
 import com.google.android.material.tabs.TabLayout;
 import androidx.fragment.app.Fragment;
+
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
@@ -63,12 +68,14 @@ public class CreatePageFragment extends Fragment {
     LayoutInflater inflater;
     TabLayout tabLayout,tabLayout1;
     Context mcontext;
-    TextView tipText,yangshiText;
+    TextView tipText,yangshiText,peituText;
     EditText topicText,contentText;
     Button tipButton;
     Editable topic,content;
     RecyclerView paibanRecyclerView,fontRecyclerView,
             tuijianRecyclerView,fengjingRecyclerView,renwuRecyclerView;
+    CreateCardFontAdapter createCardFontAdapter;
+    CreateCardPBAdapter createCardPBAdapter;
 
     //UI数据管理对象
     CreatePageViewModel createPageViewModel;
@@ -97,6 +104,13 @@ public class CreatePageFragment extends Fragment {
             @Override
             public void onChanged(String s) {
                 yangshiText.setText(s);
+                peituText.setText(s);
+            }
+        });
+        createPageViewModel.getEditTf().observe((LifecycleOwner) mcontext, new Observer<Typeface>() {
+            @Override
+            public void onChanged(Typeface typeface) {
+                peituText.setTypeface(typeface);
             }
         });
     }
@@ -143,6 +157,7 @@ public class CreatePageFragment extends Fragment {
         yangshiText = view2.findViewById(R.id.yangshi_text);
 
         //------------------配图
+        peituText = view3.findViewById(R.id.peitu_text);
         tabLayout1 = view3.findViewById(R.id.peitu_tablayout);
         peituViewPager = view3.findViewById(R.id.peitu_viewpager);
         tuijianView = inflater.inflate(R.layout.tab_create_peitu_tj,null);
@@ -195,7 +210,6 @@ public class CreatePageFragment extends Fragment {
         });
     }
 
-
     //给灵感相关
     private void giveTips() {
         tipButton.setOnClickListener(new View.OnClickListener() {
@@ -241,6 +255,7 @@ public class CreatePageFragment extends Fragment {
             public void onPageSelected(int position) {
                 index = position;
                 reDrawToolbar();
+                updateTypeface();
             }
 
             @Override
@@ -288,7 +303,7 @@ public class CreatePageFragment extends Fragment {
         StaggeredGridLayoutManager layoutManager = new
                 StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
         paibanRecyclerView.setLayoutManager(layoutManager);
-        CreateCardPBAdapter createCardPBAdapter = new CreateCardPBAdapter(createDBList,mcontext,yangshiText);
+        createCardPBAdapter = new CreateCardPBAdapter(createDBList,mcontext,yangshiText,peituText);
         paibanRecyclerView.setAdapter(createCardPBAdapter);
 
         //字体
@@ -298,7 +313,7 @@ public class CreatePageFragment extends Fragment {
         StaggeredGridLayoutManager layoutManager1 = new
                 StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
         fontRecyclerView.setLayoutManager(layoutManager1);
-        CreateCardFontAdapter createCardFontAdapter = new CreateCardFontAdapter(createDBList,mcontext,yangshiText);
+        createCardFontAdapter = new CreateCardFontAdapter(createDBList,mcontext,yangshiText);
         fontRecyclerView.setAdapter(createCardFontAdapter);
 
         //推荐
@@ -308,7 +323,7 @@ public class CreatePageFragment extends Fragment {
         StaggeredGridLayoutManager layoutManager2 = new
                 StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.HORIZONTAL);
         tuijianRecyclerView.setLayoutManager(layoutManager2);
-        CreateCardTJAdapter createCardTJAdapter = new CreateCardTJAdapter(createDBList,mcontext);
+        CreateCardTJAdapter createCardTJAdapter = new CreateCardTJAdapter(createDBList,mcontext,peituText);
         tuijianRecyclerView.setAdapter(createCardTJAdapter);
 
         //风景
@@ -318,7 +333,7 @@ public class CreatePageFragment extends Fragment {
         StaggeredGridLayoutManager layoutManager3 = new
                 StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.HORIZONTAL);
         fengjingRecyclerView.setLayoutManager(layoutManager3);
-        CreateCardFJAdapter createCardFJAdapter = new CreateCardFJAdapter(createDBList,mcontext);
+        CreateCardFJAdapter createCardFJAdapter = new CreateCardFJAdapter(createDBList,mcontext,peituText);
         fengjingRecyclerView.setAdapter(createCardFJAdapter);
 
         //人物
@@ -328,7 +343,7 @@ public class CreatePageFragment extends Fragment {
         StaggeredGridLayoutManager layoutManager4 = new
                 StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.HORIZONTAL);
         renwuRecyclerView.setLayoutManager(layoutManager4);
-        CreateCardRWAdapter createCardRWAdapter = new CreateCardRWAdapter(createDBList,mcontext);
+        CreateCardRWAdapter createCardRWAdapter = new CreateCardRWAdapter(createDBList,mcontext,peituText);
         renwuRecyclerView.setAdapter(createCardRWAdapter);
 
     }
@@ -343,6 +358,10 @@ public class CreatePageFragment extends Fragment {
         mainActivity.setmSwitch(index);
     }
 
-    //监控数据
+    //获得字体类型并更新
+    private void updateTypeface(){
+        createPageViewModel.addTypeface(createCardFontAdapter.getTypeface());
+    }
+
 
 }

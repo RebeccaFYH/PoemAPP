@@ -1,5 +1,8 @@
 package com.example.poemapp.Fragment;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -23,4 +26,5 @@ public class CreatePageFinishFragment extends Fragment {
 
 
     }
+
 }

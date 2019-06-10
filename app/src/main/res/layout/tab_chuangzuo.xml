@@ -34,8 +34,9 @@
 
     <EditText
         android:id="@+id/topic_editText"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:layout_marginRight="36dp"
         android:layout_alignLeft="@+id/imageView2"
         android:layout_alignStart="@+id/imageView2"
         android:layout_below="@+id/imageView2"
@@ -66,12 +67,14 @@
 
     <EditText
         android:id="@+id/content_editText"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_marginRight="36dp"
         android:layout_alignLeft="@+id/imageView3"
         android:layout_alignStart="@+id/imageView3"
         android:layout_below="@+id/imageView3"
         android:inputType="textPhonetic"
+        android:gravity="start"
         android:background="@drawable/create_editcontent"/>
 
     <Button
@@ -91,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/write_tip_button"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="20dp"
         android:layout_toLeftOf="@+id/write_tip_button"
         android:layout_toStartOf="@+id/write_tip_button"
         android:gravity="center"

@@ -24,7 +24,7 @@ public class CreateCardPBAdapter extends RecyclerView.Adapter<CreateCardPBAdapte
     //声明
     private List<CreateDB> createDBS;
     Context mcontext;
-    TextView textView;
+    TextView textView,textView1;
 
     //内部类ViewHolder，避免重复加载布局
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -38,10 +38,12 @@ public class CreateCardPBAdapter extends RecyclerView.Adapter<CreateCardPBAdapte
     }
 
     //构造方法
-    public CreateCardPBAdapter(List<CreateDB> createDBList, Context context, TextView yangshiText){
+    public CreateCardPBAdapter(List<CreateDB> createDBList,
+                               Context context, TextView yangshiText,TextView paibanText){
         createDBS = createDBList;
         mcontext = context;
         textView = yangshiText;
+        textView1 = paibanText;
     }
 
     @Override
@@ -64,16 +66,19 @@ public class CreateCardPBAdapter extends RecyclerView.Adapter<CreateCardPBAdapte
                 switch (position){
                     case 0:
                         textView.setGravity(Gravity.RIGHT);
-                        Log.i("CreateCardPBAdapter","右上");
+                        textView1.setGravity(Gravity.RIGHT);
                         break;
                     case 1:
-                        Log.i("CreateCardPBAdapter","左下");
+                        textView.setGravity(Gravity.LEFT|Gravity.BOTTOM);
+                        textView1.setGravity(Gravity.LEFT|Gravity.BOTTOM);
                         break;
                     case 2:
-                        Log.i("CreateCardPBAdapter","中");
+                        textView.setGravity(Gravity.CENTER);
+                        textView1.setGravity(Gravity.CENTER);
                         break;
                     case 3:
-                        Log.i("CreateCardPBAdapter","默认横");
+                        textView.setGravity(Gravity.LEFT);
+                        textView1.setGravity(Gravity.LEFT);
                         break;
                         default:
                             break;
@@ -86,6 +91,7 @@ public class CreateCardPBAdapter extends RecyclerView.Adapter<CreateCardPBAdapte
     public int getItemCount() {
         return createDBS.size();
     }
+
 
 
 }

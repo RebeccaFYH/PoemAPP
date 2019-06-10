@@ -99,4 +99,8 @@ public class CreateCardFontAdapter extends RecyclerView.Adapter<CreateCardFontAd
     public int getItemCount() {
         return createDBS.size();
     }
+
+    public Typeface getTypeface(){
+        return tf;
+    }
 }

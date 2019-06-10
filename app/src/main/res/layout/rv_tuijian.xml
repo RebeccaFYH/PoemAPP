@@ -8,6 +8,7 @@
     <ImageView
         android:id="@+id/peitu_tj_imageview"
         android:layout_width="100dp"
-        android:layout_height="125dp" />
+        android:layout_height="125dp"
+        android:layout_marginRight="5dp"/>
 
 </LinearLayout>

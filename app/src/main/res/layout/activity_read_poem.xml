@@ -7,11 +7,25 @@
     android:orientation="vertical"
     tools:context="com.example.poemapp.Activity.ReadPoemActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="诗词标题"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="#000000"/>
+    </androidx.appcompat.widget.Toolbar>
+
     <FrameLayout
         android:id="@+id/readpoem_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
+
 
         <TextView
             android:id="@+id/poem_name"

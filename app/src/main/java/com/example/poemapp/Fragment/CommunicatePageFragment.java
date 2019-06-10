@@ -15,9 +15,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.poemapp.Activity.MainActivity;
+import com.example.poemapp.Database.CommunicateFunDB;
 import com.example.poemapp.Database.PoemDB;
 import com.example.poemapp.Database.PostDB;
 import com.example.poemapp.JavaClass.CommunicateCardFriendAdapter;
+import com.example.poemapp.JavaClass.CommunicateCardFunAdapter;
 import com.example.poemapp.JavaClass.StudyCardVideoAdapter;
 import com.example.poemapp.JavaClass.StudyCardWriterAdapter;
 import com.example.poemapp.JavaClass.ViewPagerAdapter;
@@ -25,6 +27,7 @@ import com.example.poemapp.R;
 import com.google.android.material.tabs.TabLayout;
 
 import org.litepal.LitePal;
+import org.litepal.crud.LitePalSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +39,7 @@ import java.util.List;
 public class CommunicatePageFragment extends Fragment {
     //全局声明
     private List<PostDB> postDBList = new ArrayList<PostDB>();
+    private List<CommunicateFunDB> communicateFunDBList = new ArrayList<CommunicateFunDB>();
     List<View> viewList;
     List<String> titleList,leixingList,paixuList;
     View view1,view2;
@@ -43,8 +47,7 @@ public class CommunicatePageFragment extends Fragment {
     LayoutInflater inflater;
     TabLayout tabLayout;
     Context mcontext;
-    RecyclerView recyclerView;
-    RecyclerView recyclerView1;
+    RecyclerView recyclerView,recyclerView1;
     Spinner spinner1,spinner2;
     ArrayAdapter<String> arrayAdapter1,arrayAdapter2;
 
@@ -119,7 +122,7 @@ public class CommunicatePageFragment extends Fragment {
         paixuList.add("评论最多");
         arrayAdapter2 = new ArrayAdapter<String>(mcontext,
                 R.layout.support_simple_spinner_dropdown_item,paixuList);
-        spinner1.setAdapter(arrayAdapter2);
+        spinner2.setAdapter(arrayAdapter2);
     }
 
     //滑块+界面适配器
@@ -156,11 +159,19 @@ public class CommunicatePageFragment extends Fragment {
         CommunicateCardFriendAdapter adapter1 = new CommunicateCardFriendAdapter(postDBList, mcontext);
         recyclerView.setAdapter(adapter1);
 
+        //诗乐园
+        recyclerView1 = view2.findViewById(R.id.communicate_fun_recyclerview);
+        StaggeredGridLayoutManager layoutManager1 = new
+                StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL);
+        recyclerView1.setLayoutManager(layoutManager1);
+        CommunicateCardFunAdapter adapter2 = new CommunicateCardFunAdapter(communicateFunDBList,mcontext);
+        recyclerView1.setAdapter(adapter2);
     }
 
     //数据初始化
     private void InitDateBase() {
         postDBList = LitePal.findAll(PostDB.class);
+        communicateFunDBList = LitePal.findAll(CommunicateFunDB.class);
 
     }
 

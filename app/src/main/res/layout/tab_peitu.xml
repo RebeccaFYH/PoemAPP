@@ -9,12 +9,16 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="250dp"
+        <TextView
+            android:id="@+id/peitu_text"
+            android:layout_width="257dp"
             android:layout_height="300dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/bg_modao"/>
+            android:padding="30dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_poem_read"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/peitu_tablayout"
