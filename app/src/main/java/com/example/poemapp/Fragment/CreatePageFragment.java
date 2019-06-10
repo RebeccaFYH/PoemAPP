@@ -7,15 +7,12 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import android.renderscript.Sampler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -300,7 +297,7 @@ public class CreatePageFragment extends Fragment {
         StaggeredGridLayoutManager layoutManager1 = new
                 StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
         fontRecyclerView.setLayoutManager(layoutManager1);
-        CreateCardFontAdapter createCardFontAdapter = new CreateCardFontAdapter(createDBList,mcontext);
+        CreateCardFontAdapter createCardFontAdapter = new CreateCardFontAdapter(createDBList,mcontext,yangshiText);
         fontRecyclerView.setAdapter(createCardFontAdapter);
 
         //推荐

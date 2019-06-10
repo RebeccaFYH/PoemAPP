@@ -44,7 +44,6 @@ public class InitCreateDB {
             createDB[i] = new CreateDB();
             createDB[i].setCreateTips(lineCreateTips);
             createDB[i].setCreatePBImageID(R.drawable.bg_biou);     //排版
-            createDB[i].setCreateBGImageID(R.drawable.bg_fengji);   //背景（推荐）
             createDB[i].setCreateFJImageID(R.drawable.bg_modao);    //风景
             createDB[i].setCreateRWImageID(R.drawable.bg_qiwu);     //人物
             createDB[i].save();
@@ -52,7 +51,45 @@ public class InitCreateDB {
             lineCreateTips = bfCreateTips.readLine();
         }
         initFontImageID();
+        initBGImageID();
+        initPBImageID();
     }
+    //初始化排版预览图
+    private void initPBImageID() {
+        createDB[0].setCreatePBImageID(R.drawable.bgyl_01);
+        createDB[0].save();
+        createDB[1].setCreatePBImageID(R.drawable.bgyl_02);
+        createDB[1].save();
+        createDB[2].setCreatePBImageID(R.drawable.bgyl_03);
+        createDB[2].save();
+        createDB[3].setCreatePBImageID(R.drawable.bgyl_04);
+        createDB[3].save();
+    }
+
+    //初始化背景预览图
+    private void initBGImageID() {
+        createDB[0].setCreateBGImageID(R.drawable.bg_10);
+        createDB[0].save();
+        createDB[1].setCreateBGImageID(R.drawable.bg_11);
+        createDB[1].save();
+        createDB[2].setCreateBGImageID(R.drawable.bg_12);
+        createDB[2].save();
+        createDB[3].setCreateBGImageID(R.drawable.bg_13);
+        createDB[3].save();
+        createDB[4].setCreateBGImageID(R.drawable.bg_14);
+        createDB[4].save();
+        createDB[5].setCreateBGImageID(R.drawable.bg_15);
+        createDB[5].save();
+        createDB[6].setCreateBGImageID(R.drawable.bg_16);
+        createDB[6].save();
+        createDB[7].setCreateBGImageID(R.drawable.bg_17);
+        createDB[7].save();
+        createDB[8].setCreateBGImageID(R.drawable.bg_18);
+        createDB[8].save();
+        createDB[9].setCreateBGImageID(R.drawable.bg_19);
+        createDB[9].save();
+    }
+
     //初始化字体预览图
     private void initFontImageID() {
         createDB[0].setCreateFontImageID(R.mipmap.font_zh);
@@ -64,5 +101,6 @@ public class InitCreateDB {
         createDB[3].setCreateFontImageID(R.mipmap.font_ht);
         createDB[3].save();
     }
+
 
 }

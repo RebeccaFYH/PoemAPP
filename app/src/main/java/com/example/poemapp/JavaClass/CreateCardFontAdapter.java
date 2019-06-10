@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.poemapp.Database.CreateDB;
 import com.example.poemapp.R;
@@ -31,6 +32,7 @@ public class CreateCardFontAdapter extends RecyclerView.Adapter<CreateCardFontAd
     AssetManager mgr;   //初始数据管理对象
     Typeface tf;    //字体
     LayoutInflater layoutInflater;
+    TextView mtextView;
 
     //内部类ViewHolder，避免重复加载布局
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -44,11 +46,12 @@ public class CreateCardFontAdapter extends RecyclerView.Adapter<CreateCardFontAd
     }
 
     //构造方法
-    public CreateCardFontAdapter(List<CreateDB> createDBList,Context context){
+    public CreateCardFontAdapter(List<CreateDB> createDBList,Context context,TextView textView){
         createDBS = createDBList;
         mcontext = context;
         mgr = context.getAssets();
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mtextView = textView;
     }
 
     @Override
@@ -73,19 +76,19 @@ public class CreateCardFontAdapter extends RecyclerView.Adapter<CreateCardFontAd
                 switch (position){
                     case 0:
                         tf = Typeface.createFromAsset(mgr,"zhenhun.ttf");
-                        binding.yangshiText.setTypeface(tf);
+                        mtextView.setTypeface(tf);
                         break;
                     case 1:
                         tf = Typeface.createFromAsset(mgr,"shoujin.ttf");
-                        binding.yangshiText.setTypeface(tf);
+                        mtextView.setTypeface(tf);
                         break;
                     case 2:
                         tf = Typeface.createFromAsset(mgr,"kaishu.ttf");
-                        binding.yangshiText.setTypeface(tf);
+                        mtextView.setTypeface(tf);
                         break;
                     case 3:
                         tf = Typeface.createFromAsset(mgr,"heiti.otf");
-                        binding.yangshiText.setTypeface(tf);
+                        mtextView.setTypeface(tf);
                         break;
                     default:
                         break;

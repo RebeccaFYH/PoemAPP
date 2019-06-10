@@ -8,15 +8,15 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="36dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="33dp"
-        app:srcCompat="@mipmap/nav_write" />
+        app:srcCompat="@mipmap/nav_create" />
 
     <TextView
         android:id="@+id/textView2"
@@ -42,13 +42,13 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/topic_editText"
         android:layout_marginTop="12dp"
         android:layout_toLeftOf="@+id/textView2"
         android:layout_toStartOf="@+id/textView2"
-        app:srcCompat="@mipmap/nav_write" />
+        app:srcCompat="@mipmap/nav_create" />
 
     <TextView
         android:id="@+id/textView3"

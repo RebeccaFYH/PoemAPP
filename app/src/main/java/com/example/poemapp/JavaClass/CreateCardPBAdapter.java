@@ -2,6 +2,8 @@ package com.example.poemapp.JavaClass;
 
 import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +52,29 @@ public class CreateCardPBAdapter extends RecyclerView.Adapter<CreateCardPBAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         CreateDB createDB = createDBS.get(position);
         holder.pb_image.setImageResource(createDB.getCreatePBImageID());
+
+        //点击事件
+        holder.pb_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (position){
+                    case 0:
+                        Log.i("CreateCardPBAdapter","右上");
+                        break;
+                    case 1:
+                        Log.i("CreateCardPBAdapter","左下");
+                        break;
+                    case 2:
+                        Log.i("CreateCardPBAdapter","中");
+                        break;
+                    case 3:
+                        Log.i("CreateCardPBAdapter","默认横");
+                        break;
+                        default:
+                            break;
+                }
+            }
+        });
     }
 
     @Override

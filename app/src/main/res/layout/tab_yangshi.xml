@@ -26,8 +26,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#8e8d8d" />
+                android:layout_height="wrap_content"
+                android:background="@drawable/line" />
 
             <TextView
                 android:id="@+id/textView5"
