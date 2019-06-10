@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -64,7 +65,7 @@ public class CreatePageFragment extends Fragment {
     Context mcontext;
     TextView tipText,yangshiText;
     EditText topicText,contentText;
-    ImageButton tipButton;
+    Button tipButton;
     Editable topic,content;
     RecyclerView paibanRecyclerView,fontRecyclerView,
             tuijianRecyclerView,fengjingRecyclerView,renwuRecyclerView;
@@ -287,7 +288,7 @@ public class CreatePageFragment extends Fragment {
         StaggeredGridLayoutManager layoutManager = new
                 StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
         paibanRecyclerView.setLayoutManager(layoutManager);
-        CreateCardPBAdapter createCardPBAdapter = new CreateCardPBAdapter(createDBList,mcontext);
+        CreateCardPBAdapter createCardPBAdapter = new CreateCardPBAdapter(createDBList,mcontext,yangshiText);
         paibanRecyclerView.setAdapter(createCardPBAdapter);
 
         //字体

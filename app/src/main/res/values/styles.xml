@@ -3,10 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#FFFF7348</item>
-        <item name="colorPrimaryDark">#FFFF7348</item>
-        <item name="colorAccent">#FFFF7348</item>
-        <item name="colorControlActivated">#FFFF7348</item>
+        <item name="colorPrimary">#bd584c</item>
+        <item name="colorPrimaryDark">#bd584c</item>
+        <item name="colorAccent">#bd584c</item>
+        <item name="colorControlActivated">#bd584c</item>
         <item name="backGround">#ffffffff</item>
         <item name="textColorwhite">#ffffffff</item>
         <item name="textColorblack">#000000</item>

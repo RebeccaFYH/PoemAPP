@@ -43,9 +43,7 @@ public class InitCreateDB {
         for (int i=0;lineCreateTips !=null;i++){
             createDB[i] = new CreateDB();
             createDB[i].setCreateTips(lineCreateTips);
-            createDB[i].setCreatePBImageID(R.drawable.bg_biou);     //排版
             createDB[i].setCreateFJImageID(R.drawable.bg_modao);    //风景
-            createDB[i].setCreateRWImageID(R.drawable.bg_qiwu);     //人物
             createDB[i].save();
             //往下读
             lineCreateTips = bfCreateTips.readLine();
@@ -53,7 +51,28 @@ public class InitCreateDB {
         initFontImageID();
         initBGImageID();
         initPBImageID();
+        initRWImageID();
     }
+    //初始化人物预览图
+    private void initRWImageID() {
+        createDB[0].setCreateRWImageID(R.drawable.bgchara_01);
+        createDB[0].save();
+        createDB[1].setCreateRWImageID(R.drawable.bgchara_02);
+        createDB[1].save();
+        createDB[2].setCreateRWImageID(R.drawable.bgchara_03);
+        createDB[2].save();
+        createDB[3].setCreateRWImageID(R.drawable.bgchara_04);
+        createDB[3].save();
+        createDB[4].setCreateRWImageID(R.drawable.bgchara_05);
+        createDB[4].save();
+        createDB[5].setCreateRWImageID(R.drawable.bgchara_06);
+        createDB[5].save();
+        createDB[6].setCreateRWImageID(R.drawable.bgchara_07);
+        createDB[6].save();
+        createDB[7].setCreateRWImageID(R.drawable.bgchara_08);
+        createDB[7].save();
+    }
+
     //初始化排版预览图
     private void initPBImageID() {
         createDB[0].setCreatePBImageID(R.drawable.bgyl_01);

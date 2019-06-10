@@ -28,7 +28,6 @@ public class CreateCardFontAdapter extends RecyclerView.Adapter<CreateCardFontAd
     //声明
     private List<CreateDB> createDBS;
     Context mcontext;
-    TabYangshiBinding binding;
     AssetManager mgr;   //初始数据管理对象
     Typeface tf;    //字体
     LayoutInflater layoutInflater;
@@ -60,7 +59,6 @@ public class CreateCardFontAdapter extends RecyclerView.Adapter<CreateCardFontAd
                 inflate(R.layout.rv_font,parent,false);
         ViewHolder holder = new ViewHolder(view);
 
-        binding = DataBindingUtil.inflate(layoutInflater,R.layout.tab_yangshi,parent,false);
         return holder;
     }
 

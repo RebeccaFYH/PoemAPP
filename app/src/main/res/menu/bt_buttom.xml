@@ -12,7 +12,7 @@
 
         <item
             android:id="@+id/bt_shequ"
-            android:icon="@mipmap/nav_shequ"
+            android:icon="@mipmap/nav_friend"
             android:title="诗社" />
 
         <item

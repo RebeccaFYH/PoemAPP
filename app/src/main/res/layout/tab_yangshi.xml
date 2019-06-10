@@ -22,7 +22,8 @@
                 android:layout_marginBottom="15dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_create_ys"
-                android:text="@string/app_name" />
+                android:padding="30dp"
+                android:text="请输入您的灵感文字~"/>
 
             <View
                 android:layout_width="match_parent"

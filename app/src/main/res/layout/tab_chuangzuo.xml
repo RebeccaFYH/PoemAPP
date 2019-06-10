@@ -28,7 +28,9 @@
         android:layout_toEndOf="@+id/imageView2"
         android:layout_toRightOf="@+id/imageView2"
         android:text="主题"
-        android:textSize="20sp" />
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorPrimary"/>
 
     <EditText
         android:id="@+id/topic_editText"
@@ -38,7 +40,7 @@
         android:layout_alignStart="@+id/imageView2"
         android:layout_below="@+id/imageView2"
         android:inputType="textPhonetic"
-        android:background="@drawable/edittext_bg"/>
+        android:background="@drawable/create_edittopic"/>
 
     <ImageView
         android:id="@+id/imageView3"
@@ -58,7 +60,9 @@
         android:layout_alignLeft="@+id/textView2"
         android:layout_alignStart="@+id/textView2"
         android:text="内容"
-        android:textSize="20sp" />
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorPrimary" />
 
     <EditText
         android:id="@+id/content_editText"
@@ -68,39 +72,31 @@
         android:layout_alignStart="@+id/imageView3"
         android:layout_below="@+id/imageView3"
         android:inputType="textPhonetic"
-        android:background="@drawable/edittext_bg"/>
+        android:background="@drawable/create_editcontent"/>
 
-    <ImageButton
+    <Button
         android:id="@+id/write_tip_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:layout_alignEnd="@+id/content_editText"
         android:layout_alignRight="@+id/content_editText"
         android:layout_below="@+id/content_editText"
-        app:srcCompat="@drawable/ic_notifications_black_24dp" />
+        android:background="@drawable/bt_dect"
+        android:text="灵感"/>
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/write_tip_button"
-        android:layout_marginBottom="6dp"
-        android:layout_toLeftOf="@+id/write_tip_button"
-        android:layout_toStartOf="@+id/write_tip_button"
-        android:text="来点灵感"
-        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/write_tips_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView4"
+        android:layout_below="@+id/write_tip_button"
         android:layout_marginTop="75dp"
-        android:layout_toLeftOf="@+id/textView4"
-        android:layout_toStartOf="@+id/textView4"
+        android:layout_toLeftOf="@+id/write_tip_button"
+        android:layout_toStartOf="@+id/write_tip_button"
         android:gravity="center"
         android:text="提示词"
-        android:background="@mipmap/icon_image"
+        android:background="@drawable/bt_dect"
         android:visibility="gone"/>
 
 </RelativeLayout>
