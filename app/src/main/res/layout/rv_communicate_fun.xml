@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:elevation="4dp">
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_corner"
+    android:elevation="4dp"
+    android:layout_margin="10dp">
 
     <TextView
         android:id="@+id/communicate_fun_leixing_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
+        android:gravity="center"
         android:text="诗词接龙"
-        android:textSize="20sp" />
+        android:textSize="12sp"
+        android:textColor="#000000"
+        android:background="@mipmap/bg_label"/>
 
     <TextView
         android:id="@+id/communicate_fun_title"
@@ -21,7 +25,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:text="顺接——“把酒问青天”"
-        android:textSize="26sp"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="17sp"
         android:textStyle="bold"/>
 
     <View
@@ -36,18 +41,20 @@
 
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/communicate_fun_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="10dp"
+            android:textColor="?attr/colorPrimary"
             android:text="2019.04.20" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/communicate_fun_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="80dp"
+            android:textColor="?attr/colorPrimary"
             android:text="19:33" />
 
         <ToggleButton

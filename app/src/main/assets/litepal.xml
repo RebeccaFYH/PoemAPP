@@ -11,6 +11,8 @@
         <mapping class="com.example.poemapp.Database.CreateDB"/>
         <mapping class="com.example.poemapp.Database.PostDB"/>
         <mapping class="com.example.poemapp.Database.CommunicateFunDB"/>
+        <mapping class="com.example.poemapp.Database.NameDB"/>
+        <mapping class="com.example.poemapp.Database.UserMakeDB"/>
     </list>
 
 </litepal>

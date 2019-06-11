@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_study_fragement">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:gravity="center"
+        android:background="@drawable/shape_corner_bottom">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="类型"
-            android:textSize="20sp"
+            android:textSize="16sp"
+            android:textColor="#000000"
             android:textStyle="bold"
             android:layout_marginRight="10dp"/>
 
@@ -28,7 +31,8 @@
             android:layout_height="wrap_content"
             android:text="排序"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textSize="16sp"
             android:layout_marginRight="10dp"/>
 
         <androidx.appcompat.widget.AppCompatSpinner
@@ -40,9 +44,8 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/communicate_fun_recyclerview"
+        android:id="@+id/rv_communicate_fun"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

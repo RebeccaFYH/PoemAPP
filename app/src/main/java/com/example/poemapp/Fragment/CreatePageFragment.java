@@ -4,9 +4,6 @@ import android.content.Context;
 import com.google.android.material.tabs.TabLayout;
 import androidx.fragment.app.Fragment;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
@@ -26,17 +23,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.poemapp.Activity.MainActivity;
 import com.example.poemapp.Database.CreateDB;
-import com.example.poemapp.JavaClass.CreateCardFJAdapter;
-import com.example.poemapp.JavaClass.CreateCardFontAdapter;
-import com.example.poemapp.JavaClass.CreateCardPBAdapter;
-import com.example.poemapp.JavaClass.CreateCardRWAdapter;
-import com.example.poemapp.JavaClass.CreateCardTJAdapter;
-import com.example.poemapp.JavaClass.ViewPagerAdapter;
+import com.example.poemapp.Adapter.CreateCardFJAdapter;
+import com.example.poemapp.Adapter.CreateCardFontAdapter;
+import com.example.poemapp.Adapter.CreateCardPBAdapter;
+import com.example.poemapp.Adapter.CreateCardRWAdapter;
+import com.example.poemapp.Adapter.CreateCardTJAdapter;
+import com.example.poemapp.Adapter.ViewPagerAdapter;
 import com.example.poemapp.R;
 import com.example.poemapp.ViewModel.CreatePageViewModel;
 
@@ -190,6 +186,23 @@ public class CreatePageFragment extends Fragment {
 
     //提交创作的文字
     private void submitText() {
+        topicText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.i("CreatePageFragment","之前");
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.i("CreatePageFragment","之后");
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                topic = topicText.getText();
+                createPageViewModel.addTopicText(topic.toString());
+            }
+        });
 
         contentText.addTextChangedListener(new TextWatcher() {
             @Override

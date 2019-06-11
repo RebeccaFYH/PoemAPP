@@ -41,15 +41,12 @@ public class WelcomeActivity extends BaseActivity {
 
         //判断是否第一次打开app
         if(isFirstRun){
-            editor.putBoolean("isFirstRun", false);
+            editor.putBoolean("isFirstRun", true);
             editor.commit();
 
             try {
                 InitPoemDB initPoemDB = new InitPoemDB(this);
                 InitWriterDB initWriterDB = new InitWriterDB(this);
-                InitCreateDB initCreateDB = new InitCreateDB(this);
-                InitPostDB initPostDB = new InitPostDB(this);
-                InitCommuicateFunDB initCommuicateFunDB = new InitCommuicateFunDB(this);
             } catch (IOException e) {
                 e.printStackTrace();
             }

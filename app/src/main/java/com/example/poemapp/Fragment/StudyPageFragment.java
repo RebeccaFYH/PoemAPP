@@ -4,6 +4,7 @@ package com.example.poemapp.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
+
 import com.google.android.material.tabs.TabLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -17,9 +18,9 @@ import android.view.ViewGroup;
 import com.example.poemapp.Activity.MainActivity;
 import com.example.poemapp.Database.MiniClassDB;
 import com.example.poemapp.Database.PoemDB;
-import com.example.poemapp.JavaClass.StudyCardVideoAdapter;
-import com.example.poemapp.JavaClass.StudyCardWriterAdapter;
-import com.example.poemapp.JavaClass.ViewPagerAdapter;
+import com.example.poemapp.Adapter.StudyCardVideoAdapter;
+import com.example.poemapp.Adapter.StudyCardWriterAdapter;
+import com.example.poemapp.Adapter.ViewPagerAdapter;
 import com.example.poemapp.R;
 
 import org.litepal.LitePal;
@@ -45,6 +46,7 @@ public class StudyPageFragment extends Fragment {
     Context mcontext;
     RecyclerView recyclerView;
     RecyclerView recyclerView1;
+
 
 
     @Override
@@ -136,7 +138,7 @@ public class StudyPageFragment extends Fragment {
         //微课堂
         recyclerView1 = view2.findViewById(R.id.study_video_recycler_view);
         StaggeredGridLayoutManager layoutManager1 = new
-                StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+                StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL);
         recyclerView1.setLayoutManager(layoutManager1);
         StudyCardVideoAdapter studyCardVideoAdapter = new StudyCardVideoAdapter(miniClassDBList,mcontext);
         recyclerView1.setAdapter(studyCardVideoAdapter);

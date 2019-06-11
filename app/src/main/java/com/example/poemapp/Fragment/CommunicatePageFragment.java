@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
@@ -16,18 +16,14 @@ import android.widget.Spinner;
 
 import com.example.poemapp.Activity.MainActivity;
 import com.example.poemapp.Database.CommunicateFunDB;
-import com.example.poemapp.Database.PoemDB;
 import com.example.poemapp.Database.PostDB;
-import com.example.poemapp.JavaClass.CommunicateCardFriendAdapter;
-import com.example.poemapp.JavaClass.CommunicateCardFunAdapter;
-import com.example.poemapp.JavaClass.StudyCardVideoAdapter;
-import com.example.poemapp.JavaClass.StudyCardWriterAdapter;
-import com.example.poemapp.JavaClass.ViewPagerAdapter;
+import com.example.poemapp.Adapter.CommunicateCardFriendAdapter;
+import com.example.poemapp.Adapter.CommunicateCardFunAdapter;
+import com.example.poemapp.Adapter.ViewPagerAdapter;
 import com.example.poemapp.R;
 import com.google.android.material.tabs.TabLayout;
 
 import org.litepal.LitePal;
-import org.litepal.crud.LitePalSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -153,16 +149,14 @@ public class CommunicatePageFragment extends Fragment {
     public void PubuliuAdapter(){
         //诗友圈
         recyclerView = view1.findViewById(R.id.rv_communicate_friend);
-        StaggeredGridLayoutManager layoutManager = new
-                StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(mcontext);
         recyclerView.setLayoutManager(layoutManager);
         CommunicateCardFriendAdapter adapter1 = new CommunicateCardFriendAdapter(postDBList, mcontext);
         recyclerView.setAdapter(adapter1);
 
         //诗乐园
-        recyclerView1 = view2.findViewById(R.id.communicate_fun_recyclerview);
-        StaggeredGridLayoutManager layoutManager1 = new
-                StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL);
+        recyclerView1 = view2.findViewById(R.id.rv_communicate_fun);
+        LinearLayoutManager layoutManager1 = new LinearLayoutManager(mcontext);
         recyclerView1.setLayoutManager(layoutManager1);
         CommunicateCardFunAdapter adapter2 = new CommunicateCardFunAdapter(communicateFunDBList,mcontext);
         recyclerView1.setAdapter(adapter2);

@@ -24,9 +24,13 @@
 
         <Button
             android:id="@+id/through"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
             android:layout_gravity="bottom|right"
+            android:background="@drawable/bt_dect"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="?attr/colorPrimary"
             android:text="跳过" />
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,7 +26,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="学诗"/>
+                android:text="诗学" />
 
         </androidx.appcompat.widget.Toolbar>
 

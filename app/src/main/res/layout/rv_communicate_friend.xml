@@ -3,28 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="10dp"
     android:background="@drawable/shape_corner"
     android:elevation="4dp"
     android:orientation="vertical">
 
     <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
 
-                <com.gcssloop.widget.RCRelativeLayout
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginLeft="30dp"
-                    app:round_as_circle="true">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@mipmap/icon_image" />
-
-                </com.gcssloop.widget.RCRelativeLayout>
+                    android:src="@mipmap/icon_image" />
 
                 <TextView
                     android:id="@+id/communicate_user_name"

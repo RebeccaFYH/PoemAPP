@@ -108,13 +108,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="80dp"
+                android:layout_marginRight="150dp"
                 android:text="DIY市集" />
 
             <Button
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:background="@mipmap/nav_back" />
+                android:background="@mipmap/nav_backright" />
         </LinearLayout>
 
         <View
@@ -125,9 +125,9 @@
             android:background="?attr/colorPrimary" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:padding="20dp" />
+            android:id="@+id/rv_fun_diy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

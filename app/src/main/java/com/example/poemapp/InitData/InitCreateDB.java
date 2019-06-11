@@ -43,16 +43,37 @@ public class InitCreateDB {
         for (int i=0;lineCreateTips !=null;i++){
             createDB[i] = new CreateDB();
             createDB[i].setCreateTips(lineCreateTips);
-            createDB[i].setCreateFJImageID(R.drawable.bg_modao);    //风景
             createDB[i].save();
             //往下读
             lineCreateTips = bfCreateTips.readLine();
         }
+        initFJImageID();
         initFontImageID();
         initBGImageID();
         initPBImageID();
         initRWImageID();
     }
+    //初始化风景预览图
+    private void initFJImageID() {
+        createDB[0].setCreateFJImageID(R.drawable.bg_001);
+        createDB[0].save();
+        createDB[1].setCreateFJImageID(R.drawable.bg_002);
+        createDB[1].save();
+        createDB[2].setCreateFJImageID(R.drawable.bg_003);
+        createDB[2].save();
+        createDB[3].setCreateFJImageID(R.drawable.bg_004);
+        createDB[3].save();
+        createDB[4].setCreateFJImageID(R.drawable.bg_005);
+        createDB[4].save();
+        createDB[5].setCreateFJImageID(R.drawable.bg_006);
+        createDB[5].save();
+        createDB[6].setCreateFJImageID(R.drawable.bg_007);
+        createDB[6].save();
+        createDB[7].setCreateFJImageID(R.drawable.bg_008);
+        createDB[7].save();
+
+    }
+
     //初始化人物预览图
     private void initRWImageID() {
         createDB[0].setCreateRWImageID(R.drawable.bgchara_01);

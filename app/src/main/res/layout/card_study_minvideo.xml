@@ -16,12 +16,17 @@
         app:round_corner_top_left="20dp"
         app:round_corner_top_right="20dp">
     
-        <ImageView
-            android:id="@+id/minivideo"
+        <!--<ImageView-->
+            <!--android:id="@+id/minivideo"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:scaleType="centerCrop"-->
+            <!--android:background="@drawable/header" />-->
+
+        <VideoView
+            android:id="@+id/video_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:background="@drawable/header" />
+            android:layout_height="200dp"/>
 
     </com.gcssloop.widget.RCRelativeLayout>
 
@@ -31,12 +36,6 @@
         android:layout_height="30dp"
         android:paddingLeft="30dp"
         android:textStyle="bold"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="?attr/colorPrimary"/>
 
     <FrameLayout
         android:layout_width="match_parent"
