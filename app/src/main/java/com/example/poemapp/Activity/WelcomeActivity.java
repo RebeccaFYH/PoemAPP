@@ -47,6 +47,7 @@ public class WelcomeActivity extends BaseActivity {
             try {
                 InitPoemDB initPoemDB = new InitPoemDB(this);
                 InitWriterDB initWriterDB = new InitWriterDB(this);
+                InitPostDB initPostDB = new InitPostDB(this);
             } catch (IOException e) {
                 e.printStackTrace();
             }

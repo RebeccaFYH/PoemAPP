@@ -16,15 +16,22 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         android:label=" " />
 
-    <ListView
-        android:id="@+id/search_result"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/search_resultAll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <include layout="@layout/lv_search_result_poem"
+                android:id="@+id/group_01"/>
 
-    </ListView>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/search_all"

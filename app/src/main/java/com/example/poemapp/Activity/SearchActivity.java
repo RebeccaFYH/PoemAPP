@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ import com.example.poemapp.R;
 import org.litepal.FluentQuery;
 import org.litepal.LitePal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -91,7 +93,7 @@ public class SearchActivity extends BaseActivity {
     //初始化控件
     private void initView(){
         //获取控件id
-        searchResultView = findViewById(R.id.search_result);
+        searchResultView = findViewById(R.id.search_resultAll);
         searchToolbar = findViewById(R.id.search_toolbar);
 
         tableLayout = findViewById(R.id.search_table);
@@ -167,6 +169,7 @@ public class SearchActivity extends BaseActivity {
         }
         return true;
     }
+
     //文字相应
     public void setTextListener(){
         //搜索全部
@@ -263,6 +266,11 @@ public class SearchActivity extends BaseActivity {
         }else {
             tableLayout.setVisibility(View.GONE);
         }
+    }
+
+    //搜索【全部】结果适配器
+    private void setSearchResultAll(List<PoemDB> poemDBS,List<PostDB> postDBS,List<NameDB> nameDBS){
+
     }
 
 

@@ -77,7 +77,7 @@ public class MainActivity extends BaseActivity {
     Menu drawerMenu;
     LayoutInflater layoutInflater;
     View view;
-    boolean isFirstRun,isComuunicatePageVisited;
+    boolean isFirstRun;
     SharedPreferences.Editor editor;
     CreatePageFragment createPageFragment = new CreatePageFragment();
 
@@ -91,7 +91,6 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         SharedPreferences sharedPreferences=this.getSharedPreferences("share",MODE_PRIVATE);
         isFirstRun=sharedPreferences.getBoolean("isFirstRun", true);
-        isComuunicatePageVisited = sharedPreferences.getBoolean("isComuunicatePageVisited",false);
         editor=sharedPreferences.edit();
 
 
@@ -184,17 +183,12 @@ public class MainActivity extends BaseActivity {
                         break;
                     case R.id.bt_shequ:
                         //判断是否第一次运行
-                        if(isFirstRun && !isComuunicatePageVisited){
+                        if(isFirstRun){
                             editor.putBoolean("isFirstRun", false);
                             editor.putBoolean("isComuunicatePageVisited",true);
                             editor.commit();
 
-                            try {
-                                InitPostDB initPostDB = new InitPostDB(MainActivity.this);
-                                InitCommuicateFunDB initCommuicateFunDB = new InitCommuicateFunDB(MainActivity.this);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                            InitCommuicateFunDB initCommuicateFunDB = new InitCommuicateFunDB(MainActivity.this);
 
                         }
                         replaceFragment(new CommunicatePageFragment());

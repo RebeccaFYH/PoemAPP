@@ -28,11 +28,9 @@ public class MsgActivity extends BaseActivity {
     ActionBar actionBar;
     RecyclerView navmsgfriendsRecyclerView;
 
-    //获得数据
-    SharedPreferences data;
 
     //控制量
-    Boolean isVisited;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,10 +90,6 @@ public class MsgActivity extends BaseActivity {
     }
     //初始化数据库
     private void initDataBase() throws IOException {
-        isVisited = data.getBoolean("isComuunicatePageVisited",false);
-        if (!isVisited){
-            InitPostDB initPostDB = new InitPostDB(MsgActivity.this);
-        }
         postDBList = LitePal.findAll(PostDB.class);
     }
 
