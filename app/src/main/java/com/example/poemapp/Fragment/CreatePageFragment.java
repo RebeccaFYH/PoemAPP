@@ -4,6 +4,7 @@ import android.content.Context;
 import com.google.android.material.tabs.TabLayout;
 import androidx.fragment.app.Fragment;
 
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
@@ -23,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.poemapp.Activity.MainActivity;
@@ -72,6 +74,7 @@ public class CreatePageFragment extends Fragment {
             tuijianRecyclerView,fengjingRecyclerView,renwuRecyclerView;
     CreateCardFontAdapter createCardFontAdapter;
     CreateCardPBAdapter createCardPBAdapter;
+    FrameLayout frameLayout;
 
     //UI数据管理对象
     CreatePageViewModel createPageViewModel;
@@ -153,6 +156,7 @@ public class CreatePageFragment extends Fragment {
         yangshiText = view2.findViewById(R.id.yangshi_text);
 
         //------------------配图
+        frameLayout = view3.findViewById(R.id.bmp_save);
         peituText = view3.findViewById(R.id.peitu_text);
         tabLayout1 = view3.findViewById(R.id.peitu_tablayout);
         peituViewPager = view3.findViewById(R.id.peitu_viewpager);
@@ -377,7 +381,6 @@ public class CreatePageFragment extends Fragment {
     }
     //完成保存
     public View saveView(){
-        return view3;
+        return peituText;
     }
-
 }

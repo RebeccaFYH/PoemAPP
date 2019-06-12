@@ -80,6 +80,7 @@ public class MainActivity extends BaseActivity {
     boolean isFirstRun;
     SharedPreferences.Editor editor;
     CreatePageFragment createPageFragment = new CreatePageFragment();
+    Bitmap mBitmap;
 
     //控制量
     private Boolean mVisiable = true;
@@ -269,7 +270,7 @@ public class MainActivity extends BaseActivity {
             case R.id.finish:
                 viewSaveToImage(createPageFragment.saveView());
                 setmSwitch(3);
-                replaceFragment(new CreatePageFinishFragment());
+                replaceFragment(new CreatePageFinishFragment(mBitmap));
                 break;
             case R.id.share:
                 break;
@@ -428,8 +429,10 @@ public class MainActivity extends BaseActivity {
         v.layout(0, 0, w, h);
         v.draw(c);
 
+        mBitmap = bmp;
         return bmp;
     }
+
 
 
 

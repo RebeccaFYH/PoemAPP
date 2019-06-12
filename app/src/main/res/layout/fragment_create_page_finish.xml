@@ -19,6 +19,7 @@
         android:text="已保存到本地"
         android:textSize="16sp"/>
     <ImageView
+        android:id="@+id/finish_bmp"
         android:layout_width="300dp"
         android:layout_height="400dp"
         android:layout_gravity="center"

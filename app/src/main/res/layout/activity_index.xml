@@ -14,34 +14,231 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <ListView
-            android:layout_width="100dp"
-            android:layout_height="match_parent">
-
-        </ListView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:text="唐代——————————————"/>
+                android:id="@+id/textView"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:text="朝代"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:background="@mipmap/bg_label"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="李白"/>
+
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_margin="5dp"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="上古" />
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="夏" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="商" />
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="周" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="春秋" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+
+                        android:text="战国" />
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="秦" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp">
+
+                    <TextView
+                        android:id="@+id/teView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_margin="5dp"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="西楚" />
+
+                    <TextView
+                        android:id="@+id/textVi14"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="汉" />
+
+                    <TextView
+                        android:id="@+id/textVi16"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="三国" />
+
+                    <TextView
+                        android:id="@+id/textVi15"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="魏晋南北朝" />
+
+                    <TextView
+                        android:id="@+id/textew11"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="隋" />
+
+                    <TextView
+                        android:id="@+id/textV12"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="唐" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/texVi14"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="汉" />
+
+                    <TextView
+                        android:id="@+id/textV16"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="三国" />
+
+                    <TextView
+                        android:id="@+id/textVi5"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="魏晋南北朝" />
+
+                    <TextView
+                        android:id="@+id/textw11"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="隋" />
+
+                    <TextView
+                        android:id="@+id/tetV12"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="@drawable/shape_corner_label"
+                        android:text="唐" />
+
+                </TableRow>
+
+
         </LinearLayout>
-
-    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
 </LinearLayout>

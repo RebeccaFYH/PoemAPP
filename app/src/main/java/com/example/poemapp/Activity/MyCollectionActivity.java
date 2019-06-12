@@ -46,6 +46,7 @@ public class MyCollectionActivity extends BaseActivity {
     private void initView() {
         //获得控件id
         mycollectionToolbar = findViewById(R.id.mycollection_toolbar);
+        navcollectionRecyclerView = findViewById(R.id.collection_poem);
 
         //功能实现
         setSupportActionBar(mycollectionToolbar); //标题栏

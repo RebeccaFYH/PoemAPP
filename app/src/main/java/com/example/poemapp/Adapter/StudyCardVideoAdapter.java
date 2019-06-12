@@ -65,7 +65,7 @@ public class StudyCardVideoAdapter extends RecyclerView.Adapter<StudyCardVideoAd
         MiniClassDB miniClassDB = miniClassDBS.get(position);
         //holder.video_image.setImageResource(miniClassDB.getImageID());
         holder.video_title.setText(miniClassDB.getVideoTitle());
-        //holder.videoView.setVideoURI(Uri.parse("https://v.qq.com/x/page/z03042vrcyb.html"));
+        //holder.videoView.setVideoURI(Uri.parse(mp4FilePath));
         //holder.videoView.start();
 
       }
