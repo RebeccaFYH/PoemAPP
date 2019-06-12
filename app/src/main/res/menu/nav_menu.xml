@@ -6,11 +6,11 @@
         <item
             android:id="@+id/nav_msg"
             android:icon="@mipmap/nav_msg"
-            android:title="消息"/>
+            android:title="信笺"/>
         <item
             android:id="@+id/nav_friend"
             android:icon="@mipmap/nav_friend"
-            android:title="好友"/>
+            android:title="诗友"/>
 
     </group>
     <group android:checkableBehavior="single"

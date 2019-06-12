@@ -375,6 +375,9 @@ public class CreatePageFragment extends Fragment {
     private void updateTypeface(){
         createPageViewModel.addTypeface(createCardFontAdapter.getTypeface());
     }
-
+    //完成保存
+    public View saveView(){
+        return view3;
+    }
 
 }
