@@ -160,7 +160,7 @@ public class MainActivity extends BaseActivity {
                 switch (item.getItemId()){
                     case R.id.bt_study:
                         replaceFragment(new StudyPageFragment());
-                        titleText.setText("学诗");
+                        titleText.setText("诗学");
                         mVisiable = true;
                         invalidateOptionsMenu();
                         break;

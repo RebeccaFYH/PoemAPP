@@ -14,6 +14,7 @@
         <attr name="backGround" format="color" />
         <attr name="textColorwhite" format="color"/>
         <attr name="textColorblack" format="color"/>
+        <attr name="readbg" format="color"/>
     </declare-styleable>
 
 </resources>

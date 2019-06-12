@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -83,25 +84,28 @@ public class ReadPoemActivity extends BaseActivity {
      */
     //设置标题栏
     private void setTitleBar() {
+        //顶端标题
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
-        if (actionBar != null) {
+        actionBar.setDisplayShowTitleEnabled(false);
+        if (actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.mipmap.nav_back);
         }
-        actionBar.setTitle("诗词详情");
+        //toolbar.setTitle(poemInformation.getPoemName());
+
     }
 
     //初始化控件
     private void initView() {
         //获取控件id
-        toolbar = findViewById(R.id.readpoem_toolbar);
+        toolbar = findViewById(R.id.study_toolbar);
         closeButton = findViewById(R.id.readpoem_setbgclose);
         frameLayout = findViewById(R.id.readpoem_setbg);
         frameMainLayout = findViewById(R.id.readpoem_layout);
         poemTextview = findViewById(R.id.readpoem_content);
         detailTextview=findViewById(R.id.readpoem_detail);
-        poemnameTextview=findViewById(R.id.poem_name);
+        poemnameTextview=findViewById(R.id.title_read);
         isDetail=false;
 
         //将读取的数据中的空格替换为换行符，赋予文本框
@@ -110,6 +114,7 @@ public class ReadPoemActivity extends BaseActivity {
         newText = oldText.replace(' ','\n');
         poemnameTextview.setText(poemName);
         poemTextview.setText(newText);
+        poemnameTextview.setGravity(Gravity.CENTER);
 
         //底部按钮
         bjButton=findViewById(R.id.bt_bj);

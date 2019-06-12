@@ -8,16 +8,21 @@
     tools:context="com.example.poemapp.Activity.ReadPoemActivity">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/study_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
 
         <TextView
+            android:id="@+id/title_read"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="诗词标题"
-            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/textColorblack"
             android:textSize="24sp"
-            android:textColor="#000000"/>
+            android:text="标题" />
+
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
@@ -28,23 +33,11 @@
 
 
         <TextView
-            android:id="@+id/poem_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="?attr/actionBarSize"
-            android:paddingTop="10dp"
-            android:layout_gravity="center_horizontal"
-            android:scrollbars="none"
-            android:text="水调歌头"
-            android:textColor="#000000"
-            android:textSize="30dp"/>
-
-        <TextView
             android:id="@+id/readpoem_content"
             android:layout_width="match_parent"
-            android:layout_height="545dp"
+            android:layout_height="580dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="?attr/actionBarSize"
             android:layout_marginBottom="80dp"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
@@ -52,19 +45,11 @@
             android:scrollbars="none"
             android:singleLine="false"
             android:text="明月几时有？把酒问青天。"
-            android:textColor="#000000"
+            android:textColor="@color/textColorblack"
             android:lineSpacingMultiplier="1.5"
             android:textSize="22sp" />
 
     </FrameLayout>
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/readpoem_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
 
 

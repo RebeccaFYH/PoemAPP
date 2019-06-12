@@ -119,6 +119,4 @@
             android:textSize="20sp"/>
 
     </com.gcssloop.widget.RCRelativeLayout>
-
-
 </RelativeLayout>

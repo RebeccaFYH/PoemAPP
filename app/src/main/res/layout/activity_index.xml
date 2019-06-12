@@ -14,6 +14,42 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/index_result_title"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/bg_label"
+                android:gravity="center"
+                android:text="主题"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/index_result_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="寄情山水"
+                android:textColor="?attr/colorPrimary"
+                android:background="@drawable/shape_corner_label"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -24,8 +60,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!--朝代-->
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="90dp"
                 android:layout_height="40dp"
                 android:text="朝代"
@@ -33,156 +69,155 @@
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:background="@mipmap/bg_label"/>
+            <TableRow
+                android:id="@+id/index_year1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp">
 
-
-
-                <TableRow
+                <TextView
+                    android:id="@+id/textView4"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp">
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="上古" />
 
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_margin="5dp"
-                        android:textColor="?attr/colorPrimary"
-                        android:background="@drawable/shape_corner_label"
-                        android:text="上古" />
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="夏" />
 
-                    <TextView
-                        android:id="@+id/textView14"
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="?attr/colorPrimary"
-                        android:background="@drawable/shape_corner_label"
-                        android:text="夏" />
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="商" />
 
-                    <TextView
-                        android:id="@+id/textView16"
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="?attr/colorPrimary"
-                        android:background="@drawable/shape_corner_label"
-                        android:text="商" />
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="周" />
 
-                    <TextView
-                        android:id="@+id/textView15"
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="?attr/colorPrimary"
-                        android:background="@drawable/shape_corner_label"
-                        android:text="周" />
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="春秋" />
 
-                    <TextView
-                        android:id="@+id/textView11"
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="?attr/colorPrimary"
-                        android:background="@drawable/shape_corner_label"
-                        android:text="春秋" />
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
 
-                    <TextView
-                        android:id="@+id/textView12"
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="?attr/colorPrimary"
-                        android:background="@drawable/shape_corner_label"
+                    android:text="战国" />
 
-                        android:text="战国" />
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="秦" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/index_year2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp">
 
-                    <TextView
-                        android:id="@+id/textView13"
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="?attr/colorPrimary"
-                        android:background="@drawable/shape_corner_label"
-                        android:text="秦" />
-                </TableRow>
+                <TextView
+                    android:id="@+id/teView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="西楚" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp">
+                <TextView
+                    android:id="@+id/textVi14"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="汉" />
 
-                    <TextView
-                        android:id="@+id/teView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_margin="5dp"
-                        android:textColor="?attr/colorPrimary"
-                        android:background="@drawable/shape_corner_label"
-                        android:text="西楚" />
+                <TextView
+                    android:id="@+id/textVi16"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="三国" />
 
-                    <TextView
-                        android:id="@+id/textVi14"
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="?attr/colorPrimary"
-                        android:background="@drawable/shape_corner_label"
-                        android:text="汉" />
+                <TextView
+                    android:id="@+id/textVi15"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="魏晋南北朝" />
 
-                    <TextView
-                        android:id="@+id/textVi16"
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="?attr/colorPrimary"
-                        android:background="@drawable/shape_corner_label"
-                        android:text="三国" />
+                <TextView
+                    android:id="@+id/textew11"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="隋" />
 
-                    <TextView
-                        android:id="@+id/textVi15"
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="?attr/colorPrimary"
-                        android:background="@drawable/shape_corner_label"
-                        android:text="魏晋南北朝" />
+                <TextView
+                    android:id="@+id/textV12"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="唐" />
 
-                    <TextView
-                        android:id="@+id/textew11"
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="?attr/colorPrimary"
-                        android:background="@drawable/shape_corner_label"
-                        android:text="隋" />
-
-                    <TextView
-                        android:id="@+id/textV12"
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="?attr/colorPrimary"
-                        android:background="@drawable/shape_corner_label"
-                        android:text="唐" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+            </TableRow>
+            <TableRow
+                android:id="@+id/index_year3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp">
 
                     <TextView
                         android:id="@+id/texVi14"
@@ -192,7 +227,7 @@
                         android:gravity="center"
                         android:textColor="?attr/colorPrimary"
                         android:background="@drawable/shape_corner_label"
-                        android:text="汉" />
+                        android:text="五代十国" />
 
                     <TextView
                         android:id="@+id/textV16"
@@ -202,7 +237,7 @@
                         android:gravity="center"
                         android:textColor="?attr/colorPrimary"
                         android:background="@drawable/shape_corner_label"
-                        android:text="三国" />
+                        android:text="宋" />
 
                     <TextView
                         android:id="@+id/textVi5"
@@ -212,7 +247,7 @@
                         android:gravity="center"
                         android:textColor="?attr/colorPrimary"
                         android:background="@drawable/shape_corner_label"
-                        android:text="魏晋南北朝" />
+                        android:text="元" />
 
                     <TextView
                         android:id="@+id/textw11"
@@ -222,7 +257,7 @@
                         android:gravity="center"
                         android:textColor="?attr/colorPrimary"
                         android:background="@drawable/shape_corner_label"
-                        android:text="隋" />
+                        android:text="明" />
 
                     <TextView
                         android:id="@+id/tetV12"
@@ -232,13 +267,434 @@
                         android:gravity="center"
                         android:textColor="?attr/colorPrimary"
                         android:background="@drawable/shape_corner_label"
-                        android:text="唐" />
+                        android:text="清" />
 
                 </TableRow>
+
+            <!--风格-->
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:text="风格"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:background="@mipmap/bg_label"/>
+            <TableRow
+                android:id="@+id/index_style"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/texiew4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="激越高亢" />
+
+                <TextView
+                    android:id="@+id/extView14"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="清婉秀丽" />
+
+                <TextView
+                    android:id="@+id/textV3iew16"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="语言绮丽" />
+
+                <TextView
+                    android:id="@+id/teiew15"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="语言平易" />
+
+
+            </TableRow>
+
+            <!--主题-->
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:text="主题"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:background="@mipmap/bg_label"/>
+            <TableRow
+                android:id="@+id/index_topic1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/texi2ew4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="忧国忧民" />
+
+                <TextView
+                    android:id="@+id/extVi4ew14"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="怀古伤今" />
+
+                <TextView
+                    android:id="@+id/textV23iew16"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="蔑视权贵" />
+
+                <TextView
+                    android:id="@+id/teie3w15"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="愤世嫉俗" />
+
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/index_topic2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/t2i2ew4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="怀才不遇" />
+
+                <TextView
+                    android:id="@+id/ext4ew14"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="寄情山水" />
+
+                <TextView
+                    android:id="@+id/textV2563iew16"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="归隐田园" />
+
+                <TextView
+                    android:id="@+id/teie4563w15"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="惜春悲秋" />
+
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/index_topic3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/t2ew4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="离愁别恨" />
+
+                <TextView
+                    android:id="@+id/ext4ew1"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="忆友怀旧" />
+
+                <TextView
+                    android:id="@+id/textV256iew16"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="思乡念亲" />
+
+                <TextView
+                    android:id="@+id/teie456w15"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="相知相思" />
+
+
+            </TableRow>
+
+            <!--派系-->
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:text="风格"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:background="@mipmap/bg_label"/>
+            <TableRow
+                android:id="@+id/index_paixi1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/t22ew4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="王孟山水诗派" />
+
+                <TextView
+                    android:id="@+id/ext24ew1"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="陶谢田园派" />
+
+                <TextView
+                    android:id="@+id/tex6iew16"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="岑高边塞诗派" />
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/index_paixi2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/t222e34w4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="公安竟陵诗派" />
+
+                <TextView
+                    android:id="@+id/ex22t24ew1"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="汉魏六朝诗派" />
+
+                <TextView
+                    android:id="@+id/tex6ie324w16"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="江西诗派" />
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/index_paixi3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/t2ew12321"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="桐城诗派" />
+
+                <TextView
+                    android:id="@+id/ext4e12321w1"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="虞山诗派" />
+
+                <TextView
+                    android:id="@+id/textV212356iew16"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="建安七子" />
+
+                <TextView
+                    android:id="@+id/sdfsdf23"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="永嘉四灵" />
+
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/index_paixi5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/t222e342w4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="怪诞诗派" />
+
+                <TextView
+                    android:id="@+id/ex24ew1"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="婉约派" />
+
+            </TableRow>
+
+            <!--经典-->
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:text="经典"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:background="@mipmap/bg_label"/>
+            <TableRow
+                android:id="@+id/index_classical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/t222ew4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="《诗经》" />
+
+                <TextView
+                    android:id="@+id/ex22w1"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="《楚辞》" />
+
+                <TextView
+                    android:id="@+id/teie324w16"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="@drawable/shape_corner_label"
+                    android:text="《离骚》" />
+
+            </TableRow>
 
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
 
 </LinearLayout>

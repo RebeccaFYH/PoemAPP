@@ -5,7 +5,8 @@
     <color name="colorAccent">#bd584c</color>
     <color name="backGround">#bd584c</color>
     <color name="textColorwhite">#ffffffff</color>
-    <color name="textColorblack">#00000000</color>
+    <color name="textColorblack">#000000</color>
     <color name="black_overlay">#66000000</color>
     <color name="black_bt">#000000</color>
+    <color name="readbg">#f1f0eb</color>
 </resources>
