@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -42,12 +44,22 @@ public class SearchActivity extends BaseActivity {
     TextView searchAllText,searchPoemNameText,searchPoemWriterText,
                 searchMiniVideoText,searchpoemPostText,searchpoemGameText,searchMakeNameText;
     TableLayout tableLayout;
-    NestedScrollView searchResultView;
+    LinearLayout searchResultView,searchClassifyView;
+    ListView listView;
+
+    //结果文本框
+    TextView    allPoem,allPoemWriter,allPoemPost,allName,
+                allPoem1,allPoem2,allPoem3,
+                allPoemWriter1,allPoemWriter2,allPoemWriter3,
+                allPoemPost1,allPoemPost2,allPoemPost3,
+                allName1,allName2,allName3;
+    TextView searchClassifyTitle;       //分类结果
 
     //数据库对象
     List<PoemDB> poemDBList;
     List<PostDB> postDBList;
     List<NameDB> nameDBList;
+    String[] data;
 
     //控制量
     Boolean mSearchAll = true;
@@ -94,7 +106,9 @@ public class SearchActivity extends BaseActivity {
     private void initView(){
         //获取控件id
         searchResultView = findViewById(R.id.search_resultAll);
+        searchClassifyView = findViewById(R.id.search_classify);
         searchToolbar = findViewById(R.id.search_toolbar);
+        listView = findViewById(R.id.search_classify_content);
 
         tableLayout = findViewById(R.id.search_table);
         searchAllText = findViewById(R.id.search_all);
@@ -104,6 +118,9 @@ public class SearchActivity extends BaseActivity {
         searchPoemNameText = findViewById(R.id.search_poemTitle);
         searchpoemPostText = findViewById(R.id.search_poemPost);
         searchPoemWriterText = findViewById(R.id.search_poemWriter);
+
+        //文本框控件id获得
+        getAllTextView();
 
         //功能实现
         setSupportActionBar(searchToolbar); //标题栏
@@ -117,6 +134,33 @@ public class SearchActivity extends BaseActivity {
 
 
     }
+    //文本框控件获得（结果）
+    private void getAllTextView() {
+        //全部结果
+        allPoem = findViewById(R.id.search_poem);
+        allPoem1 = findViewById(R.id.search_poem01);
+        allPoem2 = findViewById(R.id.search_poem02);
+        allPoem3 = findViewById(R.id.search_poem03);
+
+        allPoemWriter = findViewById(R.id.search_poemwriter);
+        allPoemWriter1 = findViewById(R.id.search_poemWriter01);
+        allPoemWriter2 = findViewById(R.id.search_poemWriter02);
+        allPoemWriter3 = findViewById(R.id.search_poemWriter03);
+
+        allPoemPost = findViewById(R.id.search_poempost);
+        allPoemPost1 = findViewById(R.id.search_poemPost01);
+        allPoemPost2 = findViewById(R.id.search_poemPost02);
+        allPoemPost3 = findViewById(R.id.search_poemPost03);
+
+        allName = findViewById(R.id.search_makename);
+        allName1 = findViewById(R.id.search_makeName01);
+        allName2 = findViewById(R.id.search_makeName02);
+        allName3 = findViewById(R.id.search_makeName03);
+
+        //部分结果标题
+        searchClassifyTitle = findViewById(R.id.search_classify_title);
+
+    }
 
     //搜索框事件
     private void setSearchView() {
@@ -127,18 +171,44 @@ public class SearchActivity extends BaseActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                //诗词表查询(包含诗人)
-                poemDBList = LitePal.where("poemContent like ?","%"+query+"%")
-                        .order("poemID").find(PoemDB.class);
-                //诗贴查询
-                postDBList = LitePal.where("postContent like ?","%"+query+"%")
-                        .find(PostDB.class);
-                //名字查询
-                nameDBList = LitePal.where("name like ?","%"+query+"%")
-                        .find(NameDB.class);
+                if (mSearchAll){
+                    //诗词表查询(包含诗人)
+                    poemDBList = LitePal.where("poemContent like ?","%"+query+"%").limit(3)
+                            .order("poemID").find(PoemDB.class);
+                    //诗贴查询
+                    postDBList = LitePal.where("postContent like ?","%"+query+"%").limit(3)
+                            .find(PostDB.class);
+                    //名字查询
+                    nameDBList = LitePal.where("name like ?","%"+query+"%").limit(3)
+                            .find(NameDB.class);
 
-                setResultView();
-                searchResultView.setVisibility(View.VISIBLE);
+                    setSearchResultAll(poemDBList,postDBList,nameDBList);
+
+                    searchResultView.setVisibility(View.VISIBLE);
+                }else {
+                    if (isPoemName){
+                        poemDBList = LitePal.where("poemContent like ?","%"+query+"%")
+                                .order("poemID").find(PoemDB.class);
+                        setPoemNameResult(poemDBList);
+                    }else if (isPoemWriter){
+                        poemDBList = LitePal.where("poemWriterName like ?","%"+query+"%")
+                                .order("poemID").find(PoemDB.class);
+                        setPoemWriterResult(poemDBList);
+                    }else if (isPoemPost){
+                        postDBList = LitePal.where("postContent like ?","%"+query+"%")
+                                .find(PostDB.class);
+                        setPoemPostResult(postDBList);
+                    }else if (isMakeName){
+                        nameDBList = LitePal.where("name like ?","%"+query+"%")
+                                .find(NameDB.class);
+                        setPoemMakeName(nameDBList);
+                    }
+
+                    searchClassifyView.setVisibility(View.VISIBLE);
+                }
+
+
+
                 return false;
             }
 
@@ -146,15 +216,12 @@ public class SearchActivity extends BaseActivity {
             public boolean onQueryTextChange(String newText) {
                 if (TextUtils.isEmpty(newText)){
                     searchResultView.setVisibility(View.GONE);
+                    searchClassifyView.setVisibility(View.GONE);
                 }
 
                 return false;
             }
         });
-    }
-    //设置搜索结果视图
-    private void setResultView(){
-
     }
 
     //标题栏按钮响应
@@ -186,6 +253,7 @@ public class SearchActivity extends BaseActivity {
             public void onClick(View view) {
                 toggle();
                 isPoemName = true;
+                searchClassifyTitle.setText("诗词");
                 Toast.makeText(SearchActivity.this,"搜索诗词……",
                         Toast.LENGTH_SHORT).show();
             }
@@ -270,8 +338,147 @@ public class SearchActivity extends BaseActivity {
 
     //搜索【全部】结果适配器
     private void setSearchResultAll(List<PoemDB> poemDBS,List<PostDB> postDBS,List<NameDB> nameDBS){
+        allPoem.setText("诗词");
+        allPoemWriter.setText("诗人");
+        allPoemPost.setText("诗贴");
+        allName.setText("取名");
+
+        //验证是否为空
+        if (poemDBS != null){
+            for (PoemDB poemDB:poemDBS){
+                allPoem1.setText(poemDB.getPoemKeyWord()+"《"+poemDB.getPoemName()+"》");
+                allPoem2.setText(poemDB.getPoemKeyWord()+"《"+poemDB.getPoemName()+"》");
+                allPoem3.setText(poemDB.getPoemKeyWord()+"《"+poemDB.getPoemName()+"》");
+            }
+        }else {
+            allPoem1.setText(" ");
+            allPoem2.setText(" ");
+            allPoem3.setText(" ");
+        }
+        //验证是否为空
+        if (poemDBS != null){
+            for (PoemDB poemDB:poemDBS){
+                allPoemWriter1.setText(poemDB.getPoemWriterName());
+                allPoemWriter2.setText(poemDB.getPoemWriterName());
+                allPoemWriter3.setText(poemDB.getPoemWriterName());
+            }
+        }else {
+            allPoemWriter1.setText(" ");
+            allPoemWriter2.setText(" ");
+            allPoemWriter3.setText(" ");
+        }
+        //验证是否为空
+        if (postDBS != null){
+            for (PostDB postDB:postDBS){
+                allPoemPost1.setText(postDB.getPostContent());
+                allPoemPost2.setText(postDB.getPostContent());
+                allPoemPost3.setText(postDB.getPostContent());
+            }
+        }else {
+            allPoemPost1.setText(" ");
+            allPoemPost2.setText(" ");
+            allPoemPost3.setText(" ");
+        }
+        //验证是否为空
+        if (nameDBS != null){
+            for (NameDB nameDB:nameDBS){
+                allName1.setText(nameDB.getName());
+                allName2.setText(nameDB.getName());
+                allName3.setText(nameDB.getName());
+            }
+        }else {
+            allName1.setText(" ");
+            allName2.setText(" ");
+            allName3.setText(" ");
+        }
 
     }
+    //【诗词】
+    private void setPoemNameResult(List<PoemDB> poemDBS){
+        initDataByPoemName(poemDBS);
+        searchClassifyTitle.setText("诗词");
+
+        if (poemDBS != null){
+
+            ArrayAdapter<String> adapter =
+                    new ArrayAdapter<String>(SearchActivity.this,
+                            android.R.layout.simple_list_item_1,data);
+            listView.setAdapter(adapter);
+        }
+    }
+    //【诗人】
+    private void setPoemWriterResult(List<PoemDB> poemDBS){
+        initDataByPoemWriter(poemDBS);
+        searchClassifyTitle.setText("诗人");
+
+        if (poemDBS != null){
+
+            ArrayAdapter<String> adapter =
+                    new ArrayAdapter<String>(SearchActivity.this,
+                            android.R.layout.simple_list_item_1,data);
+            listView.setAdapter(adapter);
+        }
+    }
+
+    //【诗贴】
+    private void setPoemPostResult(List<PostDB> postDBS){
+        initDataByPost(postDBS);
+        searchClassifyTitle.setText("诗帖");
+
+        if (postDBS != null){
+
+            ArrayAdapter<String> adapter =
+                    new ArrayAdapter<String>(SearchActivity.this,
+                            android.R.layout.simple_list_item_1,data);
+            listView.setAdapter(adapter);
+        }
+    }
+
+
+    //【取名】
+    private void setPoemMakeName(List<NameDB> nameDBS){
+        initDataByName(nameDBS);
+        searchClassifyTitle.setText("取名");
+        if (nameDBS != null){
+
+            ArrayAdapter<String> adapter =
+                    new ArrayAdapter<String>(SearchActivity.this,
+                            android.R.layout.simple_list_item_1,data);
+            listView.setAdapter(adapter);
+        }
+    }
+
+    //字符串数组
+    private void initDataByPoemName(List<PoemDB> poemDBS){
+        PoemDB poemDB;
+        for (int i=0;i<poemDBS.size();i++){
+            poemDB = poemDBS.get(i);
+            data[i] = poemDB.getPoemKeyWord();
+        }
+    }
+    private void initDataByPoemWriter(List<PoemDB> poemDBS) {
+        PoemDB poemDB;
+        for (int i=0;i<poemDBS.size();i++){
+            poemDB = poemDBS.get(i);
+            data[i] = poemDB.getPoemWriterName();
+        }
+    }
+    private void initDataByPost(List<PostDB> postDBS) {
+        PostDB postDB;
+        for (int i=0;i<postDBS.size();i++){
+            postDB = postDBS.get(i);
+            data[i] = postDB.getPostContent();
+        }
+    }
+    private void initDataByName(List<NameDB> nameDBS) {
+        NameDB nameDB;
+        for (int i=0;i<nameDBS.size();i++){
+            nameDB = nameDBS.get(i);
+            data[i] = nameDB.getName();
+        }
+    }
+
+
 
 
 

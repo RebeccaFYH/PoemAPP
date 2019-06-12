@@ -97,7 +97,7 @@
         android:layout_marginTop="10dp">
 
         <TextView
-            android:id="@+id/search_poemWriter"
+            android:id="@+id/search_poemwriter"
             android:layout_width="wrap_content"
             android:layout_height="29dp"
             android:layout_gravity="left"
@@ -183,7 +183,7 @@
         android:layout_marginTop="10dp">
 
         <TextView
-            android:id="@+id/search_poemPost"
+            android:id="@+id/search_poempost"
             android:layout_width="wrap_content"
             android:layout_height="29dp"
             android:layout_gravity="left"
@@ -269,7 +269,7 @@
         android:layout_marginTop="10dp">
 
         <TextView
-            android:id="@+id/search_makeName"
+            android:id="@+id/search_makename"
             android:layout_width="wrap_content"
             android:layout_height="29dp"
             android:layout_gravity="left"
