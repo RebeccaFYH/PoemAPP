@@ -32,32 +32,38 @@ public class InitWriterDB {
         InputStream istrWriterName = am.open("writerName.txt");
         InputStream istrWriterIntroduce = am.open("writerIntroduce.txt");
         InputStream istrWriterYear = am.open("writerYear.txt");
+        InputStream istrWriterLife= am.open("writerLife");
 
         //缓冲区对象，读取
         BufferedReader bfWriterName = new BufferedReader(new InputStreamReader(istrWriterName));
         BufferedReader bfWriterIntroduce = new BufferedReader(new InputStreamReader(istrWriterIntroduce));
         BufferedReader bfWriterYear = new BufferedReader(new InputStreamReader(istrWriterYear));
+        BufferedReader bfWriterLife = new BufferedReader(new InputStreamReader(istrWriterLife));
 
         //获取的信息
         String lineWriterName;
         String lineWriterIntroduce;
         String lineWriterYear;
+        String lineWriterLife;
 
         lineWriterName = bfWriterName.readLine();
         lineWriterIntroduce = bfWriterIntroduce.readLine();
         lineWriterYear = bfWriterYear.readLine();
+        lineWriterLife = bfWriterLife.readLine();
 
         for (int i = 0; lineWriterName != null; i++) {
             writerDB[i] = new WriterDB();
             writerDB[i].setWriterName(lineWriterName);
             writerDB[i].setWriterIntroduce(lineWriterIntroduce);
             writerDB[i].setWriterYear(lineWriterYear);
+            writerDB[i].setWriterLife(lineWriterLife);
             writerDB[i].save();
 
             //往下读
             lineWriterName = bfWriterName.readLine();
             lineWriterIntroduce = bfWriterIntroduce.readLine();
             lineWriterYear = bfWriterYear.readLine();
+            lineWriterLife = bfWriterLife.readLine();
 
         }
     }

@@ -18,11 +18,13 @@ public class PoemDB extends LitePalSupport{
     private String poemFYRadioPath; //方言音频路径
     private String poemKeyWord;
     private String poemFromBook;
-    private String poemTab;
+    private String poemStyle;       //主题
     private String poemContent;         //诗文内容
     private String poemWriterName;  //诗词作者（主码）
     private String poemCreateBackgrond; //诗词创作背景（联系集）
     private String poemCreateTime;  //诗词创作时期（联系集）
+    private String poemTopic;       //主题
+    private String poemPai;         //派系
 
     ///////////////////get/////////////////
     public int getPoemID() {
@@ -81,8 +83,8 @@ public class PoemDB extends LitePalSupport{
         return poemCreateTime;
     }
 
-    public String getPoemTab() {
-        return poemTab;
+    public String getPoemStyle() {
+        return poemStyle;
     }
 
     public String getPoemWriterName() {
@@ -132,8 +134,8 @@ public class PoemDB extends LitePalSupport{
         this.poemSpot = poemSpot;
     }
 
-    public void setPoemTab(String poemTab) {
-        this.poemTab = poemTab;
+    public void setPoemStyle(String poemStyle) {
+        this.poemStyle = poemStyle;
     }
 
     public void setPoemTranslation(String poemTranslation) {
@@ -157,4 +159,19 @@ public class PoemDB extends LitePalSupport{
     }
 
 
+    public String getPoemTopic() {
+        return poemTopic;
+    }
+
+    public void setPoemTopic(String poemTopic) {
+        this.poemTopic = poemTopic;
+    }
+
+    public String getPoemPai() {
+        return poemPai;
+    }
+
+    public void setPoemPai(String poemPai) {
+        this.poemPai = poemPai;
+    }
 }
