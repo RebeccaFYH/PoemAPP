@@ -123,7 +123,7 @@ public class ReadPoemActivity extends BaseActivity {
         zsButton=findViewById(R.id.bt_zs);
         ywButton=findViewById(R.id.bt_yw);
         sxButton=findViewById(R.id.bt_sx);
-        tsButton=findViewById(R.id.bt_ts);
+        //tsButton=findViewById(R.id.bt_ts);
         bjR=findViewById(R.id.bt_bj_all);
         zsR=findViewById(R.id.bt_zs_all);
         ywR=findViewById(R.id.bt_yw_all);
@@ -207,15 +207,15 @@ public class ReadPoemActivity extends BaseActivity {
 //                replaceFragment(new PoemReadSXFragment());
             }
         });
-        tsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setLearnBtBg(tsR,true);
-                setDetailText(tsR);
-//                setFragment();
-//                replaceFragment(new PoemReadTSFragment());
-            }
-        });
+//        tsButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                setLearnBtBg(tsR,true);
+//                setDetailText(tsR);
+////                setFragment();
+////                replaceFragment(new PoemReadTSFragment());
+//            }
+//        });
     }
 
     //设置学习按钮状态（背景的圆圈）
