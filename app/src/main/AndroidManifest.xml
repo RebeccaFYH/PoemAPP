@@ -35,6 +35,7 @@
         <activity
             android:name=".Activity.UserActivity"
             android:theme="@style/AppTheme" />
+        <activity android:name=".Activity.LoginActivity"/>
         <activity android:name=".Activity.IndexActivity" />
         <activity android:name=".Activity.MsgActivity" />
         <activity android:name=".Activity.FriendActivity" />

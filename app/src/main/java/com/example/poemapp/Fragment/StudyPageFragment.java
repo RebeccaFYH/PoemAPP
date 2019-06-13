@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.google.android.material.tabs.TabLayout;
+
+import androidx.appcompat.view.menu.MenuView;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -159,5 +161,6 @@ public class StudyPageFragment extends Fragment {
         miniClassDBList = LitePal.findAll(MiniClassDB.class);
 
     }
+
 
 }

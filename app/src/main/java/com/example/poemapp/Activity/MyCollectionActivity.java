@@ -7,10 +7,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.MenuItem;
 
-import com.example.poemapp.Database.PostDB;
-import com.example.poemapp.JavaClass.NavCollectionAdapter;
+import com.example.poemapp.Adapter.NavCollectionAdapter;
+import com.example.poemapp.Database.CollectRelativeDB;
+import com.example.poemapp.Database.PoemDB;
 import com.example.poemapp.R;
 
 import org.litepal.LitePal;
@@ -21,7 +23,8 @@ import java.util.List;
 
 public class MyCollectionActivity extends BaseActivity {
 
-    List<PostDB> postDBList = new ArrayList<PostDB>();
+    List<CollectRelativeDB> collectRelativeDBList = new ArrayList<CollectRelativeDB>();
+    List<PoemDB> poemDBList = new ArrayList<PoemDB>();
     Toolbar mycollectionToolbar;
     ActionBar actionBar;
 
@@ -34,6 +37,7 @@ public class MyCollectionActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_collection);
 
+        initCollectData();
         //初始化控件
         initView();
     }
@@ -62,14 +66,16 @@ public class MyCollectionActivity extends BaseActivity {
     private void navCollectionView() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         navcollectionRecyclerView.setLayoutManager(linearLayoutManager);
-        NavCollectionAdapter navCollectionAdapter = new NavCollectionAdapter(postDBList,MyCollectionActivity.this);
+        NavCollectionAdapter navCollectionAdapter = new NavCollectionAdapter(poemDBList,MyCollectionActivity.this);
         navcollectionRecyclerView.setAdapter(navCollectionAdapter);
     }
-    //初始化数据库
-    private void initDataBase() throws IOException {
-        postDBList = LitePal.findAll(PostDB.class);
-    }
 
+
+    private void initCollectData(){
+        poemDBList = LitePal.where("isCollect = ?", "true")
+                .order("poemID").find(PoemDB.class);
+
+    }
 
 
     @Override

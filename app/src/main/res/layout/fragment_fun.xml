@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -24,14 +25,11 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:text="诗词取名" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:background="?attr/colorPrimary" />
 
@@ -67,7 +65,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/Name_button"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -77,11 +75,15 @@
             tools:layout_editor_absoluteY="20dp" />
 
         <TextView
-            android:layout_width="80dp"
-            android:layout_height="30dp"
+            android:id="@+id/export_name"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="推荐" />
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="名字预览" />
 
     </LinearLayout>
 

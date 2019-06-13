@@ -13,6 +13,7 @@
         <mapping class="com.example.poemapp.Database.CommunicateFunDB"/>
         <mapping class="com.example.poemapp.Database.NameDB"/>
         <mapping class="com.example.poemapp.Database.UserMakeDB"/>
+        <mapping class="com.example.poemapp.Database.CollectRelativeDB"/>
     </list>
 
 </litepal>

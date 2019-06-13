@@ -47,17 +47,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/innovation_listen"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/nav_music" />
 
+        <ToggleButton
+            android:id="@+id/play"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/selector_player"/>
+        <Button
+            android:id="@+id/stop"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/stop" />
         <TextView
             android:id="@+id/innovation_users_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginRight="30dp"
+
 
             android:text="朗诵注释"
             android:textSize="16sp" />
+
 
         <View
             android:layout_width="match_parent"

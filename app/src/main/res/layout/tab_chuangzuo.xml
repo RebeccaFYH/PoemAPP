@@ -5,101 +5,117 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="33dp"
-        app:srcCompat="@mipmap/nav_create" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView2"
-        android:layout_marginLeft="9dp"
-        android:layout_marginStart="9dp"
-        android:layout_toEndOf="@+id/imageView2"
-        android:layout_toRightOf="@+id/imageView2"
-        android:text="主题"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        android:textColor="?attr/colorPrimary"/>
-
-    <EditText
-        android:id="@+id/topic_editText"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginRight="36dp"
-        android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2"
-        android:layout_below="@+id/imageView2"
-        android:inputType="textPhonetic"
-        android:background="@drawable/create_edittopic"/>
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/topic_editText"
-        android:layout_marginTop="12dp"
-        android:layout_toLeftOf="@+id/textView2"
-        android:layout_toStartOf="@+id/textView2"
-        app:srcCompat="@mipmap/nav_create" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView3"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
-        android:text="内容"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        android:textColor="?attr/colorPrimary" />
-
-    <EditText
-        android:id="@+id/content_editText"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginRight="36dp"
-        android:layout_alignLeft="@+id/imageView3"
-        android:layout_alignStart="@+id/imageView3"
-        android:layout_below="@+id/imageView3"
-        android:inputType="textPhonetic"
-        android:gravity="start"
-        android:background="@drawable/create_editcontent"/>
-
-    <Button
-        android:id="@+id/write_tip_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_alignEnd="@+id/content_editText"
-        android:layout_alignRight="@+id/content_editText"
-        android:layout_below="@+id/content_editText"
-        android:background="@drawable/bt_dect"
-        android:text="灵感"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-    <TextView
-        android:id="@+id/write_tips_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/write_tip_button"
-        android:layout_marginTop="20dp"
-        android:layout_toLeftOf="@+id/write_tip_button"
-        android:layout_toStartOf="@+id/write_tip_button"
-        android:gravity="center"
-        android:text="提示词"
-        android:background="@drawable/bt_dect"
-        android:visibility="gone"/>
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="36dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="33dp"
+                app:srcCompat="@mipmap/nav_create" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/imageView2"
+                android:layout_marginLeft="9dp"
+                android:layout_marginStart="9dp"
+                android:layout_toEndOf="@+id/imageView2"
+                android:layout_toRightOf="@+id/imageView2"
+                android:text="主题"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorPrimary"/>
+
+            <EditText
+                android:id="@+id/topic_editText"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginRight="36dp"
+                android:layout_alignLeft="@+id/imageView2"
+                android:layout_alignStart="@+id/imageView2"
+                android:layout_below="@+id/imageView2"
+                android:inputType="textPhonetic"
+                android:background="@drawable/create_edittopic"/>
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/topic_editText"
+                android:layout_marginTop="12dp"
+                android:layout_toLeftOf="@+id/textView2"
+                android:layout_toStartOf="@+id/textView2"
+                app:srcCompat="@mipmap/nav_create" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/imageView3"
+                android:layout_alignLeft="@+id/textView2"
+                android:layout_alignStart="@+id/textView2"
+                android:text="内容"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorPrimary" />
+
+            <EditText
+                android:id="@+id/content_editText"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginRight="36dp"
+                android:layout_alignLeft="@+id/imageView3"
+                android:layout_alignStart="@+id/imageView3"
+                android:layout_below="@+id/imageView3"
+                android:inputType="textMultiLine"
+                android:gravity="start"
+                android:background="@drawable/create_editcontent"/>
+
+            <Button
+                android:id="@+id/write_tip_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignEnd="@+id/content_editText"
+                android:layout_alignRight="@+id/content_editText"
+                android:layout_below="@+id/content_editText"
+                android:background="@drawable/bt_dect"
+                android:text="灵感"/>
+
+
+            <TextView
+                android:id="@+id/write_tips_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/content_editText"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="87dp"
+                android:layout_marginRight="87dp"
+                android:layout_toStartOf="@+id/write_tip_button"
+                android:layout_toLeftOf="@+id/write_tip_button"
+                android:background="@drawable/bt_dect"
+                android:gravity="center"
+                android:text="提示词"
+                android:layout_marginBottom="100dp"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
 
 </RelativeLayout>

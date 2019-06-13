@@ -1,6 +1,8 @@
 package com.example.poemapp.Fragment;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -10,8 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.poemapp.Activity.MainActivity;
 import com.example.poemapp.Adapter.FunPageDiyAdapter;
@@ -23,6 +28,7 @@ import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by dell on 2019/3/19.
@@ -30,6 +36,7 @@ import java.util.List;
 
 public class FunPageFragment extends Fragment {
     //全局声明
+    private static final int N = 19;
     List<NameDB> nameDBList = new ArrayList<NameDB>();
     List<UserMakeDB> userMakeDBList = new ArrayList<UserMakeDB>();
     Context context;
@@ -37,6 +44,10 @@ public class FunPageFragment extends Fragment {
     ArrayAdapter<String> arrayAdapter1,arrayAdapter2;
     List<String> genderList,styleList;
     RecyclerView diyRecyclerView;
+    TextView exportName;
+    AssetManager mgr;   //初始数据管理对象
+    Typeface tf;    //字体
+    Button button;
 
 
     @Override
@@ -63,6 +74,15 @@ public class FunPageFragment extends Fragment {
         spinner1 = getActivity().findViewById(R.id.fun_gender_spinner);
         spinner2 = getActivity().findViewById(R.id.fun_style_spinner);
         diyRecyclerView = getActivity().findViewById(R.id.rv_fun_diy);
+        exportName = getActivity().findViewById(R.id.export_name);
+        button = getActivity().findViewById(R.id.Name_button);
+
+        //字体
+        mgr = getActivity().getAssets();
+        tf = Typeface.createFromAsset(mgr,"zhenhun.ttf");
+        exportName.setTypeface(tf);
+        exportName();
+
 
         //获取活动
         MainActivity activity = (MainActivity) getActivity();
@@ -109,6 +129,20 @@ public class FunPageFragment extends Fragment {
     private void initDataBase(){
         nameDBList = LitePal.findAll(NameDB.class);
         userMakeDBList = LitePal.findAll(UserMakeDB.class);
+    }
+
+    //取名
+    private void exportName(){
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Random random = new Random();
+                final int randNum = random.nextInt(N);
+                NameDB ndb = nameDBList.get(randNum);
+                exportName.setText(ndb.getName());
+            }
+        });
+
     }
 
 }

@@ -32,7 +32,7 @@ public class InitWriterDB {
         InputStream istrWriterName = am.open("writerName.txt");
         InputStream istrWriterIntroduce = am.open("writerIntroduce.txt");
         InputStream istrWriterYear = am.open("writerYear.txt");
-        InputStream istrWriterLife= am.open("writerLife");
+        InputStream istrWriterLife= am.open("writerLife.txt");
 
         //缓冲区对象，读取
         BufferedReader bfWriterName = new BufferedReader(new InputStreamReader(istrWriterName));
@@ -53,6 +53,7 @@ public class InitWriterDB {
 
         for (int i = 0; lineWriterName != null; i++) {
             writerDB[i] = new WriterDB();
+            writerDB[i].setWriterID(i);
             writerDB[i].setWriterName(lineWriterName);
             writerDB[i].setWriterIntroduce(lineWriterIntroduce);
             writerDB[i].setWriterYear(lineWriterYear);

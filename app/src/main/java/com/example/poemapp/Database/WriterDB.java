@@ -7,7 +7,7 @@ import org.litepal.crud.LitePalSupport;
  */
 
 public class WriterDB extends LitePalSupport{
-
+    private int writerID;
     private String writerName;
     private String writerYear;
     private String writerIntroduce;
@@ -53,5 +53,13 @@ public class WriterDB extends LitePalSupport{
 
     public int getWriterIconImageID() {
         return writerIconImageID;
+    }
+
+    public int getWriterID() {
+        return writerID;
+    }
+
+    public void setWriterID(int writerID) {
+        this.writerID = writerID;
     }
 }

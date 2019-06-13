@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.poemapp.Database.PoemDB;
 
+import com.example.poemapp.Database.WriterDB;
 import com.example.poemapp.R;
 import com.gcssloop.widget.RCRelativeLayout;
 
@@ -31,7 +32,9 @@ public class ReadPoemActivity extends BaseActivity {
 
     //数据库数据获取
     private List<PoemDB> poemList = new ArrayList<PoemDB>();
-    PoemDB poemInformation;
+    private List<WriterDB> writerList = new ArrayList<WriterDB>();
+    PoemDB poemInformation = new PoemDB();
+    WriterDB writerInformation = new WriterDB();
 
     //功能性控件声明
     Button closeButton;
@@ -92,7 +95,6 @@ public class ReadPoemActivity extends BaseActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.mipmap.nav_back);
         }
-        //toolbar.setTitle(poemInformation.getPoemName());
 
     }
 
@@ -138,10 +140,6 @@ public class ReadPoemActivity extends BaseActivity {
         //方法实现
         poemTextview.setMovementMethod(ScrollingMovementMethod.getInstance());//文本可滑动显示
         detailTextview.setMovementMethod(ScrollingMovementMethod.getInstance());
-        //textView.setHorizontallyScrolling(true);
-        //textView.setFocusable(true);
-        //底端按钮适配
-        // J buttomNavigationView();
 
     }
 
@@ -149,49 +147,11 @@ public class ReadPoemActivity extends BaseActivity {
     private void InitDatabase(){
         poemList=LitePal.findAll(PoemDB.class);
         poemInformation=poemList.get(id);
+
+//        writerList = LitePal.findAll(WriterDB.class);
+//        writerInformation = writerList.get(id);
     }
 
-    /**
-     //底端按钮
-     private void buttomNavigationView() {
-     BottomNavigationView navigation = findViewById(R.id.readpoem_bottomtoolbar);
-     BottomNavigationViewHelper.disableShiftMode(navigation);
-     //navigation.setSelectedItemId(navigation.getMenu().getItem(1).getItemId());
-     navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-    //赋值
-    //界面调整
-    layoutParams.width = (width*1);
-    layoutParams.height = (int)(height*0.5);
-    layoutParams.setMargins(30,20,30,20);
-    textView.setLayoutParams(layoutParams);
-    frameLayout.setVisibility(View.VISIBLE);
-    switch (item.getItemId()){
-    case R.id.bt_bj:
-    replaceFragment(new PoemReadBJFragment());
-    break;
-    case R.id.bt_zs:
-    replaceFragment(new PoemReadZSFragment());
-    break;
-    case R.id.bt_yw:
-    replaceFragment(new PoemReadYWFragment());
-    break;
-    case R.id.bt_sx:
-    replaceFragment(new PoemReadSXFragment());
-    break;
-    case R.id.bt_ts:
-    replaceFragment(new PoemReadTSFragment());
-    break;
-    default:
-    break;
-    }
-    return true;
-    }
-    });
-
-     }
-     **/
     //按钮监听
     private void buttomBtOnClick() {
         closeButton.setOnClickListener(new View.OnClickListener() {

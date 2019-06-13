@@ -3,6 +3,7 @@ package com.example.poemapp.Activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import androidx.annotation.NonNull;
 import com.google.android.material.snackbar.Snackbar;
@@ -189,6 +190,8 @@ public class LoginActivity extends BaseActivity implements LoaderCallbacks<Curso
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            Intent intent =new Intent(LoginActivity.this,MainActivity.class);
+           startActivity(intent);
         }
     }
 

@@ -156,7 +156,7 @@ public class CreatePageFragment extends Fragment {
         yangshiText = view2.findViewById(R.id.yangshi_text);
 
         //------------------配图
-        frameLayout = view3.findViewById(R.id.bmp_save);
+        //frameLayout = view3.findViewById(R.id.bmp_save);
         peituText = view3.findViewById(R.id.peitu_text);
         tabLayout1 = view3.findViewById(R.id.peitu_tablayout);
         peituViewPager = view3.findViewById(R.id.peitu_viewpager);

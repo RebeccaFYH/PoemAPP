@@ -51,20 +51,6 @@
 
     </FrameLayout>
 
-
-
-
-    <!--
-        <android.support.design.widget.BottomNavigationView
-            android:id="@+id/readpoem_bottomtoolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="@android:color/background_light"
-            app:menu="@menu/bt_readpoem_buttom" />
-    -->
-
-
     <FrameLayout
         android:id="@+id/readpoem_setbg"
         android:layout_width="match_parent"

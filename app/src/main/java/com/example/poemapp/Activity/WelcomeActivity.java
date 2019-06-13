@@ -44,6 +44,7 @@ public class WelcomeActivity extends BaseActivity {
             editor.putBoolean("isFirstRun", true);
             editor.commit();
 
+
             try {
                 InitPoemDB initPoemDB = new InitPoemDB(this);
                 InitWriterDB initWriterDB = new InitWriterDB(this);
@@ -65,7 +66,7 @@ public class WelcomeActivity extends BaseActivity {
             @Override
             public void run () {
                 if (A == true) {
-                    Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+                    Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -85,7 +86,7 @@ public class WelcomeActivity extends BaseActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WelcomeActivity.this,MainActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

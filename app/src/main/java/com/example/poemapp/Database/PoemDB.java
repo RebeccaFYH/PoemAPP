@@ -25,6 +25,7 @@ public class PoemDB extends LitePalSupport{
     private String poemCreateTime;  //诗词创作时期（联系集）
     private String poemTopic;       //主题
     private String poemPai;         //派系
+    private String isCollect;      //是否收藏
 
     ///////////////////get/////////////////
     public int getPoemID() {
@@ -173,5 +174,13 @@ public class PoemDB extends LitePalSupport{
 
     public void setPoemPai(String poemPai) {
         this.poemPai = poemPai;
+    }
+
+    public String getCollect() {
+        return isCollect;
+    }
+
+    public void setCollect(String collect) {
+        isCollect = collect;
     }
 }

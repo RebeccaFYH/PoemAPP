@@ -38,6 +38,8 @@ public class InitPoemDB {
         InputStream istrPoemTopic = am.open("poemTopic.txt");
         InputStream istrPoemStyle = am.open("poemStyle.txt");
         InputStream istrPoemPai = am.open("poemPai.txt");
+        InputStream istrPoemIntroduce = am.open("writerIntroduce.txt");
+        InputStream istrPoemLife= am.open("writerLife.txt");
 
         //缓冲区对象，读取
         BufferedReader bfPoemName = new BufferedReader(new InputStreamReader(istrPoemName));
@@ -48,6 +50,8 @@ public class InitPoemDB {
         BufferedReader bfPoemTopic = new BufferedReader(new InputStreamReader(istrPoemTopic));
         BufferedReader bfPoemStyle = new BufferedReader(new InputStreamReader(istrPoemStyle));
         BufferedReader bfPoemPai = new BufferedReader(new InputStreamReader(istrPoemPai));
+        BufferedReader bfWriterIntroduce = new BufferedReader(new InputStreamReader(istrPoemIntroduce));
+        BufferedReader bfWriterLife = new BufferedReader(new InputStreamReader(istrPoemLife));
 
         //获取的信息
         String linePoemName;
@@ -58,6 +62,8 @@ public class InitPoemDB {
         String linePoemTopic;
         String linePoemStyle;
         String linePoemPai;
+        String linePoemIntroduce;
+        String linePoemLife;
 
         linePoemName = bfPoemName.readLine();
         linePoemContent = bfPoemContent.readLine();
@@ -67,6 +73,8 @@ public class InitPoemDB {
         linePoemTopic = bfPoemTopic.readLine();
         linePoemStyle = bfPoemStyle.readLine();
         linePoemPai = bfPoemPai.readLine();
+        linePoemIntroduce = bfWriterIntroduce.readLine();
+        linePoemLife = bfWriterLife.readLine();
 
         for (int i=0;linePoemName !=null;i++){
             poemDB[i] = new PoemDB();
@@ -79,6 +87,9 @@ public class InitPoemDB {
             poemDB[i].setPoemTopic(linePoemTopic);
             poemDB[i].setPoemStyle(linePoemStyle);
             poemDB[i].setPoemPai(linePoemPai);
+            poemDB[i].setCollect("false");
+            poemDB[i].setPoemAppreciation(linePoemLife);
+            poemDB[i].setPoemCreateBackgrond(linePoemIntroduce);
             poemDB[i].save();
 
             //往下读
@@ -90,6 +101,8 @@ public class InitPoemDB {
             linePoemTopic = bfPoemTopic.readLine();
             linePoemStyle = bfPoemStyle.readLine();
             linePoemPai = bfPoemPai.readLine();
+            linePoemIntroduce = bfWriterIntroduce.readLine();
+            linePoemLife = bfWriterLife.readLine();
         }
 
         initPoemImageID();
